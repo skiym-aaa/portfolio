@@ -35,7 +35,25 @@
 `+AI要素`
 - カメコが自分の推しのベストショットを自慢できる。
 
-<!-- ## 設計書 -->
+## 設計書  
+
+### WBS  
+https://docs.google.com/spreadsheets/d/1EivZIr7Um58WVOV7p0q0lM8j41XdmhUC8PJIfJ9zRwA/edit#gid=611653277
 
 ### 機能一覧
-https://docs.google.com/spreadsheets/d/1ExVhhcbcKmzYU44yxTJgWhSBqoRqdvGufpK0Mi6mj2U/edit#gid=0
+https://docs.google.com/spreadsheets/d/1ExVhhcbcKmzYU44yxTJgWhSBqoRqdvGufpK0Mi6mj2U/edit#gid=0  
+
+### 画面偏移図  
+
+
+### ワイヤーフレーム  
+https://app.diagrams.net/#G11OIlncJb05mm0s8VxSxHElxQCtGjfPCV  
+
+### ER図
+https://app.diagrams.net/#G1HpOHCr8kNe8-51K2laWCIkHO_BatbpOj  
+
+### テーブル定義書
+https://docs.google.com/spreadsheets/d/1TW854Vn2hO4tYQ2qZO7Fa3szMSxQixEk4BG8rFVHVZQ/edit#gid=718951293  
+
+### アプリケーション詳細設計
+https://docs.google.com/spreadsheets/d/1sbePKlQd9TqRGltaDu0aufTw83mFGtAeeGcx392II54/edit#gid=0  
