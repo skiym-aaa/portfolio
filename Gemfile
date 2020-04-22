@@ -69,3 +69,6 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 # jQuery有効化
 gem 'jquery-rails'
+# 画像投稿機能
+gem "refile", require: "refile/rails", github: "manfe/refile"
+gem "refile-mini_magick"

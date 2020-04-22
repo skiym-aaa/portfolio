@@ -16,14 +16,17 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ /* フラッシュメッセージ */
  #notice {
   color: green;
  }
 
+ /* エラーメッセージ */
  #error_explanation {
   color: red;
  }
 
+ /* ヘッダー */
  header {
   color: white;
  }
