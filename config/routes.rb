@@ -14,9 +14,11 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
   resources :places, only: [:index, :show, :new, :new, :edit, :update] do
-    resources :pkace_photos, only: [:show, :create]
+    resources :place_photos, only: [:show, :create]
     resource :bookmarks, only: [:create, :destroy]
   end
-  resources :events
+  resources :events, only: [:index, :show, :new, :new, :edit, :update] do
+    resource :event_comments, only: [:create, :destroy]
+  end
 
 end
