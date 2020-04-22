@@ -60,3 +60,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# 管理者画面
+gem 'activeadmin'
+# 新規登録/ログイン/ログアウト機能
+gem 'devise'
