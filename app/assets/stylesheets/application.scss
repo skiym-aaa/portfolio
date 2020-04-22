@@ -15,3 +15,23 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ #notice {
+  color: green;
+ }
+
+ #error_explanation {
+  color: red;
+ }
+
+ header {
+  color: white;
+ }
+
+ header .navbar-left span {
+ font-size: 30px;
+ }
+
+ a, a:link, a:visited {
+  text-decoration: none;
+ }
