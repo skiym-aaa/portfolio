@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_22_022653) do
+ActiveRecord::Schema.define(version: 2020_04_22_071905) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -36,6 +36,65 @@ ActiveRecord::Schema.define(version: 2020_04_22_022653) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "place_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_bookmarks_on_place_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.text "body"
+    t.float "rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "idol_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["idol_id"], name: "index_favorites_on_idol_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "idols", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.text "about"
+    t.string "official_site"
+    t.string "idol_image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_idols_on_user_id"
+  end
+
+  create_table "place_photos", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "place_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_place_photos_on_place_id"
+    t.index ["user_id"], name: "index_place_photos_on_user_id"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.string "address"
+    t.text "about"
+    t.string "official_site"
+    t.string "place_image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_places_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
