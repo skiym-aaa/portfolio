@@ -8,7 +8,7 @@ ActiveAdmin.register PlacePhoto do
   index do
     column :user_id
     column :place_id
-    column :image_id
+    column :image_id, :as => :file
 
     actions
   end
@@ -18,7 +18,9 @@ ActiveAdmin.register PlacePhoto do
     attributes_table do
       row :user_id
       row :place_id
-      row :image_id
+      row :image_id do
+        image_tag(place_photo.image_id.url)
+      end
     end
   end
 

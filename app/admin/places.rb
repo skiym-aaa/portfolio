@@ -11,7 +11,7 @@ ActiveAdmin.register Place do
     column :address
     column :about
     column :official_site
-    column :image_id
+    column :image_id, :as => :file
 
     actions
   end
@@ -24,7 +24,9 @@ ActiveAdmin.register Place do
       row :address
       row :about
       row :official_site
-      row :image_id
+      row :image_id do
+        image_tag(place.image_id.url)
+      end
     end
   end
 

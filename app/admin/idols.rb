@@ -10,7 +10,7 @@ ActiveAdmin.register Idol do
     column :name
     column :about
     column :official_site
-    column :image_id
+    column :image_id, :as => :file
 
     actions
   end
@@ -22,7 +22,9 @@ ActiveAdmin.register Idol do
       row :name
       row :about
       row :official_site
-      row :image_id
+      row :image_id do
+        image_tag(idol.image_id.url)
+      end
     end
   end
 
