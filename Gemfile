@@ -82,3 +82,6 @@ gem 'refile-mini_magick'
 # カレンダー機能
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+# devise日本語化
+gem 'devise-i18n'
+gem 'devise-i18n-views'
