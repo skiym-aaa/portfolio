@@ -65,3 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'activeadmin'
 # 新規登録/ログイン/ログアウト機能
 gem 'devise'
+# CSSフレームワーク
+gem 'bootstrap-sass', '~> 3.3.6'
+# jQuery有効化
+gem 'jquery-rails'
