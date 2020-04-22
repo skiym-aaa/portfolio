@@ -9,7 +9,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <!-- body タグに data-turbolinks 属性を追加 -->
+  <body data-turbolinks="false">
     <%= render 'layouts/header' %>
 
     <div class="container">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_22_071905) do
+ActiveRecord::Schema.define(version: 2020_04_22_091229) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -49,11 +49,28 @@ ActiveRecord::Schema.define(version: 2020_04_22_071905) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "event_id"
     t.text "body"
     t.float "rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_comments_on_event_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "idol_id"
+    t.integer "place_id"
+    t.string "title"
+    t.string "body"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["idol_id"], name: "index_events_on_idol_id"
+    t.index ["place_id"], name: "index_events_on_place_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|

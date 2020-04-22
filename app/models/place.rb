@@ -1,5 +1,6 @@
 class Place < ApplicationRecord
 has_many :photo_places
+has_many :events
 has_many :bookmarks
 
 validates :name, presence: true, uniqueness: true, length: {maximum: 30}

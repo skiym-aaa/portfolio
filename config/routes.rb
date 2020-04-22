@@ -17,5 +17,6 @@ Rails.application.routes.draw do
     resources :pkace_photos, only: [:show, :create]
     resource :bookmarks, only: [:create, :destroy]
   end
+  resources :events
 
 end
