@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_091229) do
     t.string "name"
     t.text "about"
     t.string "official_site"
-    t.string "idol_image_id"
+    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_idols_on_user_id"
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_091229) do
   create_table "place_photos", force: :cascade do |t|
     t.integer "user_id"
     t.integer "place_id"
+    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["place_id"], name: "index_place_photos_on_place_id"
@@ -108,7 +109,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_091229) do
     t.string "address"
     t.text "about"
     t.string "official_site"
-    t.string "place_image_id"
+    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_places_on_user_id"
