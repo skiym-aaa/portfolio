@@ -18,8 +18,8 @@
       <tr>
         <td><%= event.title %></td>
         <td><%= event.body %></td>
-        <td><%= event.start_date %></td>
-        <td><%= event.end_date %></td>
+        <td><%= l event.start_date %></td>
+        <td><%= l event.end_date %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
