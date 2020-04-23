@@ -1,2 +1,31 @@
-<h1>Places#show</h1>
-<p>Find me in app/views/places/show.html.erb</p>
+<div class="row">
+  <div class="col-xs-4">
+    <%= render "layouts/sidebar"%>
+  </div>
+  <div class="col-xs-8">
+    <h2 class="heading"><span>場所詳細</span>&emsp;<%= @place.name %></h2>
+    <div class="row">
+
+        <!-- 画像 -->
+        <div class="col-xs-6">
+          <%= image_tag @place.image_id.to_s, size: "300x200" %>
+        </div>
+        <!-- 詳細 -->
+        <div class="col-xs-6">
+          <h4>About</h4>
+          <p><%= @place.about %></p>
+          <h4>住所</h4>
+          <p><%= @place.address %></p>
+          <%= link_to "公式サイト", @place.official_site %>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <%= link_to "お気に入り登録", place_bookmarks_path(@place.id), method: :post , class: "btn btn-md btn-success" %>
+      </div>
+      <div class="col-xs-6">
+        <%= link_to "編集する", edit_place_path(@place.id), class: "btn btn-md btn-warning" %>
+      </div>
+    </div>
+  </div>
+</div>

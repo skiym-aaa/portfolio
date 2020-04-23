@@ -1,2 +1,22 @@
-<h1>Places#index</h1>
-<p>Find me in app/views/places/index.html.erb</p>
+<div class="row">
+  <div class="col-xs-4">
+    <%= render "layouts/sidebar"%>
+  </div>
+  <div class="col-xs-8">
+    <h2 class="heading"><span>場所一覧</span></h2>
+    <%= link_to new_place_path do %>
+      <span class="glyphicon glyphicon-plus-sign" aria-hidden="true" style="font-size:30px"></span>
+    <% end %>
+      <ul class="place-group clearfix">
+        <% @places.each do |place| %>
+          <li>
+            <%= link_to place_path(place) do %>
+              <%= image_tag place.image_id.to_s, size: "200x100" %>
+              <p><%= place.name %></p>
+              <%= link_to "お気に入り登録", place_bookmarks_path(place.id), method: :post , class: "btn btn-md btn-success" %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+  </div>
+</div>
