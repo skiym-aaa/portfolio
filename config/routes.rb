@@ -10,14 +10,14 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :confirm, :destroy]
   get '/user/confirm' => 'users#confirm'
 
-  resources :idols, only: [:index, :show, :new, :new, :edit, :update] do
+  resources :idols, only: [:index, :show, :new, :create, :edit, :update] do
     resource :favorites, only: [:create, :destroy]
   end
-  resources :places, only: [:index, :show, :new, :new, :edit, :update] do
+  resources :places, only: [:index, :show, :new, :create, :edit, :update] do
     resources :place_photos, only: [:show, :create]
     resource :bookmarks, only: [:create, :destroy]
   end
-  resources :events, only: [:index, :show, :new, :new, :edit, :update] do
+  resources :events, only: [:index, :show, :new, :create, :edit, :update] do
     resource :event_comments, only: [:create, :destroy]
   end
 
