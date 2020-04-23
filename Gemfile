@@ -89,3 +89,5 @@ gem 'momentjs-rails'
 # devise日本語化
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+# 環境変数
+gem 'dotenv-rails'
