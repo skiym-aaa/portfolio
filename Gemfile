@@ -80,6 +80,8 @@ gem 'jquery-rails'
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 gem 'carrierwave'
+# ページング機能
+gem 'kaminari','~> 1.2.0'
 # カレンダー機能
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
