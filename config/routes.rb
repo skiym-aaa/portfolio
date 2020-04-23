@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   resources :users, only: [:show, :edit, :update, :confirm, :destroy]
-  get 'users/confirm' => 'users#confirm'
+  get '/user/confirm' => 'users#confirm'
 
   resources :idols, only: [:index, :show, :new, :new, :edit, :update] do
     resource :favorites, only: [:create, :destroy]

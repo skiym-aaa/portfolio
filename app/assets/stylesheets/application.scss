@@ -17,6 +17,19 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ /* リセットCSS */
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
  /* フラッシュメッセージ */
  #notice {
   color: green;
@@ -38,4 +51,9 @@
 
  a, a:link, a:visited {
   text-decoration: none;
+ }
+
+ /* 共通部分 */
+ .heading span {
+  background-color: #F5F5F5;
  }
