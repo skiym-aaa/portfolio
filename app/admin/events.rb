@@ -2,8 +2,8 @@ ActiveAdmin.register Event do
 
 # 一覧ページの検索条件
   filter :user_id
-  filter :idol_id
-  filter :place_id
+  filter :idol
+  filter :place
   filter :title
   filter :body
   filter :start_date
@@ -12,8 +12,8 @@ ActiveAdmin.register Event do
   # 一覧ページ
   index do
     column :user_id
-    column :idol_id
-    column :place_id
+    column :idol
+    column :place
     column :title
     column :body
     column :start_date
@@ -26,8 +26,8 @@ ActiveAdmin.register Event do
   show do
     attributes_table do
       row :user_id
-      row :idol_id
-      row :place_id
+      row :idol
+      row :place
       row :title
       row :body
       row :start_date
@@ -39,8 +39,8 @@ ActiveAdmin.register Event do
   form do |f|
     f.inputs do
       f.input :user_id
-      f.input :idol_id
-      f.input :place_id
+      f.input :idol
+      f.input :place
       f.input :title
       f.input :body
       f.input :start_date

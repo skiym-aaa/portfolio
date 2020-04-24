@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :place_photos, only: [:show, :create]
     resource :bookmarks, only: [:create, :destroy]
   end
-  resources :events, only: [:index, :show, :new, :create, :edit, :update] do
+  resources :events do
     resource :event_comments, only: [:create, :destroy]
   end
 

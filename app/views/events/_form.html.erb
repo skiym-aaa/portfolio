@@ -11,27 +11,43 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="col-xs-4">
+    <%= render "layouts/sidebar"%>
   </div>
+  <div class="col-xs-8">
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_field :body %>
-  </div>
+    <div class="field">
+      <%= form.label :イベント名 %>
+      <%= form.text_field :title %>
+    </div>
 
-  <div class="field">
-    <%= form.label :start_date %>
-    <%= form.datetime_select :start_date %>
-  </div>
+    <div class="field">
+      <%= form.label :イベント内容 %>
+      <%= form.text_field :body %>
+    </div>
 
-  <div class="field">
-    <%= form.label :end_date %>
-    <%= form.datetime_select :end_date %>
-  </div>
+    <div class="field">
+      <%= form.label :アイドル名 %>
+      <%= form.collection_select :idol_id, Idol.all, :id, :name, {include_blank: '---'} %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    <div class="field">
+      <%= form.label :場所名 %>
+      <%= form.collection_select :place_id, Place.all, :id, :name, {include_blank: '---'} %>
+    </div>
+
+    <div class="field">
+      <%= form.label :開始予定時間 %>
+      <%= form.datetime_select :start_date %>
+    </div>
+
+    <div class="field">
+      <%= form.label :終了予定時間 %>
+      <%= form.datetime_select :end_date %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
   </div>
-<% end %>

@@ -1,14 +1,16 @@
-<h1>Events</h1>
+<h2 class="heading"><span>イベント一覧</span></h2>
 
 <div id="calendar"></div>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Start date</th>
-      <th>End date</th>
+      <th>イベント名</th>
+      <th>イベント内容</th>
+      <th>アイドル名</th>
+      <th>場所名</th>
+      <th>開始予定時間</th>
+      <th>終了予定時間</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,11 +20,13 @@
       <tr>
         <td><%= event.title %></td>
         <td><%= event.body %></td>
+        <td><%= event.idol.name %></td>
+        <td><%= event.place.name %></td>
         <td><%= l event.start_date %></td>
         <td><%= l event.end_date %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
       </tr>
     <% end %>
   </tbody>

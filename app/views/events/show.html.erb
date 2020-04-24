@@ -1,22 +1,49 @@
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
+<div class="row">
+  <div class="col-xs-4">
+    <%= render "layouts/sidebar"%>
+  </div>
+  <div class="col-xs-8">
+    <h2 class="heading"><span>イベント詳細</span></h2>
+    <div class="row">
 
-<p>
-  <strong>Body:</strong>
-  <%= @event.body %>
-</p>
+        <!-- 画像 -->
+        <div class="col-xs-6">
+        </div>
+        <!-- 詳細 -->
+        <div class="col-xs-6">
+          <p>
+            <strong>イベント名:</strong>
+            <%= @event.title %>
+          </p>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @event.start_date %>
-</p>
+          <p>
+            <strong>イベント内容:</strong>
+            <%= @event.body %>
+          </p>
 
-<p>
-  <strong>End date:</strong>
-  <%= @event.end_date %>
-</p>
+          <p>
+            <strong>アイドル名:</strong>
+            <%= @idol.name %>
+          </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+          <p>
+            <strong>場所名:</strong>
+            <%= @place.name %>
+          </p>
+
+          <p>
+            <strong>開始予定時間:</strong>
+            <%= l @event.start_date %>
+          </p>
+
+          <p>
+            <strong>終了予定時間:</strong>
+            <%= l @event.end_date %>
+          </p>
+        </div>
+    </div>
+    <div class="row">
+      <%= link_to "編集する", edit_event_path(@event.id), class: "btn btn-md btn-warning" %>
+    </div>
+  </div>
+</div>
