@@ -91,3 +91,7 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 # 環境変数
 gem 'dotenv-rails'
+# MySQL
+group :production do
+  gem 'mysql2'
+end
