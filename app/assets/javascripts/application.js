@@ -23,7 +23,8 @@
 // カレンダー機能
 $(function () {
     // 画面遷移を検知
-    $(document).ready(function () {
+    $(document).on('turbolinks:load', function () {
+        console.log("called")
         if ($('#calendar').length) {
 
             function Calendar() {
