@@ -21,9 +21,10 @@
 //= require fullcalendar
 
 // カレンダー機能
+alert('hoge')
 $(function () {
-    console.log('called')
     // 画面遷移を検知
+    $(document).on('turbolinks:load', function () {
         if ($('#calendar').length) {
 
             function Calendar() {
@@ -78,4 +79,5 @@ $(function () {
                 }
             });
         }
+    });
 });
