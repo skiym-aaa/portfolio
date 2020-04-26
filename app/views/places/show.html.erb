@@ -48,7 +48,7 @@
           let map
           let geocoder
 
-          window.onload = function initMap(){
+          function initMap(){
             // geocoderを初期化
             geocoder = new google.maps.Geocoder()
             geocoder.geocode( { 'address': $('#map').attr('class')}, function(results, status) {
