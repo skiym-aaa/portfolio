@@ -14,11 +14,11 @@
 //= require activestorage
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require_tree .
 
 //= require jquery
 //= require moment
 //= require fullcalendar
-//= require_tree .
 
 // カレンダー機能
 $(function () {
