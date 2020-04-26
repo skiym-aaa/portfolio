@@ -12,7 +12,7 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+// require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
 
@@ -21,10 +21,10 @@
 //= require fullcalendar
 
 // カレンダー機能
-alert('hoge')
+console.log('hoge')
 $(function () {
     // 画面遷移を検知
-    $(document).on('turbolinks:load', function () {
+    // $(document).on('turbolinks:load', function () {
         if ($('#calendar').length) {
 
             function Calendar() {
@@ -79,5 +79,5 @@ $(function () {
                 }
             });
         }
-    });
+    // });
 });
