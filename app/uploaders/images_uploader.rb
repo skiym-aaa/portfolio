@@ -1,4 +1,5 @@
 class ImagesUploader < CarrierWave::Uploader::Base
+  permissions 0777
  # MiniMagickを有効にします
  include CarrierWave::MiniMagick
 
