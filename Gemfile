@@ -42,6 +42,8 @@ group :development, :test do
   # デバック機能
   gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
   gem 'pry-doc'
   # Add Capistrano
   gem 'capistrano'
