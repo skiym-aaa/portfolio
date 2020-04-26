@@ -30,7 +30,7 @@ Rails.application.configure do
   config.assets.compile = false
 
   # carrierwave
-  config.serve_static_assets = true
+  # config.serve_static_assets = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
