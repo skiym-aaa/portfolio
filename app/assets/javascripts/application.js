@@ -10,18 +10,16 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require activestorage
 // require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
-
-//= require jquery
 //= require moment
 //= require fullcalendar
 
 // カレンダー機能
-console.log('hoge')
 $(function () {
     // 画面遷移を検知
     // $(document).on('turbolinks:load', function () {
