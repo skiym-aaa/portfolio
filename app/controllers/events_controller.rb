@@ -13,6 +13,7 @@ before_action :set_event, only: [:show, :edit, :update, :destroy]
   def show
     @idol = Idol.find(@event.idol_id)
     @place = Place.find(@event.place_id)
+    @event_comment = EventComment.new
   end
 
   # GET /events/new

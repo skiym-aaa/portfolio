@@ -4,7 +4,6 @@ class CreateEventComments < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
       t.references :event, foreign_key: true
       t.text "body"
-      t.float "rate"
       t.timestamps
     end
   end

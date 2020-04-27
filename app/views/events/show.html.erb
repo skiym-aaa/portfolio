@@ -42,8 +42,46 @@
           </p>
         </div>
     </div>
+
+    <!-- 編集ボタン -->
     <div class="row">
       <%= link_to "編集する", edit_event_path(@event.id), class: "btn btn-md btn-warning" %>
     </div>
+
+    <!-- コメントフォーム -->
+    <div class="row">
+      <%= form_for [@event, @event_comment] do |f| %>
+        <div class="col-xs-12">
+          <%= f.text_area :body, rows:'2', class:"form-control", placeholder:"コメントをここに" %>
+        </div>
+      <%= f.submit "送信する", class:"btn btn-lg pull-right" %>
+      <% end %>
+    </div>
+
+    <!-- コメント一覧 -->
+    <div class="float-wrapper">
+      <h2 class="comment-count">
+        <%= @event.event_comments.count %>件のコメント
+      </h2>
+    </div>
+    <ol>
+      <% @event.event_comments.each do |event_comment| %>
+        <li class="comment">
+          <%= event_comment.user.name %>
+          <span class="comment-date"><%= l event_comment.created_at %></span>
+          </span>
+          <br>
+          <%= event_comment.body %>
+          </br>
+
+          <!-- コメント投稿者のみ削除リンク -->
+          <% if event_comment.user.id == current_user.id %>
+            <%= link_to "削除",event_event_comments_path(event_id: event_comment.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-default pull-right" %></td>
+          <% end %>
+          <!-- ここまで -->
+        </li>
+      <% end %>
+    </ol>
+
   </div>
 </div>
