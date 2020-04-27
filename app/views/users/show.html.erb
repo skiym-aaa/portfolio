@@ -26,10 +26,19 @@
             <tr class="active">
               <th>ID</th>
               <th>アイドル名</th>
+              <th></th>
             </tr>
           </thead>
 
           <tbody>
+            <% current_user.favorite_idols.each do |idol| %>
+              <tr>
+                <td><%= idol.id %></td>
+                <td><%= link_to idol.name, idol_path(idol) %></td>
+                <td><%= link_to "お気に入り解除", idol_favorites_path(idol.id), method: :delete , class: "btn btn-xs btn-danger" %>
+                </td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>
@@ -41,10 +50,19 @@
             <tr class="active">
               <th>ID</th>
               <th>場所名</th>
+              <th></th>
             </tr>
           </thead>
 
           <tbody>
+            <% current_user.bookmark_places.each do |place| %>
+              <tr>
+                <td><%= place.id %></td>
+                <td><%= link_to place.name, place_path(place) %></td>
+                <td><%= link_to "お気に入り解除", place_bookmarks_path(place.id), method: :delete , class: "btn btn-xs btn-danger" %>
+                </td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>

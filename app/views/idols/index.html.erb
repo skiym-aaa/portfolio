@@ -20,7 +20,13 @@
           <tr>
             <td><%= idol.id %></td>
             <td><%= link_to idol.name, idol_path(idol) %></td>
-            <td><%= link_to "お気に入り登録", idol_favorites_path(idol.id), method: :post , class: "btn btn-md btn-success" %></td>
+            <td>
+              <% if idol.favorited_by?(current_user) %>
+                <%= link_to "お気に入り解除", idol_favorites_path(idol.id), method: :delete , class: "btn btn-md btn-danger" %>
+              <% else %>
+                <%= link_to "お気に入り登録", idol_favorites_path(idol.id), method: :post , class: "btn btn-md btn-success" %>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>

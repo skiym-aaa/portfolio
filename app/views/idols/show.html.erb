@@ -17,10 +17,17 @@
           <%= link_to "公式サイト", @idol.official_site %>
         </div>
     </div>
+
+    <!-- いいね機能 -->
     <div class="row">
       <div class="col-xs-6">
-        <%= link_to "お気に入り登録", idol_favorites_path(@idol.id), method: :post , class: "btn btn-md btn-success" %>
+        <% if @idol.favorited_by?(current_user) %>
+          <%= link_to "お気に入り解除", idol_favorites_path(@idol.id), method: :delete , class: "btn btn-md btn-danger" %>
+        <% else %>
+          <%= link_to "お気に入り登録", idol_favorites_path(@idol.id), method: :post , class: "btn btn-md btn-success" %>
+        <% end %>
       </div>
+
       <div class="col-xs-6">
         <%= link_to "編集する", edit_idol_path(@idol.id), class: "btn btn-md btn-warning" %>
       </div>

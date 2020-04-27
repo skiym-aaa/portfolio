@@ -13,7 +13,11 @@
             <%= link_to place_path(place) do %>
               <%= image_tag place.image_id.to_s, size: "200x100" %>
               <p><%= place.name %></p>
-              <%= link_to "お気に入り登録", place_bookmarks_path(place.id), method: :post , class: "btn btn-md btn-success" %>
+              <% if place.bookmarked_by?(current_user) %>
+                <%= link_to "お気に入り解除", place_bookmarks_path(place.id), method: :delete , class: "btn btn-md btn-danger" %>
+              <% else %>
+                <%= link_to "お気に入り登録", place_bookmarks_path(place.id), method: :post , class: "btn btn-md btn-success" %>
+              <% end %>
             <% end %>
           </li>
         <% end %>

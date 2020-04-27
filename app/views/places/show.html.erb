@@ -21,8 +21,13 @@
     </div>
     <div class="row">
       <div class="col-xs-6">
-        <%= link_to "お気に入り登録", place_bookmarks_path(@place.id), method: :post , class: "btn btn-md btn-success" %>
+        <% if @place.bookmarked_by?(current_user) %>
+          <%= link_to "お気に入り解除", place_bookmarks_path(@place.id), method: :delete , class: "btn btn-md btn-danger" %>
+        <% else %>
+          <%= link_to "お気に入り登録", place_bookmarks_path(@place.id), method: :post , class: "btn btn-md btn-success" %>
+        <% end %>
       </div>
+
       <div class="col-xs-6">
         <%= link_to "編集する", edit_place_path(@place.id), class: "btn btn-md btn-warning" %>
       </div>

@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # @idols = Idol.includes(:favorites).where(user_id: @user.id)
+    # @places = Place.includes(:bookmarks).where(user_id: @user.id)
   end
 
   def edit
