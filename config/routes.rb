@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
   resources :places, only: [:index, :show, :new, :create, :edit, :update] do
     resources :place_photos, only: [:show, :create]
+    resource :place_comments, only: [:create, :destroy]
     resource :bookmarks, only: [:create, :destroy]
   end
   resources :events do

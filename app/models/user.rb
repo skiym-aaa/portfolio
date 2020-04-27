@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :favorite_idols, through: :favorites, source: :idol
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_places, through: :bookmarks, source: :place
+  has_many :event_comments, dependent: :destroy
 end
