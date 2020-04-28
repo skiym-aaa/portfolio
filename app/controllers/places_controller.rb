@@ -6,6 +6,7 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
+    @place_photos = PlacePhoto.where(place_id: @place.id)
     @place_comment = PlaceComment.new
   end
 

@@ -1,7 +1,8 @@
 class Place < ApplicationRecord
   mount_uploader :image_id, ImagesUploader
 
-  has_many :photo_places
+  belongs_to :user
+  has_many :place_photos
   has_many :place_comments
   has_many :events
   has_many :bookmarks
