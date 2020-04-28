@@ -1,20 +1,28 @@
 ActiveAdmin.register AdminUser do
 
+# 一覧ページの検索条件
+  filter :email
+  filter :created_at
+
+  # 一覧ページ
   index do
     selectable_column
     id_column
     column :email
-    column :current_sign_in_at
-    column :sign_in_count
     column :created_at
     actions
   end
 
-  filter :email
-  filter :current_sign_in_at
-  filter :sign_in_count
-  filter :created_at
+  # 詳細ページ
+  show do
+    attributes_table do
+      row :id
+      row :email
+      row :created_at
+    end
+  end
 
+  # 新規作成/編集ページ
   form do |f|
     f.inputs do
       f.input :email

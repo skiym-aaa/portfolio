@@ -8,11 +8,9 @@ class EventCommentsController < ApplicationController
     @event_comment.save
     flash[:notice] = "コメントの作成が完了しました！"
     redirect_to request.referer
-
   end
 
   def destroy
-    binding.pry
     @event_comment = EventComment.find(params[:event_id])
     @event_comment.destroy
     flash[:notice] = "コメントの削除が完了しました！"

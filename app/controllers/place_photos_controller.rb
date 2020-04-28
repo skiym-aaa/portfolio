@@ -13,7 +13,6 @@ class PlacePhotosController < ApplicationController
     @place_photo = PlacePhoto.new(place_photo_params)
     @place_photo.user_id = current_user.id
     @place_photo.place_id = @place.id
-    binding.pry
     if @place_photo.save
       redirect_to place_path(@place), notice: "写真の追加が完了しました！"
     end

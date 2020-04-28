@@ -9,5 +9,6 @@ class Idol < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
+  validates :user_id, presence: true
   validates :name, presence: true, uniqueness: true, length: {maximum: 30}
 end

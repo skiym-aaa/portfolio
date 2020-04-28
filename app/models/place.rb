@@ -11,6 +11,7 @@ class Place < ApplicationRecord
     bookmarks.where(user_id: user.id).exists?
   end
 
+  validates :user_id, presence: true
   validates :name, presence: true, uniqueness: true, length: {maximum: 30}
   validates :address, presence: true, length: {maximum: 50}
 end
