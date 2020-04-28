@@ -1,5 +1,4 @@
 class IdolsController < ApplicationController
-
   def index
     @idols = Idol.all
   end
@@ -16,7 +15,7 @@ class IdolsController < ApplicationController
     @idol = Idol.new(idol_params)
     @idol.user_id = current_user.id
     if @idol.save
-      redirect_to idol_path(@idol), notice: "アイドルの登録が完了しました！"
+      redirect_to idol_path(@idol), notice: 'アイドルの登録が完了しました！'
     else
       render :new
     end
@@ -30,7 +29,7 @@ class IdolsController < ApplicationController
     @idol = Idol.find(params[:id])
     @idol.user_id = current_user.id
     if @idol.update(idol_params)
-      redirect_to idol_path(@idol), notice: "アイドルの編集が完了しました！"
+      redirect_to idol_path(@idol), notice: 'アイドルの編集が完了しました！'
     else
       render :edit
     end
@@ -41,5 +40,4 @@ class IdolsController < ApplicationController
   def idol_params
     params.require(:idol).permit(:user_id, :name, :about, :official_site, :image_id)
   end
-
 end

@@ -10,5 +10,5 @@ class Idol < ApplicationRecord
   end
 
   validates :user_id, presence: true
-  validates :name, presence: true, uniqueness: true, length: {maximum: 30}
+  validates :name, presence: true, uniqueness: true, length: { maximum: 30 }
 end

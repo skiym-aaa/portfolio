@@ -1,5 +1,4 @@
 ActiveAdmin.register EventComment do
-
   # 一覧ページの検索条件
   filter :user
   filter :event

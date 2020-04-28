@@ -1,6 +1,5 @@
 ActiveAdmin.register AdminUser do
-
-# 一覧ページの検索条件
+  # 一覧ページの検索条件
   filter :email
   filter :created_at
 

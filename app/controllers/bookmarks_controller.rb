@@ -1,5 +1,4 @@
 class BookmarksController < ApplicationController
-
   def create
     @place = Place.find(params[:place_id])
     bookmark = current_user.bookmarks.new(place_id: @place.id)
@@ -13,5 +12,4 @@ class BookmarksController < ApplicationController
     bookmark.destroy
     redirect_to request.referer
   end
-
 end

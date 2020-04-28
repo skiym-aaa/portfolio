@@ -1,5 +1,4 @@
 ActiveAdmin.register Place do
-
   # 一覧ページの検索条件
   filter :user
   filter :name
@@ -12,7 +11,7 @@ ActiveAdmin.register Place do
     column :address
     column :about
     column :official_site
-    column :image_id, :as => :file
+    column :image_id, as: :file
 
     actions
   end
@@ -46,4 +45,3 @@ ActiveAdmin.register Place do
 
   permit_params :name, :address, :about, :official_site, :image_id # 更新可能な attribute を記載
 end
-

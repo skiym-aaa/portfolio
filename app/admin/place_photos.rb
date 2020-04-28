@@ -1,5 +1,4 @@
 ActiveAdmin.register PlacePhoto do
-
   # 一覧ページの検索条件
   filter :user
   filter :place
@@ -9,7 +8,7 @@ ActiveAdmin.register PlacePhoto do
     column :id
     column :user
     column :place
-    column :image_id, :as => :file
+    column :image_id, as: :file
 
     actions
   end

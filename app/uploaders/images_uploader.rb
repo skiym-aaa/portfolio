@@ -1,15 +1,15 @@
 class ImagesUploader < CarrierWave::Uploader::Base
   # permissions 0777
- # MiniMagickを有効にします
- include CarrierWave::MiniMagick
+  # MiniMagickを有効にします
+  include CarrierWave::MiniMagick
 
- # このアップローダーを利用した画像の最大数を指定します。
- process resize_to_fit: [800, 800]
+  # このアップローダーを利用した画像の最大数を指定します。
+  process resize_to_fit: [800, 800]
 
- # 上記とは別にサムネイルを別サイズで用意します。
- version :thumb do
-  process resize_to_fill: [300, 300]
- end
+  # 上記とは別にサムネイルを別サイズで用意します。
+  version :thumb do
+    process resize_to_fill: [300, 300]
+  end
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick

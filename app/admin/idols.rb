@@ -1,5 +1,4 @@
 ActiveAdmin.register Idol do
-
   # 一覧ページの検索条件
   filter :user
   filter :name
@@ -11,7 +10,7 @@ ActiveAdmin.register Idol do
     column :name
     column :about
     column :official_site
-    column :image_id, :as => :file
+    column :image_id, as: :file
 
     actions
   end

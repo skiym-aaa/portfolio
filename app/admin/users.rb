@@ -1,5 +1,4 @@
 ActiveAdmin.register User do
-
   # 一覧ページの検索条件
   filter :id
   filter :email

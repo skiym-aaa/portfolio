@@ -1,5 +1,4 @@
 ActiveAdmin.register PlaceComment do
-
   # 一覧ページの検索条件
   filter :user
   filter :place

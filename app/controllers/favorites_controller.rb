@@ -1,5 +1,4 @@
 class FavoritesController < ApplicationController
-
   def create
     @idol = Idol.find(params[:idol_id])
     favorite = current_user.favorites.new(idol_id: @idol.id)
@@ -13,5 +12,4 @@ class FavoritesController < ApplicationController
     favorite.destroy
     redirect_to request.referer
   end
-
 end

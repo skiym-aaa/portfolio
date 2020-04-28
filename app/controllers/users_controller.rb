@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def show
     @user = User.find(params[:id])
     # @idols = Idol.includes(:favorites).where(user_id: @user.id)
@@ -13,14 +12,14 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to user_path(@user), notice: "編集が完了しました！"
+      redirect_to user_path(@user), notice: '編集が完了しました！'
     else
       render :edit
     end
   end
 
   def confirm
-    @user =current_user
+    @user = current_user
   end
 
   def destroy
@@ -30,8 +29,8 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:email, :name)
   end
-
 end

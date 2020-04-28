@@ -1,6 +1,5 @@
 class EventsController < InheritedResources::Base
-
-before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: %i[show edit update destroy]
 
   # GET /events
   # GET /events.json
@@ -22,8 +21,7 @@ before_action :set_event, only: [:show, :edit, :update, :destroy]
   end
 
   # GET /events/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /events
   # POST /events.json
@@ -67,13 +65,14 @@ before_action :set_event, only: [:show, :edit, :update, :destroy]
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def event_params
-      params.require(:event).permit(:user_id, :idol_id, :place_id, :title, :body, :start_date, :end_date)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def event_params
+    params.require(:event).permit(:user_id, :idol_id, :place_id, :title, :body, :start_date, :end_date)
+  end
 end

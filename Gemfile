@@ -40,16 +40,16 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # デバック機能
-  gem 'pry-rails'
-  gem 'pry-byebug'
-  gem 'ed25519'
   gem 'bcrypt_pbkdf'
+  gem 'ed25519'
+  gem 'pry-byebug'
   gem 'pry-doc'
+  gem 'pry-rails'
   # Add Capistrano
   gem 'capistrano'
   gem 'capistrano-rails'
-  gem 'capistrano3-puma'
   gem 'capistrano-rbenv'
+  gem 'capistrano3-puma'
 end
 
 group :development do
@@ -84,12 +84,12 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # jQuery有効化
 gem 'jquery-rails'
 # 画像投稿機能
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'refile', require: 'refile/rails', github: 'manfe/refile'
+gem 'refile-mini_magick'
 # ページング機能
-gem 'kaminari','~> 1.2.0'
+gem 'kaminari', '~> 1.2.0'
 # カレンダー機能
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'

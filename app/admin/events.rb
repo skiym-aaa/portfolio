@@ -1,6 +1,5 @@
 ActiveAdmin.register Event do
-
-# 一覧ページの検索条件
+  # 一覧ページの検索条件
   filter :user
   filter :idol
   filter :place

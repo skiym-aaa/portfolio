@@ -18,6 +18,7 @@
 //= require_tree .
 //= require moment
 //= require fullcalendar
+//= require jquery.raty
 
 // カレンダー機能
 $(function () {
