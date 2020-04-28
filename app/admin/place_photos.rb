@@ -1,13 +1,14 @@
 ActiveAdmin.register PlacePhoto do
 
   # 一覧ページの検索条件
-  filter :user_id
-  filter :place_id
+  filter :user
+  filter :place
 
   # 一覧ページ
   index do
-    column :user_id
-    column :place_id
+    column :id
+    column :user
+    column :place
     column :image_id, :as => :file
 
     actions
@@ -16,8 +17,9 @@ ActiveAdmin.register PlacePhoto do
   # 詳細ページ
   show do
     attributes_table do
-      row :user_id
-      row :place_id
+      row :id
+      row :user
+      row :place
       row :image_id do
         image_tag(place_photo.image_id.url)
       end
@@ -27,8 +29,8 @@ ActiveAdmin.register PlacePhoto do
   # 新規作成/編集ページ
   form do |f|
     f.inputs do
-      f.input :user_id
-      f.input :place_id
+      f.input :user
+      f.input :place
       f.input :image_id
     end
     f.actions

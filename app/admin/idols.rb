@@ -1,12 +1,13 @@
 ActiveAdmin.register Idol do
 
   # 一覧ページの検索条件
-  filter :user_id
+  filter :user
   filter :name
 
   # 一覧ページ
   index do
-    column :user_id
+    column :id
+    column :user
     column :name
     column :about
     column :official_site
@@ -18,7 +19,8 @@ ActiveAdmin.register Idol do
   # 詳細ページ
   show do
     attributes_table do
-      row :user_id
+      row :id
+      row :user
       row :name
       row :about
       row :official_site

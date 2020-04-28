@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  belongs_to :user
   belongs_to :idol
   belongs_to :place
   has_many :event_comments
