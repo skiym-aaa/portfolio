@@ -5,10 +5,10 @@ class PlaceCommentsController < ApplicationController
     @place_comment = PlaceComment.new(place_comment_params)
     @place_comment.user_id = current_user.id
     @place_comment.place_id = @place.id
+    @place_comment.rate = params[:score]
     @place_comment.save
     flash[:notice] = "コメントの作成が完了しました！"
     redirect_to request.referer
-
   end
 
   def destroy

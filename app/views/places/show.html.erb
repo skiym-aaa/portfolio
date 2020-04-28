@@ -139,7 +139,7 @@
             <span class="comment-date"><%= l place_comment.created_at %></span>
             <br>
             <%= place_comment.body %>
-            <div id="reviewed_star">
+            <div id="reviewed_star_<%= place_comment.id %>">
             </div>
             </br>
 
@@ -149,7 +149,7 @@
             <% end %>
             <!-- ここまで -->
             <script>
-            $('#reviewed_star').raty({
+            $("#reviewed_star_<%= place_comment.id %>").raty({
             size     : 36,
             starOff:  '<%= asset_path('star-off.png') %>',
             starOn : '<%= asset_path('star-on.png') %>',
