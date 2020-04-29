@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get '/about' => 'homes#about'
   get '/search' => 'search#search'
 
-  devise_for :users
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations'
+   }
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -23,5 +25,8 @@ Rails.application.routes.draw do
   resources :events do
     resource :event_comments, only: [:create, :destroy]
   end
+
+  # letter_opener用のルーティング
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
 end

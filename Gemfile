@@ -62,6 +62,8 @@ group :development do
   # Add Rubocop
   gem 'rubocop', require: false
   gem 'rubocop-rails'
+  # Add letter_opener_web
+  gem 'letter_opener_web', '~> 1.0'
 end
 
 group :test do
