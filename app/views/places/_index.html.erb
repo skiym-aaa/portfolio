@@ -1,0 +1,23 @@
+<!-- タイトル -->
+<h2 class="heading"><span>場所一覧</span></h2>
+  <%= link_to new_place_path do %>
+    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true" style="font-size:30px"></span>
+  <% end %>
+<!-- 場所一覧 -->
+<ul class="place-group clearfix">
+  <% places.each do |place| %>
+    <li>
+      <%= link_to place_path(place) do %>
+        <%= image_tag place.image_id.to_s, size: "200x100" %>
+        <p><%= place.name %></p>
+        <% if user_signed_in? %>
+          <% if place.bookmarked_by?(current_user) %>
+            <%= link_to "お気に入り解除", place_bookmarks_path(place.id), method: :delete , class: "btn btn-md btn-danger" %>
+          <% else %>
+            <%= link_to "お気に入り登録", place_bookmarks_path(place.id), method: :post , class: "btn btn-md btn-success" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

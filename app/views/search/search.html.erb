@@ -1,0 +1,10 @@
+<% if @model == 'idol' %>
+  <h3>Idols search for '<%= @content %>'</h3>
+  <%= render 'idols/index', idols: @records %>
+<% elsif @model == 'place' %>
+  <h3>Places search for '<%= @content %>'</h3>
+  <%= render 'places/index', places: @records %>
+<% else @model == 'event' %>
+  <h3>Events search for '<%= @content %>'</h3>
+  <%= render 'events/index', events: @records %>
+<% end %>

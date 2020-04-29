@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'search/search'
   root 'homes#top'
   get '/about' => 'homes#about'
+  get '/search' => 'search#search'
 
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
