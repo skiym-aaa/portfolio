@@ -1,0 +1,37 @@
+<h2 class="comment-count">
+  <%= place.place_comments.count %>件のコメント
+</h2>
+
+<ol>
+  <% place.place_comments.each do |place_comment| %>
+    <li class="comment">
+      <%= place_comment.user.name %>
+      <span class="comment-date"><%= l place_comment.created_at %></span>
+      <br>
+      <%= place_comment.body %>
+      <div id="reviewed_star_<%= place_comment.id %>">
+      </div>
+      </br>
+
+      <!-- コメント投稿者のみ削除リンク -->
+      <% if user_signed_in? %>
+        <% if place_comment.user.id == current_user.id %>
+          <%= link_to "削除",place_place_comments_path(place_id: place_comment.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-default pull-right", remote: true %></td>
+        <% end %>
+      <% end %>
+      <!-- ここまで -->
+      <script>
+        $("#reviewed_star_<%= place_comment.id %>").raty({
+        size: 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        readOnly: true,
+        half: true,
+        score: '<%= place_comment.rate %>'
+        });
+      </script>
+    </li>
+
+  <% end %>
+</ol>

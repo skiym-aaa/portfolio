@@ -1,0 +1,3 @@
+$("textarea").val("");
+$("#star").val("");
+$("#place_comments_<%= @place.id %>").html("<%= j(render 'places/comments', place: @place ) %>");

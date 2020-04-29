@@ -29,19 +29,21 @@
     </div>
 
     <div class="row">
-      <div class="col-xs-6">
-        <% if @place.bookmarked_by?(current_user) %>
-          <%= link_to "お気に入り解除", place_bookmarks_path(@place.id), method: :delete , class: "btn btn-md btn-danger" %>
-        <% else %>
-          <%= link_to "お気に入り登録", place_bookmarks_path(@place.id), method: :post , class: "btn btn-md btn-success" %>
-        <% end %>
+      <% if user_signed_in? %>
+        <div class="col-xs-6">
+          <% if @place.bookmarked_by?(current_user) %>
+            <%= link_to "お気に入り解除", place_bookmarks_path(@place.id), method: :delete , class: "btn btn-md btn-danger" %>
+          <% else %>
+            <%= link_to "お気に入り登録", place_bookmarks_path(@place.id), method: :post , class: "btn btn-md btn-success" %>
+          <% end %>
 
-        <%= link_to "写真追加", new_place_place_photo_path(@place.id), class: "btn btn-md btn-default" %>
-      </div>
+          <%= link_to "写真追加", new_place_place_photo_path(@place.id), class: "btn btn-md btn-default" %>
+        </div>
 
-      <div class="col-xs-6">
-        <%= link_to "編集する", edit_place_path(@place.id), class: "btn btn-md btn-warning" %>
-      </div>
+        <div class="col-xs-6">
+          <%= link_to "編集する", edit_place_path(@place.id), class: "btn btn-md btn-warning" %>
+        </div>
+      <% end %>
     </div>
 
       <!-- GoogleMap表示 -->
@@ -101,18 +103,20 @@
 
       <!-- コメントフォーム -->
       <div class="row">
-        <%= form_for [@place, @place_comment] do |f| %>
-          <div class="col-xs-12">
-            <div class="field">
-              <%= f.text_area :body, rows:'2', class:"form-control", placeholder:"コメントをここに" %>
+        <% if user_signed_in? %>
+          <%= form_with model: [@place, @place_comment],data: {remote: true} do |f| %>
+            <div class="col-xs-12">
+              <div class="field">
+                <%= f.text_area :body, rows:'2', class:"form-control", placeholder:"コメントをここに" %>
 
-            <div class="field" id="star">
-              <%= f.label :rate %>
-              <%= f.hidden_field :rate %>
+              <div class="field" id="star">
+                <%= f.label :rate %>
+                <%= f.hidden_field :rate %>
+              </div>
+                <%= f.submit "送信する", class:"btn btn-lg pull-right" %>
+              </div>
             </div>
-              <%= f.submit "送信する", class:"btn btn-lg pull-right" %>
-            </div>
-          </div>
+          <% end %>
         <% end %>
       </div>
 
@@ -127,41 +131,10 @@
       </script>
 
       <!-- コメント一覧 -->
-      <div class="float-wrapper">
-        <h2 class="comment-count">
-          <%= @place.place_comments.count %>件のコメント
-        </h2>
-      </div>
-      <ol>
-        <% @place.place_comments.each do |place_comment| %>
-          <li class="comment">
-            <%= place_comment.user.name %>
-            <span class="comment-date"><%= l place_comment.created_at %></span>
-            <br>
-            <%= place_comment.body %>
-            <div id="reviewed_star_<%= place_comment.id %>">
-            </div>
-            </br>
-
-            <!-- コメント投稿者のみ削除リンク -->
-            <% if place_comment.user.id == current_user.id %>
-              <%= link_to "削除",place_place_comments_path(place_id: place_comment.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-default pull-right" %></td>
-            <% end %>
-            <!-- ここまで -->
-            <script>
-            $("#reviewed_star_<%= place_comment.id %>").raty({
-            size     : 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            readOnly: true,
-            half: true,
-            score: '<%= place_comment.rate %>'
-            });
-            </script>
-          </li>
-
-        <% end %>
-      </ol>
+      <div id ="place_comments_<%= @place.id %>">
+        <%= render "comments", place: @place %>
+      <div>
+        
+    </div>
   </div>
 </div>

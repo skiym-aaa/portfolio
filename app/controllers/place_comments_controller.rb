@@ -7,14 +7,13 @@ class PlaceCommentsController < ApplicationController
     @place_comment.rate = params[:score]
     @place_comment.save
     flash[:notice] = 'コメントの作成が完了しました！'
-    redirect_to request.referer
   end
 
   def destroy
     @place_comment = PlaceComment.find(params[:place_id])
+    @place = @place_comment.place
     @place_comment.destroy
     flash[:notice] = 'コメントの削除が完了しました！'
-    redirect_to request.referer
   end
 
   def place_comment_params
