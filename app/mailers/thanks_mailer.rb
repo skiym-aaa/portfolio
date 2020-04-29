@@ -1,5 +1,5 @@
 class ThanksMailer < ActionMailer::Base
-  default from: "idol_places@gmail.com"
+  default from: "idolplaces@gmail.com"
 
   def send_confirm_to_user(user)
     @user = user

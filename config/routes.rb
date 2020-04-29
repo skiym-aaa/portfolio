@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'search/search'
   root 'homes#top'
   get '/about' => 'homes#about'
   get '/search' => 'search#search'
+  # お問い合わせフォーム
+  get  'index' =>'messages#index'
+  post 'confirm' => 'messages#confirm'
+  post 'done' => 'messages#done'
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations'
@@ -27,6 +30,5 @@ Rails.application.routes.draw do
   end
 
   # letter_opener用のルーティング
-  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
-
+  # mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
