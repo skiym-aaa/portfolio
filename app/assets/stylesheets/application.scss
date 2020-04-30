@@ -40,6 +40,14 @@
   color: red;
  }
 
+ #error_explanation ul li {
+ list-style:none
+ }
+
+ #flash_alert {
+ color: red;
+ }
+
  /* ヘッダー */
  header {
   color: white;

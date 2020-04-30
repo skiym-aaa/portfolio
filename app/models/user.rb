@@ -13,4 +13,6 @@ class User < ApplicationRecord
   has_many :bookmark_places, through: :bookmarks, source: :place
   has_many :place_comments, dependent: :destroy
   has_many :event_comments, dependent: :destroy
+
+  validates :name, length: {maximum: 20, minimum: 2}
 end
