@@ -1,0 +1,28 @@
+<% if user_signed_in? %>
+  <%= form_with model: [place, place_comment], url: place_place_comments_path(place.id), method: :post, data: {remote: true} do |f| %>
+  <!-- エラーメッセージ -->
+  <%= render 'layouts/errors', obj: place_comment %>
+
+    <div class="col-xs-12">
+      <div class="field">
+        <%= f.text_area :body, rows:'2', class:"form-control", placeholder:"コメントをここに" %>
+      </div>
+
+      <div class="field" id="star">
+        <%= f.label :rate %>
+        <%= f.hidden_field :rate %>
+      </div>
+      <%= f.submit "送信する", class:"btn btn-lg pull-right" %>
+    </div>
+  <% end %>
+<% end %>
+
+<script>
+  $('#star').raty({
+  size     : 36,
+  starOff:  '<%= asset_path('star-off.png') %>',
+  starOn : '<%= asset_path('star-on.png') %>',
+  starHalf: '<%= asset_path('star-half.png') %>',
+  half: true,
+  });
+</script>

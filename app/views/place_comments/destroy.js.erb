@@ -1,1 +1,3 @@
+$("#place_comment_form_<%= @place.id %>").html("<%= j(render 'places/comment_form', place: @place, place_comment: @new_place_comment ) %>");
+$("textarea").val("");
 $("#place_comments_<%= @place.id %>").html("<%= j(render 'places/comments', place: @place ) %>");
