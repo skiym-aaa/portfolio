@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   get '/about' => 'homes#about'
   get '/search' => 'search#search'
   # お問い合わせフォーム
-  get  'index' =>'messages#index'
-  post 'confirm' => 'messages#confirm'
-  post 'done' => 'messages#done'
+  get  '/contact/index' =>'messages#index'
+  post '/contact/confirm' => 'messages#confirm'
+  post 'contact/done' => 'messages#done'
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations'
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update, :confirm, :destroy]
   get '/user/confirm' => 'users#confirm'
+  put '/users/:id/hide' => 'users#hide', as: 'user_hide'
 
   resources :idols, only: [:index, :show, :new, :create, :edit, :update] do
     resource :favorites, only: [:create, :destroy]

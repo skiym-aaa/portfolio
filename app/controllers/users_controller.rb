@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :baria_user, except: [:confirm]
+
   def show
     @user = User.find(params[:id])
     # @idols = Idol.includes(:favorites).where(user_id: @user.id)
@@ -22,6 +24,14 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def hide
+    @user = User.find(params[:id])
+    @user.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
+  end
+
   def destroy
     @user = User.find(params[:id])
     @user.destroy
@@ -32,5 +42,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :name)
+  end
+
+  def baria_user
+    unless params[:id].to_i == current_user.id
+      redirect_to root_path
+    end
   end
 end
