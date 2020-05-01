@@ -5,15 +5,21 @@ class EventCommentsController < ApplicationController
     @event_comment.user_id = current_user.id
     @event_comment.event_id = @event.id
     @event_comment.save
-    flash[:notice] = 'コメントの作成が完了しました！'
-    redirect_to request.referer
+    flash.now[:notice] = 'コメントの作成が完了しました！'
+    # ajaxのrender用
+    @idol = Idol.find(@event.idol_id)
+    @place = Place.find(@event.place_id)
   end
 
   def destroy
     @event_comment = EventComment.find(params[:event_id])
     @event_comment.destroy
-    flash[:notice] = 'コメントの削除が完了しました！'
-    redirect_to request.referer
+    flash.now[:notice] = 'コメントの削除が完了しました！'
+    # ajaxのrender用
+    @event = Event.find(params[:id])
+    @idol = Idol.find(@event.idol_id)
+    @place = Place.find(@event.place_id)
+    @new_event_comment = EventComment.new
   end
 
   def event_comment_params
