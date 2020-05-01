@@ -1,4 +1,6 @@
 class FavoritesController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @idol = Idol.find(params[:idol_id])
     favorite = current_user.favorites.new(idol_id: @idol.id)

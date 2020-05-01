@@ -1,15 +1,21 @@
 <div class="row">
+
+  <!-- サイドバー -->
   <div class="col-xs-4">
     <%= render "layouts/sidebar"%>
   </div>
+
   <div class="col-xs-8">
     <h2 class="heading"><span>場所詳細</span>&emsp;<%= @place.name %></h2>
     <div class="row">
 
         <!-- 画像 -->
         <div class="col-xs-6">
-          <%= image_tag @place.image_id.to_s, size: "300x200" %>
+          <%= link_to @place.image_id.url do %>
+            <%= image_tag @place.image_id.to_s, size: "300x200" %>
+          <% end %>
         </div>
+
         <!-- 詳細 -->
         <div class="col-xs-6">
           <h4>About</h4>
@@ -20,6 +26,7 @@
         </div>
     </div>
 
+    <!-- 場所写真 -->
     <div class="row">
       <% @place_photos.each do |place_photo| %>
         <%= link_to place_photo.image_id.url do %>
@@ -48,93 +55,22 @@
 
       <!-- GoogleMap表示 -->
       <div class="row">
-        <h2>Google MAP</h2>
-          <div id='map' class="<%= @place.name %>"></div>
-          <style>
-          #map{
-            height: 400px;
-          }
-          </style>
-
-          <script src="//maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>
-
-          <script>
-          /*
-          mapを関数の外で定義(codeAddressでも使うため)
-          geocoderを用意
-          */
-
-          let map
-          let geocoder
-
-          function initMap(){
-            // geocoderを初期化
-            geocoder = new google.maps.Geocoder()
-            geocoder.geocode( { 'address': $('#map').attr('class')}, function(results, status) {
-              if (status == 'OK') {
-          　　　　// map.setCenterで地図が移動
-                map.setCenter(results[0].geometry.location);
-
-    　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: results[0].geometry.location
-                });
-              } else {
-                alert('Geocode was not successful for the following reason: ' + status);
-              }
-            });
-
-            map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 14
-            });
-          }
-
-          function codeAddress(){
-            // 入力を取得
-            let inputAddress = document.getElementById('address').value;
-
-            // geocodingしたあとmapを移動
-          }
-          </script>
-
+        <%= render "places/google_map", place: @place %>
       </div>
 
       <!-- コメントフォーム -->
       <div class="row">
-        <% if user_signed_in? %>
-          <%= form_with model: [@place, @place_comment],data: {remote: true} do |f| %>
-            <div class="col-xs-12">
-              <div class="field">
-                <%= f.text_area :body, rows:'2', class:"form-control", placeholder:"コメントをここに" %>
-
-              <div class="field" id="star">
-                <%= f.label :rate %>
-                <%= f.hidden_field :rate %>
-              </div>
-                <%= f.submit "送信する", class:"btn btn-lg pull-right" %>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
+        <div id ="place_comment_form_<%=@place.id %>">
+          <%= render "places/comment_form", place: @place, place_comment: @place_comment %>
+        </div>
       </div>
 
-      <script>
-      $('#star').raty({
-      size     : 36,
-      starOff:  '<%= asset_path('star-off.png') %>',
-      starOn : '<%= asset_path('star-on.png') %>',
-      starHalf: '<%= asset_path('star-half.png') %>',
-      half: true
-      });
-      </script>
-
       <!-- コメント一覧 -->
-      <div id ="place_comments_<%= @place.id %>">
-        <%= render "comments", place: @place %>
-      <div>
-        
-    </div>
+      <div class="row">
+        <div id ="place_comments_<%= @place.id %>">
+          <%= render "places/comments", place: @place %>
+        </div>
+      </div>
   </div>
 </div>
+

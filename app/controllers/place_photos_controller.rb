@@ -1,5 +1,8 @@
 class PlacePhotosController < ApplicationController
-  def show; end
+  before_action :authenticate_user!
+
+  def show
+  end
 
   def new
     @place = Place.find(params[:place_id])
@@ -11,7 +14,11 @@ class PlacePhotosController < ApplicationController
     @place_photo = PlacePhoto.new(place_photo_params)
     @place_photo.user_id = current_user.id
     @place_photo.place_id = @place.id
-    redirect_to place_path(@place), notice: '写真の追加が完了しました！' if @place_photo.save
+    if @place_photo.save
+      redirect_to place_path(@place), notice: '写真の追加が完了しました！'
+    else
+      render :new
+    end
   end
 
   private

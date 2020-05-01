@@ -1,7 +1,12 @@
 <div class="row">
   <h2 class="heading"><span>マイページ(登録情報変更)</span></h2>
   <%= form_for @user, url: user_path, method: :patch do |f| %>
-    <table>
+
+  <!-- エラーメッセージ -->
+  <%= render 'layouts/errors', obj: @user %>
+
+    <!-- 編集フォーム -->
+    <table style= "width: 500px;">
       <tr>
         <td><%= f.label :"名前(ニックネーム)" %></td>
         <td><%= f.text_field :name %></td>

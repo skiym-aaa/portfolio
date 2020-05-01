@@ -1,4 +1,6 @@
 class BookmarksController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @place = Place.find(params[:place_id])
     bookmark = current_user.bookmarks.new(place_id: @place.id)

@@ -30,17 +30,88 @@ ja:
               too_long: "は%{count}文字以下に設定して下さい。"
               invalid: "は有効でありません。"
               confirmation: "が内容とあっていません。"
-
+        idol:
+          attributes:
+            name:
+              blank: "が入力されていません。"
+        place:
+          attributes:
+            name:
+              blank: "が入力されていません。"
+            address:
+              blank: "が入力されていません。"
+        place_comment:
+          attributes:
+            body:
+              blank: "が入力されていません。"
+            rate:
+              blank: "が入力されていません。"
+        place_photo:
+          attributes:
+            image_id:
+              blank: "が登録されていません。"
+        event:
+          attributes:
+            idol:
+              blank: "が入力されていません。"
+        event:
+          attributes:
+            idol:
+              required: "が入力されていません。"
+            place:
+              required: "が入力されていません。"
+            title:
+              blank: "が入力されていません。"
+            body:
+              blank: "が入力されていません。"
+        message:
+          attributes:
+            name:
+              blank: "が入力されていません。"
+            email:
+              blank: "が入力されていません。"
+              invalid: "が不正な値です。"
+            content:
+              blank: "が入力されていません。"
     attributes:
       user:
         current_password: "現在のパスワード"
-        name: 名前
+        name: "名前"
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "次回から自動的にログイン"
+      idol:
+        name: "アイドル名"
+      place:
+        name: "場所名"
+        address: "住所"
+      place_comment:
+        body: "コメント"
+        rate: "評価"
+      place_photo:
+        image_id: "写真"
+      event:
+        idol: "アイドル"
+        place: "場所"
+        title: "イベントタイトル"
+        body: "イベント内容"
+      event_comment:
+        body: "コメント"
+      message:
+        name: "名前"
+        email: "メールアドレス"
+        content: "内容"
+
     models:
       user: "ユーザ"
+      idol: "アイドル"
+      place: "場所"
+      place_comment: "場所コメント"
+      place_photo: "場所写真"
+      event: "イベント"
+      event_comment: "イベントコメント"
+      message: "メッセージ"
   devise:
     confirmations:
       new:

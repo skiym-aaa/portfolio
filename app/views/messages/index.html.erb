@@ -1,18 +1,14 @@
 <%= form_for(@message, url: { action: :confirm }) do |f| %>
+
   <div>
     <h2>メッセージフォーム</h2>
- 
+
       <% if @message.errors.present? %>
         <div>
           <strong>入力内容にエラーがあります</strong>
-          <ul>
-            <% @message.errors.each do |attr, error| %>
-              <li><%= error %></li>
-            <% end %>
-          </ul>
         </div>
       <% end %>
-    
+
     <div>
       <strong>名前</strong>
       <p><%= f.text_field :name, placeholder: '20文字以内' %></p>

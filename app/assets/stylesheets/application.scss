@@ -35,17 +35,47 @@
   color: green;
  }
 
- /* エラーメッセージ */
- #error_explanation {
+ #error {
   color: red;
  }
 
+ /* エラーメッセージ */
+ #error_explanation {
+  width: 300px;
+  position: relative;
+  margin: 2em 0;
+  padding: 0.5em 1em;
+  border: solid 3px pink;
+  background-color: #fffafa;
+  border-radius: 8px;
+ }
+
+ #error_explanation .box-title {
+  position: absolute;
+  display: inline-block;
+  top: -13px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 19px;
+  background: #FFF;
+  color: red;
+  font-weight: bold;
+ }
+
  #error_explanation ul li {
- list-style:none
+  padding-top: 5px;
+  list-style: none;
  }
 
  #flash_alert {
- color: red;
+  color: red;
+ }
+
+ .field_with_errors {
+  padding: 2px;
+  background-color: #fcc;
+  border-radius: 10px;
  }
 
  /* ヘッダー */
@@ -57,11 +87,17 @@
  font-size: 30px;
  }
 
+ /* 共通部分 */
  a, a:link, a:visited {
   text-decoration: none;
  }
 
- /* 共通部分 */
  .heading span {
   background-color: #F5F5F5;
  }
+
+ .btn {
+  margin: 5px;
+ }
+
+

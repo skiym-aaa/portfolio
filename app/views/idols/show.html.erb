@@ -1,7 +1,10 @@
 <div class="row">
+
+  <!-- サイドバー -->
   <div class="col-xs-4">
     <%= render "layouts/sidebar"%>
   </div>
+
   <div class="col-xs-8">
     <h2 class="heading"><span>アイドル詳細</span>&emsp;<%= @idol.name %></h2>
     <div class="row">
@@ -19,18 +22,20 @@
     </div>
 
     <!-- いいね機能 -->
-    <div class="row">
-      <div class="col-xs-6">
-        <% if @idol.favorited_by?(current_user) %>
-          <%= link_to "お気に入り解除", idol_favorites_path(@idol.id), method: :delete , class: "btn btn-md btn-danger" %>
-        <% else %>
-          <%= link_to "お気に入り登録", idol_favorites_path(@idol.id), method: :post , class: "btn btn-md btn-success" %>
-        <% end %>
-      </div>
+    <% if user_signed_in? %>
+      <div class="row">
+        <div class="col-xs-6">
+          <% if @idol.favorited_by?(current_user) %>
+            <%= link_to "お気に入り解除", idol_favorites_path(@idol.id), method: :delete , class: "btn btn-md btn-danger" %>
+          <% else %>
+            <%= link_to "お気に入り登録", idol_favorites_path(@idol.id), method: :post , class: "btn btn-md btn-success" %>
+          <% end %>
+        </div>
 
-      <div class="col-xs-6">
-        <%= link_to "編集する", edit_idol_path(@idol.id), class: "btn btn-md btn-warning" %>
+        <div class="col-xs-6">
+          <%= link_to "編集する", edit_idol_path(@idol.id), class: "btn btn-md btn-warning" %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>

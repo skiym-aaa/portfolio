@@ -15,4 +15,8 @@ class User < ApplicationRecord
   has_many :event_comments, dependent: :destroy
 
   validates :name, length: {maximum: 20, minimum: 2}
+
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
 end
