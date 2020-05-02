@@ -53,15 +53,15 @@ ja:
         event:
           attributes:
             idol:
-              blank: "が入力されていません。"
-        event:
-          attributes:
-            idol:
               required: "が入力されていません。"
             place:
               required: "が入力されていません。"
             title:
               blank: "が入力されていません。"
+            body:
+              blank: "が入力されていません。"
+        event_comment:
+          attributes:
             body:
               blank: "が入力されていません。"
         message:

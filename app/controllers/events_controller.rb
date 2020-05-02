@@ -1,5 +1,5 @@
 class EventsController < InheritedResources::Base
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: %i[index show]
   before_action :set_event, only: %i[show edit update destroy]
 
   # GET /events

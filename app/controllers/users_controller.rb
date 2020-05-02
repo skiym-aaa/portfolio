@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(is_deleted: true)
     reset_session
-    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    flash[:notice] = 'ありがとうございました。またのご利用を心よりお待ちしております。'
     redirect_to root_path
   end
 
@@ -45,8 +45,6 @@ class UsersController < ApplicationController
   end
 
   def baria_user
-    unless params[:id].to_i == current_user.id
-      redirect_to root_path
-    end
+    redirect_to root_path unless params[:id].to_i == current_user.id
   end
 end
