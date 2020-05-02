@@ -10,7 +10,12 @@ class PlacePhotosController < ApplicationController
 
   def create
     @place = Place.find(params[:place_id])
-    @place_photo = PlacePhoto.new(place_photo_params)
+    binding.pry
+    if params[:place_photo].present?
+      @place_photo = PlacePhoto.new(place_photo_params)
+    else
+      @place_photo = PlacePhoto.new(image_id: "")
+    end
     @place_photo.user_id = current_user.id
     @place_photo.place_id = @place.id
     if @place_photo.save
