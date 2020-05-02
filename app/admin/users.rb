@@ -19,19 +19,23 @@ ActiveAdmin.register User do
       row :id
       row :email
       row :name
+      row :image_id do
+        image_tag(user.image_id.url)
+      end
     end
   end
 
   # 新規作成/編集ページ
   form do |f|
     f.inputs do
-      f.input :email
       f.input :name
+      f.input :email
       f.input :password
       f.input :encrypted_password
+      f.input :image_id
     end
     f.actions
   end
 
-  permit_params :email, :name, :password, :encrypted_password # 更新可能な attribute を記載
+  permit_params :email, :name, :password, :encrypted_password, :image_id # 更新可能な attribute を記載
 end
