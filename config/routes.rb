@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   # お問い合わせフォーム
   get  '/contact/index' =>'messages#index'
   post '/contact/confirm' => 'messages#confirm'
-  post 'contact/done' => 'messages#done'
+  post '/contact/done' => 'messages#done'
+  # チャットルーム
+  get 'rooms/show'
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations'
