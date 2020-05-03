@@ -1,12 +1,17 @@
-<h1>Chat room</h1>
+<%= link_to "<<back index", rooms_path %>
 
-<form>
-  <label>投稿:</label><br>
-  <!-- room_speaker からサーバへメッセージを送信する -->
-  <input type="text" data-behavior="room_speaker">
-</form>
-<br>
+<h1><%= "Chat Room #{@room.id}" %></h1>
 
-<div id="chats">
+<!-- 投稿フォーム -->
+<div class="input">
+  <form>
+    <label>投稿:</label><br>
+    <!-- room_speaker からサーバへメッセージを送信する -->
+    <input type="text" data-behavior="room_speaker">
+  </form>
+</div>
+
+<div id="chats", data-room_id="<%= @room.id %>">
   <%= render partial: "chats/chat", collection: @chats %>
 </div>
+
