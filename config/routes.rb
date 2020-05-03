@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   post '/contact/confirm' => 'messages#confirm'
   post '/contact/done' => 'messages#done'
   # チャットルーム
-  mount ActionCable.server => '/cable'
   get 'rooms/show'
 
   devise_for :users, :controllers => {
