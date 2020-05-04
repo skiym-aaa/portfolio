@@ -9,7 +9,7 @@ ja:
               blank: "が入力されていません。"
               too_short: "は%{count}文字以上に設定して下さい。"
               too_long: "は%{count}文字以下に設定して下さい。"
-              invalid: "は有効でありません。"
+              invalid: "は有効化でありません。"
             email:
               taken: "は既に使用されています。"
               blank: "が入力されていません。"
@@ -30,6 +30,8 @@ ja:
               too_long: "は%{count}文字以下に設定して下さい。"
               invalid: "は有効でありません。"
               confirmation: "が内容とあっていません。"
+            reset_password_token:
+              invalid: "は有効でありません。"
         idol:
           attributes:
             name:
@@ -116,6 +118,8 @@ ja:
     confirmations:
       new:
         resend_confirmation_instructions: "アカウント確認メール再送"
+    failure:
+      inactive: '退会済みです。'
     mailer:
       confirmation_instructions:
         action: "アカウント確認"

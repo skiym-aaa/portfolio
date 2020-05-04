@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :name, :image_id)
+    params.require(:user).permit(:email, :name, :image_id, :encrypted_password, :reset_password_token)
   end
 
   def baria_user

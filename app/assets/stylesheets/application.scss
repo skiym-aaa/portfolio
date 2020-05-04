@@ -41,7 +41,6 @@
 
  /* エラーメッセージ */
  #error_explanation {
-  width: 300px;
   position: relative;
   margin: 2em 0;
   padding: 0.5em 1em;
@@ -73,9 +72,8 @@
  }
 
  .field_with_errors {
-  padding: 2px;
-  background-color: #fcc;
-  border-radius: 10px;
+  display: contents;
+  color: red;
  }
 
  /* ロゴ */
@@ -117,8 +115,32 @@
   background-color: #F5F5F5;
  }
 
- .btn {
-  margin: 5px;
- }
+ .btn1 {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+
+  a, a:link, a:visited {
+  color: white;
+  }
+}
+
+.btn1-success {
+  background: #668ad8;/*ボタン色*/
+}
+
+.btn1-danger {
+  background: red;/*ボタン色*/
+}
+
+.btn1:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
 
 

@@ -6,10 +6,10 @@
   お気に入り登録情報が閲覧できなくなります。
   <br>
   退会する場合は、「退会する」をクリックしてください。</h4>
-  <table>
+  <table class="confirm">
     <% if user_signed_in? && @user.id == current_user.id %>
-      <%= link_to "退会しない",user_path(@user.id), class: "btn btn-md btn-primary" %>
-      <%= link_to "退会する",user_hide_path(@user.id), method: :put, class: 'btn btn-danger btn-md' %>
+      <%= link_to "退会しない",user_path(@user.id), class: 'btn1 btn1-success' %>
+      <%= link_to "退会する",user_hide_path(@user.id), method: :put, class: 'btn1 btn1-danger' %>
     <% end %>
   </table>
 </div>
