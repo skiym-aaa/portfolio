@@ -5,7 +5,8 @@ $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
         event.target.value = ''
         event.preventDefault()
 
-App.room = App.cable.subscriptions.create "RoomChannel",
+  room_id = $('#chats').data('room_id')
+  App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: room_id },
   connected: ->
     # Called when the subscription is ready for use on the server
 
@@ -15,7 +16,7 @@ App.room = App.cable.subscriptions.create "RoomChannel",
   received: (data) ->
     # メッセージ一覧の末尾に受信したメッセージを追加する
     $('#chats').append data['chat']
-
+    console.log(data['chat'])
   speak: (chat) ->
     # サーバのspeakメソッドを呼び出す
-    @perform 'speak', chat: chat
+    @perform 'speak', {chat: chat, room_id: $('#chats').data('room_id')}

@@ -10,14 +10,13 @@ class RoomChannel < ApplicationCable::Channel
 
   def speak(data)
     # データベースにクライアントから受信したメッセージを保存する
-    binding.pry
     chat = Chat.create!(content: data['chat'],
                         user_id: current_user.id,
-                        room_id: params['room_id'])
+                        room_id: data['room_id'])
     render_chat = ApplicationController.renderer.render(partial: 'chats/chat',
                                                         locals: {chat: chat})
     ActionCable.server.broadcast 'room_channel',
                                   chat: render_chat,
-                                  room_id: params['room_id']
+                                  room_id: data['room_id']
   end
 end
