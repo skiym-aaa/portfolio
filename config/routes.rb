@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/contact/confirm' => 'messages#confirm'
   post '/contact/done' => 'messages#done'
   # チャットルーム
-  get 'rooms/show'
+  resources :rooms, only: [:index, :create, :show]
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations'

@@ -3,7 +3,7 @@ class ChatBroadcastJob < ApplicationJob
 
   def perform(chat)
     # room_channelにメッセージをブロードキャストする
-    ActionCable.server.broadcast 'room_channel', chat: render_chat(chat)
+    # ActionCable.server.broadcast 'room_channel', chat: render_chat(chat)
   end
 
   private
