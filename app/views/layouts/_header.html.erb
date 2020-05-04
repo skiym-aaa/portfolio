@@ -1,24 +1,27 @@
+<%= link_to root_path do %>
+  <div class="logo"><img src="/assets/logo.png" alt="ロゴ"></div>
+<% end %>
+
 <header class="navbar navbar-inverse">
   <div class="container">
-    <nav class="nav navbar-nav navbar-left">
-      <span><%= link_to "idol places",root_path %></span>
-    </nav>
     <nav>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav nav-pills nav-justified">
         <% if user_signed_in? %>
-          <li><%= link_to "About",about_path %></li>
-          <li><%= link_to "アイドル",idols_path %></li>
-          <li><%= link_to "場所",places_path %></li>
-          <li><%= link_to "イベント",events_path %></li>
-          <li><%= link_to "マイページ",user_path(current_user) %></li>
-          <li><%= link_to "ログアウト",destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to " About",about_path, class: 'glyphicon glyphicon-link about' %></li>
+          <li><%= link_to " アイドル",idols_path, class: "glyphicon glyphicon-user" %></li>
+          <li><%= link_to " 場所",places_path, class: "glyphicon glyphicon-map-marker" %></li>
+          <li><%= link_to " イベント",events_path, class: "glyphicon glyphicon-calendar" %></li>
+          <li><%= link_to " マイページ",user_path(current_user), class: "glyphicon glyphicon-home" %></li>
+          <li><%= link_to " ログアウト",destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out logout' %></li>
+          <li><%= link_to ' 連絡先', contact_index_path, class: "glyphicon glyphicon-envelope" %></li>
         <% else %>
-          <li><%= link_to "About",about_path %></li>
-          <li><%= link_to "アイドル",idols_path %></li>
-          <li><%= link_to "場所",places_path %></li>
-          <li><%= link_to "イベント",events_path %></li>
-          <li><%= link_to "新規登録",new_user_registration_path %></li>
-          <li><%= link_to "ログイン", new_user_session_path %></li>
+          <li><%= link_to " About",about_path,class: 'glyphicon glyphicon-link about' %></li>
+          <li><%= link_to " アイドル",idols_path, class: "glyphicon glyphicon-user"  %></li>
+          <li><%= link_to " 場所",places_path, class: "glyphicon glyphicon-map-marker" %></li>
+          <li><%= link_to " イベント",events_path, class: "glyphicon glyphicon-calendar" %></li>
+          <li><%= link_to " 新規登録",new_user_registration_path, class: 'glyphicon glyphicon-edit sign_up' %></li>
+          <li><%= link_to " ログイン", user_session_path, class: "glyphicon glyphicon-log-in" %></li>
+          <li><%= link_to ' 連絡先', contact_index_path, class: "glyphicon glyphicon-envelope" %></li>
         <% end %>
       </ul>
     </nav>

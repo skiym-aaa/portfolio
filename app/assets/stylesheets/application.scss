@@ -78,13 +78,34 @@
   border-radius: 10px;
  }
 
- /* ヘッダー */
- header {
-  color: white;
+ /* ロゴ */
+ .logo {
+  text-align: center;
  }
 
- header .navbar-left span {
- font-size: 30px;
+ .logo img {
+  width: 200px;
+  height: auto;
+ }
+
+ /* ヘッダー(メニューバー) */
+ .navbar {
+  min-height: 0px;
+  color: #fff;
+ }
+
+ .navbar a {
+  color: #fff;
+ }
+
+ .navbar a:hover {
+  color: black;
+  background-color: gray;
+ }
+
+ /* サイドバー */
+ .search-form select {
+  margin-top: 10px;
  }
 
  /* 共通部分 */
