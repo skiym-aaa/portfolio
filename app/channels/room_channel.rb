@@ -1,7 +1,7 @@
 class RoomChannel < ApplicationCable::Channel
   def subscribed
     # room_channelからデータを受信する
-    stream_from "room_channel"
+    stream_from 'room_channel'
   end
 
   def unsubscribed
