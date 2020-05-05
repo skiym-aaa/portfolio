@@ -1,37 +1,17 @@
-<!-- タイトル -->
-<h2 class="heading"><span>アイドル一覧</span></h2>
-
-<!-- アイドル追加ボタン -->
-<% if user_signed_in? %>
-  <%= link_to new_idol_path do %>
-    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true" style="font-size:30px"></span>
-  <% end %>
-<% end %>
-
-<!-- アイドル一覧 -->
-<table class="table table-hover">
-  <thead>
-    <tr class="active">
-      <th>アイドル名</th>
-      <th>公式HP</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% idols.each do |idol| %>
-      <tr>
-        <td><%= link_to idol.name, idol_path(idol) %></td>
-        <td><%= link_to idol.official_site, idol.official_site %></td>
-        <td>
-          <% if user_signed_in? %>
-            <% if idol.favorited_by?(current_user) %>
-              <%= link_to "お気に入り解除", idol_favorites_path(idol.id), method: :delete , class: "btn btn-md btn-danger" %>
-            <% else %>
-              <%= link_to "お気に入り登録", idol_favorites_path(idol.id), method: :post , class: "btn btn-md btn-success" %>
-            <% end %>
-          <% end %>
-        </td>
-      </tr>
+<% idols.each do |idol| %>
+  <div class="list-box idol-box">
+    <% if idol.image_id? %>
+      <%= image_tag idol.image_id.to_s, size: "240x240" %>
+    <% else %>
+      <%= image_tag "no_image.jpg", size: "240x240" %>
     <% end %>
-  </tbody>
-</table>
+    <span class="list-title"><%= link_to idol.name, idol_path(idol) %></span>
+      <% if user_signed_in? %>
+        <% if idol.favorited_by?(current_user) %>
+          <%= link_to "お気に入り解除", idol_favorites_path(idol.id), method: :delete , class: "glyphicon glyphicon-heart-empty btn1 btn1-success" %>
+        <% else %>
+          <%= link_to "お気に入り登録", idol_favorites_path(idol.id), method: :post , class: "glyphicon glyphicon-heart-empty btn1 btn1-danger" %>
+        <% end %>
+    <% end %>
+  </div>
+<% end %>

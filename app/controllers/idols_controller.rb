@@ -7,6 +7,7 @@ class IdolsController < ApplicationController
 
   def show
     @idol = Idol.find(params[:id])
+    @event = Event.where(idol_id: params[:id])
   end
 
   def new
