@@ -12,8 +12,9 @@
           <li><%= link_to " 場所",places_path, class: "glyphicon glyphicon-map-marker" %></li>
           <li><%= link_to " イベント",events_path, class: "glyphicon glyphicon-calendar" %></li>
           <li><%= link_to " マイページ",user_path(current_user), class: "glyphicon glyphicon-home" %></li>
-          <li><%= link_to " ログアウト",destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out logout' %></li>
           <li><%= link_to ' 連絡先', contact_index_path, class: "glyphicon glyphicon-envelope" %></li>
+          <li><%= link_to ' チャット', rooms_path, class: "glyphicon glyphicon-volume-up" %></li>
+          <li><%= link_to " ログアウト",destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out logout' %></li>
         <% else %>
           <li><%= link_to " About",about_path,class: 'glyphicon glyphicon-link about' %></li>
           <li><%= link_to " アイドル",idols_path, class: "glyphicon glyphicon-user"  %></li>

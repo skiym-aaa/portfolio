@@ -4,11 +4,11 @@ class ImagesUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # このアップローダーを利用した画像の最大数を指定します。
-  process resize_to_fit: [800, 800]
+  process resize_to_fit: [1920, 1280]
 
   # 上記とは別にサムネイルを別サイズで用意します。
   version :thumb do
-    process resize_to_fill: [300, 300]
+    process resize_to_fill: [240, 240]
   end
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick

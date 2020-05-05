@@ -16,6 +16,8 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
 
  /* リセットCSS */
  * {
@@ -76,6 +78,11 @@
   color: red;
  }
 
+ /* フォント */
+ body {
+ font-family: 'Quicksand', sans-serif;
+ }
+
  /* ロゴ */
  .logo {
   text-align: center;
@@ -106,9 +113,18 @@
   margin-top: 10px;
  }
 
+ /* サイドバー */
+ footer {
+  margin-top: 20px;
+ }
+
  /* 共通部分 */
  a, a:link, a:visited {
   text-decoration: none;
+ }
+
+ .heading {
+  margin: 0px;
  }
 
  .heading span {
@@ -129,11 +145,19 @@
 }
 
 .btn1-success {
-  background: #668ad8;/*ボタン色*/
+  background: #00ff7f;
 }
 
 .btn1-danger {
-  background: red;/*ボタン色*/
+  background: #ffb6c1;
+}
+
+.btn1-warning {
+  background: #ffa500;
+}
+
+.btn1-info {
+  background: #ffff00;
 }
 
 .btn1:active {
@@ -141,6 +165,40 @@
   -webkit-transform: translateY(4px);
   transform: translateY(4px);/*下に動く*/
   border-bottom: none;/*線を消す*/
+}
+
+.list-box {
+  margin-top: 10px;
+  float: left;
+  position: relative;
+  text-align: center;
+}
+
+.list-body {
+  display: block;
+  color: gray;
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  }
+
+.list-title {
+  display: block;
+  font-size: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  }
+
+.idol-box {
+  width: 240px;
+  height: 320px;
+}
+
+.place-box {
+  width: 240px;
+  height: 270px;
 }
 
 
