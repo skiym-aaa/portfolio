@@ -16,8 +16,8 @@
       <tr>
         <td><%= link_to event.title, event_path(event) %></td>
         <td><%= event.body %></td>
-        <td><%= event.idol.name %></td>
-        <td><%= event.place.name %></td>
+        <td><%= link_to event.idol.name, idol_path(event.idol.id) %></td>
+        <td><%= link_to event.place.name, place_path(event.place.id) %></td>
         <td><%= l event.start_date %></td>
         <td><%= l event.end_date %></td>
         <!-- <td><%= link_to 'Show', event %></td> -->

@@ -1,5 +1,11 @@
-<h2 class="heading"><span>イベント新規登録</span></h2>
+<!-- サイドバー -->
+<div class="col-xs-4">
+  <%= render "layouts/sidebar"%>
+</div>
 
-<%= render 'form', event: @event %>
-
-<%= link_to '戻る', events_path %>
+<div class="col-xs-8">
+  <h2 class="heading"><span>イベント新規登録</span></h2>
+  <hr>
+  <%= render 'form', event: @event %>
+  <%= link_to '戻る', events_path %>
+</div>

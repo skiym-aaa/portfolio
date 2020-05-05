@@ -1,35 +1,41 @@
 <!-- コメントフォーム -->
 <% if user_signed_in? %>
-  <%= form_with model: [event, event_comment], url: event_event_comments_path(event.id), method: :post, data: {remote: true} do |f| %>
-  <!-- エラーメッセージ -->
-  <%= render 'layouts/errors', obj: event_comment %>
+  <div class="row">
+    <h3>コメント</h3>
+    <%= form_with model: [event, event_comment], url: event_event_comments_path(event.id), method: :post, data: {remote: true} do |f| %>
+    <!-- エラーメッセージ -->
+    <%= render 'layouts/errors', obj: event_comment %>
 
-    <div class="col-xs-12">
-      <%= f.text_area :body, rows:'2', class:"form-control", placeholder:"コメントをここに" %>
-    </div>
-    <%= f.submit "送信する", class:"btn btn-lg pull-right" %>
-  <% end %>
+      <div class="col-xs-12">
+        <%= f.text_area :body, rows:'2', class:"form-control", placeholder:"コメントをここに" %>
+      </div>
+      <%= f.submit "送信する", class:"btn btn-lg pull-right" %>
+    <% end %>
+  </div>
 <% end %>
+<hr>
 
 <!-- コメント一覧 -->
-<h2 class="comment-count">
-  <%= event.event_comments.count %>件のコメント
-</h2>
-<ol>
-  <% event.event_comments.each do |event_comment| %>
-    <li class="comment">
-      <%= event_comment.user.name %>
-      <span class="comment-date"><%= l event_comment.created_at %></span>
-      <br>
-      <%= event_comment.body %>
-      </br>
+<div class="row">
+  <h3 class="comment-count">
+    <%= event.event_comments.count %>件のコメント
+  </h3>
+  <ol>
+    <% event.event_comments.each do |event_comment| %>
+      <li class="comment">
+        <%= event_comment.user.name %>
+        <span class="comment-date"><%= l event_comment.created_at %></span>
+        <br>
+        <%= event_comment.body %>
+        </br>
 
-      <!-- コメント投稿者のみ削除リンク -->
-      <% if user_signed_in? %>
-        <% if event_comment.user.id == current_user.id %>
-          <%= link_to "削除",event_event_comments_path(event_id: event_comment.id, id: event.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, remote: true, class: "btn-sm btn-default pull-right" %>
+        <!-- コメント投稿者のみ削除リンク -->
+        <% if user_signed_in? %>
+          <% if event_comment.user.id == current_user.id %>
+            <%= link_to "削除",event_event_comments_path(event_id: event_comment.id, id: event.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, remote: true, class: "btn-sm btn-default pull-right" %>
+          <% end %>
         <% end %>
-      <% end %>
-    </li>
-  <% end %>
-</ol>
+      </li>
+    <% end %>
+  </ol>
+</div>

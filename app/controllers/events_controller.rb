@@ -5,7 +5,7 @@ class EventsController < InheritedResources::Base
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.all.order(:start_date)
   end
 
   # GET /events/1

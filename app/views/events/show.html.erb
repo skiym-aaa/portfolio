@@ -7,10 +7,17 @@
 
   <div class="col-xs-8">
     <h2 class="heading"><span>イベント詳細</span></h2>
+    <hr>
+
     <div class="row">
 
       <!-- 画像 -->
       <div class="col-xs-6">
+        <% if @idol.image_id? %>
+          <%= image_tag @idol.image_id.to_s, size: "300x300" %>
+        <% else %>
+          <%= image_tag "no_image.jpg", size: "300x300" %>
+        <% end %>
       </div>
       <!-- 詳細 -->
       <div class="col-xs-6">
@@ -45,13 +52,15 @@
         </p>
       </div>
     </div>
+    <hr>
 
     <!-- 編集ボタン -->
     <% if user_signed_in? %>
       <div class="row">
-        <%= link_to "編集する", edit_event_path(@event.id), class: "btn btn-md btn-warning" %>
+        <%= link_to "編集する", edit_event_path(@event.id), class: "btn1 btn1-warning" %>
       </div>
     <% end %>
+    <hr>
 
     <!-- イベントコメントフォーム/一覧 -->
     <div class="row">

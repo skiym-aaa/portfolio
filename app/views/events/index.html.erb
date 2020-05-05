@@ -1,9 +1,11 @@
-<h2 class="heading"><span>イベント一覧</span></h2>
+<h2 class="heading"><span>イベントカレンダー</span></h2>
+<hr>
 
 <div id="calendar"></div>
+<hr>
 
 <%= render "index", events: @events %>
 <br>
 <% if user_signed_in? %>
-  <%= link_to 'New Event', new_event_path %>
+  <%= link_to 'イベント新規作成', new_event_path %>
 <% end %>
