@@ -1,10 +1,13 @@
 <% if @model == 'idol' %>
-  <h3>Idols search for '<%= @content %>'</h3>
+  <h3>'<%= @content %>'の検索結果(アイドル)</h3>
+  <hr>
   <%= render 'idols/index', idols: @records %>
 <% elsif @model == 'place' %>
-  <h3>Places search for '<%= @content %>'</h3>
+  <h3>'<%= @content %>'の検索結果(場所)</h3>
+  <hr>
   <%= render 'places/index', places: @records %>
 <% else @model == 'event' %>
-  <h3>Events search for '<%= @content %>'</h3>
+  <h3>'<%= @content %>'の検索結果(イベント)</h3>
+  <hr>
   <%= render 'events/index', events: @records %>
 <% end %>
