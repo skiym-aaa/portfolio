@@ -1,9 +1,12 @@
-<h1>チャットルーム一覧</h1>
+<div class="col-xs-6">
+  <h1>チャットルーム一覧</h1>
+  <hr>
 
-<% @rooms.each do |room| %>
-  <div>
-    <%= link_to "Room#{room.id}", room_path(room) %>
-  </div>
-<% end %>
+  <% @rooms.each do |room| %>
+    <div>
+      <%= link_to "Room#{room.id}", room_path(room) %>
+    </div>
+  <% end %>
 
-<%= link_to "新規チャットルーム作成", rooms_path, method: :post, class: "btn btn-primary" %>
+  <%= link_to "新規チャットルーム作成", rooms_path, method: :post, class: "btn1 btn1-succcss" %>
+</div>
