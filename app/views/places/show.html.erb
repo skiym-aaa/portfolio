@@ -3,74 +3,99 @@
   <!-- サイドバー -->
   <div class="col-xs-4">
     <%= render "layouts/sidebar"%>
+    <!-- GoogleMap表示 -->
+    <div class="row">
+      <%= render "places/google_map", place: @place %>
+    </div>
   </div>
 
   <div class="col-xs-8">
     <h2 class="heading"><span>場所詳細</span>&emsp;<%= @place.name %></h2>
+    <hr>
     <div class="row">
 
-        <!-- 画像 -->
-        <div class="col-xs-6">
+      <!-- 画像 -->
+      <div class="col-xs-6">
+        <% if @place.image_id? %>
           <%= link_to @place.image_id.url do %>
-            <%= image_tag @place.image_id.to_s, size: "300x200" %>
+            <%= image_tag @place.image_id.to_s, size: "360x240" %>
           <% end %>
-        </div>
+        <% else %>
+          <%= image_tag "no_image.jpg", size: "360x240" %>
+        <% end %>
+      </div>
 
-        <!-- 詳細 -->
-        <div class="col-xs-6">
-          <h4>About</h4>
-          <p><%= @place.about %></p>
-          <h4>住所</h4>
-          <p><%= @place.address %></p>
-          <%= link_to "公式サイト", @place.official_site %>
-        </div>
+      <!-- 詳細 -->
+      <div class="col-xs-6">
+        <h4>About</h4>
+        <p><%= @place.about %></p>
+        <h4>住所</h4>
+        <p><%= @place.address %></p>
+        <%= link_to "公式サイト", @place.official_site %>
+      </div>
     </div>
 
     <!-- 場所写真 -->
-    <div class="row">
-      <% @place_photos.each do |place_photo| %>
-        <%= link_to place_photo.image_id.url do %>
-          <%= image_tag place_photo.image_id.to_s, size: "60x40" %>
-        <% end %>
-      <% end %>
-    </div>
+    <% if @place_photos.exists? %>
+    <hr>
+      <div class="row">
+        <div class="col-xs-12">
+          <% @place_photos.each do |place_photo| %>
+            <%= link_to place_photo.image_id.url do %>
+              <%= image_tag place_photo.image_id.to_s, size: "60x40" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <hr>
 
     <div class="row">
       <% if user_signed_in? %>
         <div class="col-xs-6">
           <% if @place.bookmarked_by?(current_user) %>
-            <%= link_to "お気に入り解除", place_bookmarks_path(@place.id), method: :delete , class: "btn btn-md btn-danger" %>
+            <%= link_to "お気に入り解除", place_bookmarks_path(@place.id), method: :delete , class: "glyphicon glyphicon-heart-empty btn1 btn1-success" %>
           <% else %>
-            <%= link_to "お気に入り登録", place_bookmarks_path(@place.id), method: :post , class: "btn btn-md btn-success" %>
+            <%= link_to "お気に入り登録", place_bookmarks_path(@place.id), method: :post , class: "glyphicon glyphicon-heart-empty btn1 btn1-danger" %>
           <% end %>
 
-          <%= link_to "写真追加", new_place_place_photo_path(@place.id), class: "btn btn-md btn-default" %>
+          <%= link_to "写真追加", new_place_place_photo_path(@place.id), class: "btn1 btn1-info" %>
         </div>
 
         <div class="col-xs-6">
-          <%= link_to "編集する", edit_place_path(@place.id), class: "btn btn-md btn-warning" %>
+          <%= link_to "編集する", edit_place_path(@place.id), class: "btn1 btn1-warning" %>
         </div>
       <% end %>
     </div>
+    <hr>
 
-      <!-- GoogleMap表示 -->
-      <div class="row">
-        <%= render "places/google_map", place: @place %>
+    <!-- 関連イベント情報 -->
+    <div class="row">
+      <div class="col-xs-12">
+        <h3>関連イベント情報</h3>
+        <%= render 'events/index', events: @event %>
       </div>
+    </div>
 
-      <!-- コメントフォーム -->
-      <div class="row">
+    <!-- コメントフォーム -->
+    <div class="row">
+      <div class="col-xs-12">
         <div id ="place_comment_form_<%=@place.id %>">
           <%= render "places/comment_form", place: @place, place_comment: @place_comment %>
         </div>
       </div>
+    </div>
+    <hr>
 
-      <!-- コメント一覧 -->
-      <div class="row">
+    <!-- コメント一覧 -->
+    <div class="row">
+      <div class="col-xs-12">
         <div id ="place_comments_<%= @place.id %>">
           <%= render "places/comments", place: @place %>
         </div>
       </div>
+    </div>
+
   </div>
 </div>
 

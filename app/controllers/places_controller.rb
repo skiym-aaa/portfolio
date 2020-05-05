@@ -9,6 +9,7 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     @place_photos = PlacePhoto.where(place_id: @place.id)
     @place_comment = PlaceComment.new
+    @event = Event.where(place_id: params[:id])
   end
 
   def new

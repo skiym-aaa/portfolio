@@ -9,6 +9,8 @@ class PlaceCommentsController < ApplicationController
     @place_comment.rate = params[:score]
     @place_comment.save
     flash.now[:notice] = 'コメントの作成が完了しました！'
+    # ajaxのrender用
+    @event = Event.where(place_id: params[:id])
   end
 
   def destroy
@@ -20,6 +22,7 @@ class PlaceCommentsController < ApplicationController
     @place = Place.find(params[:id])
     @place_photos = PlacePhoto.where(place_id: @place.id)
     @new_place_comment = PlaceComment.new
+    @event = Event.where(place_id: params[:id])
   end
 
   def place_comment_params
