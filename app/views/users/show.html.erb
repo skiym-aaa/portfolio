@@ -1,5 +1,6 @@
 <div class="row">
   <h2 class="heading"><span>マイページ</span></h2>
+  <hr>
   <div class="col-xs-6">
     <div class="row">
       <div class="col-xs-6">
@@ -14,24 +15,22 @@
             <td><%= @user.email %></td>
           </tr>
         </table>
+        <%= link_to "編集する",edit_user_path(@user), class: "btn1 btn1-warning" %>
+        <%= link_to "退会する",user_confirm_path, class: "btn1 btn1-danger" %>
       </div>
       <div class="col-xs-6">
         <p>プロフィール画像</p>
-        <%= image_tag @user.image_id.to_s, size: "150x100" %>
-      </div>
-
-      <div class="row">
-        <%= link_to "編集する",edit_user_path(@user), class: "btn btn-lg btn-success" %>
-        <%= link_to "退会する",user_confirm_path, class: "btn btn-lg btn-danger" %>
+        <%= image_tag @user.image_id.to_s, size: "150x150" %>
       </div>
     </div>
+
+    <hr>
     <div class="row">
       <div class="col-xs-6">
-        <p>お気に入りアイドル一覧</p>
+        <p style="text-align: center;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>お気に入りアイドル一覧</p>
         <table class="table table-hover">
           <thead>
             <tr class="active">
-              <th>ID</th>
               <th>アイドル名</th>
               <th></th>
             </tr>
@@ -40,9 +39,8 @@
           <tbody>
             <% current_user.favorite_idols.each do |idol| %>
               <tr>
-                <td><%= idol.id %></td>
                 <td><%= link_to idol.name, idol_path(idol) %></td>
-                <td><%= link_to "お気に入り解除", idol_favorites_path(idol.id), method: :delete , class: "btn btn-xs btn-danger" %>
+                <td><%= link_to "解除", idol_favorites_path(idol.id), method: :delete , class: "btn1 btn1-success" %>
                 </td>
               </tr>
             <% end %>
@@ -51,11 +49,10 @@
       </div>
 
       <div class="col-xs-6">
-        <p>お気に入り場所一覧</p>
+        <p style="text-align: center;"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>お気に入り場所一覧</p>
         <table class="table table-hover">
           <thead>
             <tr class="active">
-              <th>ID</th>
               <th>場所名</th>
               <th></th>
             </tr>
@@ -64,9 +61,8 @@
           <tbody>
             <% current_user.bookmark_places.each do |place| %>
               <tr>
-                <td><%= place.id %></td>
                 <td><%= link_to place.name, place_path(place) %></td>
-                <td><%= link_to "お気に入り解除", place_bookmarks_path(place.id), method: :delete , class: "btn btn-xs btn-danger" %>
+                <td><%= link_to "解除", place_bookmarks_path(place.id), method: :delete , class: "btn1 btn1-success" %>
                 </td>
               </tr>
             <% end %>
@@ -76,7 +72,7 @@
     </div>
   </div>
   <div class="col-xs-6">
-    <h4>オススメイベント情報</h4>
+    <h4 style="text-align: center;"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>オススメイベント情報</h4>
     <table class="table table-hover">
           <thead>
             <tr class="active">
