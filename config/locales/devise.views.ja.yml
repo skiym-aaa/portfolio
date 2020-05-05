@@ -1,4 +1,24 @@
 ja:
+  activemodel:
+    errors:
+      models:
+        message:
+          attributes:
+            name:
+              blank: "が入力されていません。"
+            email:
+              blank: "が入力されていません。"
+              invalid: "は有効ではありません。"
+            content:
+              blank: "が入力されていません。"
+    attributes:
+      message:
+        name: "名前"
+        email: "メールアドレス"
+        content: "内容"
+    models:
+      message: "メッセージ"
+
   activerecord:
     errors:
       models:
@@ -114,6 +134,7 @@ ja:
       event: "イベント"
       event_comment: "イベントコメント"
       message: "メッセージ"
+
   devise:
     confirmations:
       new:
