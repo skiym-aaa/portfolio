@@ -3,8 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @idols = Idol.includes(:favorites).where(user_id: @user.id)
-    # @places = Place.includes(:bookmarks).where(user_id: @user.id)
+    @events = Event.where(idol_id: @user.favorite_idols.ids).or(Event.where(place_id: @user.bookmark_places.ids))
   end
 
   def edit
