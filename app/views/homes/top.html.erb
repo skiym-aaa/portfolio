@@ -1,2 +1,42 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div class="row">
+
+  <!-- サイドバー -->
+  <div class="col-xs-4">
+    <%= render "layouts/sidebar" %>
+  </div>
+
+  <div class="col-xs-8">
+
+    <!-- イベント -->
+    <div class="events">
+      <div class="heading">
+        <h2>おすすめイベント情報</h2>
+      </div>
+      <hr>
+      <div class="contents">
+        <%= render "events/index", events: @events %>
+      </div>
+    </div>
+    <!-- アイドル -->
+    <div class="idols" style="height:400px;">
+      <div class="heading">
+        <h2>おすすめアイドル</h2>
+      </div>
+      <hr>
+      <div class="contents">
+        <%= render "idols/index", idols: @idols %>
+      </div>
+    </div>
+    <!-- 場所 -->
+    <div class="places">
+      <div class="heading">
+        <h2>おすすめ場所</h2>
+      </div>
+      <hr>
+      <div class="contents">
+        <%= render "places/index", places: @places %>
+      </div>
+    </div>
+  </div>
+
+</div>
