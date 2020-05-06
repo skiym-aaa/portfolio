@@ -80,17 +80,12 @@
 
  /* フォント */
  body {
- font-family: 'Quicksand', sans-serif;
+ font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
  }
 
  /* ロゴ */
  .logo {
   text-align: center;
- }
-
- .logo img {
-  width: 200px;
-  height: auto;
  }
 
  /* ヘッダー(メニューバー) */
@@ -113,7 +108,7 @@
   margin-top: 10px;
  }
 
- /* サイドバー */
+ /* フッター */
  footer {
   margin-top: 20px;
  }
@@ -123,11 +118,24 @@
   text-decoration: none;
  }
 
+ .head {
+  height: 30px;
+ }
+
  .heading {
   margin: 0px;
  }
 
  .heading span {
+  background-color: #F5F5F5;
+ }
+
+ .index-heading {
+  margin: 0px;
+  float: left
+ }
+
+ .index-heading span {
   background-color: #F5F5F5;
  }
 
@@ -158,6 +166,12 @@
 
 .btn1-info {
   background: #ffff00;
+}
+
+.btn1-add {
+  background: #e0ffff;
+  float: left;
+  margin-left: 20px;
 }
 
 .btn1:active {
