@@ -17,25 +17,46 @@
 
 <!-- コメント一覧 -->
 <div class="row">
-  <h3 class="comment-count">
+  <h4 class="comment-count">
     <%= event.event_comments.count %>件のコメント
-  </h3>
-  <ol>
-    <% event.event_comments.each do |event_comment| %>
-      <li class="comment">
-        <%= event_comment.user.name %>
-        <span class="comment-date"><%= l event_comment.created_at %></span>
-        <br>
-        <%= event_comment.body %>
-        </br>
+  </h4>
+  <div class="comment-list" id="comments">
+    <div class="float-wrapper">
 
-        <!-- コメント投稿者のみ削除リンク -->
-        <% if user_signed_in? %>
-          <% if event_comment.user.id == current_user.id %>
-            <%= link_to "削除",event_event_comments_path(event_id: event_comment.id, id: event.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, remote: true, class: "btn-sm btn-default pull-right" %>
-          <% end %>
+      <ol>
+        <% event.event_comments.each do |event_comment| %>
+          <li class="comment">
+            <div class="comment-body bb">
+              <div class="comment-avatar">
+                <div class="avatar">
+                  <% if event_comment.user.image_id? %>
+                    <%= image_tag event_comment.user.image_id.to_s, size: "60x60" %>
+                  <% else %>
+                    <%= image_tag "no_image.jpg", size: "60x60" %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="comment-text">
+                <div class="comment-author clearfix">
+                  <%= event_comment.user.name %>
+                  <span class="comment-meta">
+                    <span class="comment-date"><%= l event_comment.created_at %></span>
+                  </span>
+                </div>
+                <div class="comment-entry"><%= event_comment.body %></div>
+              </div>
+              <!-- コメント投稿者のみ削除リンク -->
+              <% if user_signed_in? %>
+                <% if event_comment.user.id == current_user.id %>
+                  <%= link_to "削除",event_event_comments_path(event_id: event_comment.id, id: event.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, remote: true, class: "btn1 btn1-danger pull-right"%>
+                <% end %>
+              <% end %>
+            </div>
+          </li>
         <% end %>
-      </li>
-    <% end %>
-  </ol>
+      </ol>
+
+    </div>
+  </div>
+
 </div>

@@ -1,37 +1,56 @@
-<h3 class="comment-count">
-  <%= place.place_comments.count %>件のコメント
-</h3>
+<!-- コメント一覧 -->
+<div class="row">
+  <h4 class="comment-count">
+    <%= place.place_comments.count %>件のコメント
+  </h4>
+  <div class="comment-list" id="comments">
+    <div class="float-wrapper">
 
-<ol>
-  <% place.place_comments.each do |place_comment| %>
-    <li class="comment">
-      <%= place_comment.user.name %>
-      <span class="comment-date"><%= l place_comment.created_at %></span>
-      <br>
-      <%= place_comment.body %>
-      <div id="reviewed_star_<%= place_comment.id %>">
-      </div>
-      </br>
-
-      <!-- コメント投稿者のみ削除リンク -->
-      <% if user_signed_in? %>
-        <% if place_comment.user.id == current_user.id %>
-          <%= link_to "削除",place_place_comments_path(place_id: place_comment.id, id: place.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-default pull-right", remote: true %>
+      <ol>
+        <% place.place_comments.each do |place_comment| %>
+          <li class="comment">
+            <div class="comment-body bb">
+              <div class="comment-avatar">
+                <div class="avatar">
+                  <% if place_comment.user.image_id? %>
+                    <%= image_tag place_comment.user.image_id.to_s, size: "60x60" %>
+                  <% else %>
+                    <%= image_tag "no_image.jpg", size: "60x60" %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="comment-text">
+                <div class="comment-author clearfix">
+                  <%= place_comment.user.name %>
+                  <span class="comment-meta">
+                    <span class="comment-date"><%= l place_comment.created_at %></span>
+                  </span>
+                </div>
+                <div class="comment-entry"><%= place_comment.body %></div>
+                <div id="reviewed_star_<%= place_comment.id %>">
+                </div>
+              </div>
+              <!-- コメント投稿者のみ削除リンク -->
+              <% if user_signed_in? %>
+                <% if place_comment.user.id == current_user.id %>
+                  <%= link_to "削除",place_place_comments_path(place_id: place_comment.id, id: place.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn1 btn1-danger pull-right", remote: true %>
+                <% end %>
+              <% end %>
+            </div>
+            <script>
+              $("#reviewed_star_<%= place_comment.id %>").raty({
+              size: 36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              readOnly: true,
+              half: true,
+              score: '<%= place_comment.rate %>'
+              });
+            </script>
+          </li>
         <% end %>
-      <% end %>
-      <!-- ここまで -->
-      <script>
-        $("#reviewed_star_<%= place_comment.id %>").raty({
-        size: 36,
-        starOff:  '<%= asset_path('star-off.png') %>',
-        starOn : '<%= asset_path('star-on.png') %>',
-        starHalf: '<%= asset_path('star-half.png') %>',
-        readOnly: true,
-        half: true,
-        score: '<%= place_comment.rate %>'
-        });
-      </script>
-    </li>
+      </ol>
 
-  <% end %>
-</ol>
+    </div>
+  </div>
