@@ -126,7 +126,9 @@ ja:
         content: "内容"
 
     models:
-      user: "ユーザ"
+      admin_user: "管理者"
+      comment: "管理者コメント"
+      user: "ユーザー"
       idol: "アイドル"
       place: "場所"
       place_comment: "場所コメント"
@@ -134,6 +136,8 @@ ja:
       event: "イベント"
       event_comment: "イベントコメント"
       message: "メッセージ"
+      room: "ルーム"
+      chat: "チャット"
 
   devise:
     confirmations:
