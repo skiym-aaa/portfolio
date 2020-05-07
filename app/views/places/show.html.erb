@@ -15,7 +15,7 @@
     <div class="row">
 
       <!-- 画像 -->
-      <div class="col-xs-6">
+      <div class="col-xs-7 photo">
         <% if @place.image_id? %>
           <%= link_to @place.image_id.url do %>
             <%= image_tag @place.image_id.to_s, size: "360x240" %>
@@ -26,7 +26,7 @@
       </div>
 
       <!-- 詳細 -->
-      <div class="col-xs-6">
+      <div class="col-xs-5">
         <h4>About</h4>
         <p><%= @place.about %></p>
         <h4>住所</h4>

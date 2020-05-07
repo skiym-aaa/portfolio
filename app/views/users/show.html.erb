@@ -18,7 +18,7 @@
         <%= link_to "編集する",edit_user_path(@user), class: "btn1 btn1-warning" %>
         <%= link_to "退会する",user_confirm_path, class: "btn1 btn1-danger" %>
       </div>
-      <div class="col-xs-6">
+      <div class="col-xs-6 user-photo">
         <p>プロフィール画像</p>
         <% if @user.image_id? %>
           <%= image_tag @user.image_id.to_s, size: "150x150" %>

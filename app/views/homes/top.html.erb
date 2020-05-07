@@ -8,33 +8,39 @@
   <div class="col-xs-8">
 
     <!-- イベント -->
-    <div class="events">
-      <div class="heading">
-        <h2>おすすめイベント情報</h2>
-      </div>
-      <hr>
-      <div class="contents">
-        <%= render "events/index", events: @events %>
+    <div class="row">
+      <div class="events">
+        <div class="heading">
+          <h2>おすすめイベント情報</h2>
+        </div>
+        <hr>
+        <div class="contents">
+          <%= render "events/index", events: @events %>
+        </div>
       </div>
     </div>
     <!-- アイドル -->
-    <div class="idols" style="height:400px;">
-      <div class="heading">
-        <h2>おすすめアイドル</h2>
-      </div>
-      <hr>
-      <div class="contents">
-        <%= render "idols/index", idols: @idols %>
+    <div class="row">
+      <div class="idols">
+        <div class="heading">
+          <h2>おすすめアイドル</h2>
+        </div>
+        <hr>
+        <div class="contents">
+          <%= render "idols/index", idols: @idols %>
+        </div>
       </div>
     </div>
     <!-- 場所 -->
-    <div class="places">
-      <div class="heading">
-        <h2>おすすめ場所</h2>
-      </div>
-      <hr>
-      <div class="contents">
-        <%= render "places/index", places: @places %>
+    <div class="row">
+      <div class="places">
+        <div class="heading">
+          <h2>おすすめ場所</h2>
+        </div>
+        <hr>
+        <div class="contents">
+          <%= render "places/index", places: @places %>
+        </div>
       </div>
     </div>
   </div>

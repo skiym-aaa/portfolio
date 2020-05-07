@@ -20,7 +20,11 @@
         <tr>
           <td><%= f.label :画像 %></td>
           <td>
-            <%= image_tag @user.image_id.to_s, size: "150x150" %>
+            <% if @user.image_id? %>
+              <%= image_tag @user.image_id.to_s, size: "150x150" %>
+            <% else %>
+              <%= image_tag "no_image.jpg", size: "150x150" %>
+            <% end %>
             <%= f.file_field :image_id %>
           </td>
         </tr>
