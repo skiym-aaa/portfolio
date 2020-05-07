@@ -1,3 +1,16 @@
-// Place all the styles related to the place_photos controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+ul.bxslider li {
+  // 指定したい幅と高さ
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+ul.bxslider li img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+}

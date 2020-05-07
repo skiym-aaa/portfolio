@@ -1,2 +1,15 @@
-<h1>PlacePhotos#show</h1>
-<p>Find me in app/views/place_photos/show.html.erb</p>
+<script src="http://bxslider.com/lib/jquery.bxslider.js"></script>
+
+<ul class="bxslider">
+  <% @place_photos.each do |place_photo| %>
+    <li>
+      <%= link_to place_place_photo_path(place_photo) do %>
+        <% if place_photo.image_id? %>
+          <%= image_tag place_photo.image_id.to_s %>
+        <% else %>
+          <%= image_tag 'no_image.png' %>
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

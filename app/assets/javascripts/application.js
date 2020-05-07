@@ -19,9 +19,11 @@
 //= require moment
 //= require fullcalendar
 //= require jquery.raty
+//= require bxslider
 
 // カレンダー機能
 $(function () {
+    console.log(gon.events)
     // 画面遷移を検知
     // $(document).on('turbolinks:load', function () {
         if ($('#calendar').length) {
@@ -41,7 +43,7 @@ $(function () {
 
             //events: '/events.json', 以下に追加
             $('#calendar').fullCalendar({
-                events: '/events.json',
+                events: gon.events,
                 //カレンダー上部を年月で表示させる
                 titleFormat: 'YYYY年 M月',
                 //曜日を日本語表示

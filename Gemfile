@@ -104,3 +104,7 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+# Add bxslider-rails
+gem 'bxslider-rails'
+# Add gon
+gem 'gon'
