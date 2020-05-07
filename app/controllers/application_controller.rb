@@ -10,14 +10,14 @@ class ApplicationController < ActionController::Base
   def set_calender
     @events = Event.all
     @event_array = []
-      @events.each do |event|
-        ev = {}
-          ev['title'] = event.title
-          ev['start'] = event.start_date
-          ev['end'] = event.end_date
-          ev['url'] = event_url(event, format: :html)
-          @event_array << ev
-      end
+    @events.each do |event|
+      ev = {}
+      ev['title'] = event.title
+      ev['start'] = event.start_date
+      ev['end'] = event.end_date
+      ev['url'] = event_url(event, format: :html)
+      @event_array << ev
+    end
     gon.events = @event_array
   end
 end

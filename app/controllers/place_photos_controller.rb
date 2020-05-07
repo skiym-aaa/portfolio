@@ -6,13 +6,13 @@ class PlacePhotosController < ApplicationController
     @place_photos = PlacePhoto.where(place_id: params[:place_id])
     @events = Event.where(place_id: params[:place_id])
     @event_array = []
-      @events.each do |event|
-        ev = {}
-          ev['start'] = event.start_date
-          ev['end'] = event.end_date
-          ev['url'] = event_url(event, format: :html)
-          @event_array << ev
-      end
+    @events.each do |event|
+      ev = {}
+      ev['start'] = event.start_date
+      ev['end'] = event.end_date
+      ev['url'] = event_url(event, format: :html)
+      @event_array << ev
+    end
     gon.events = @event_array
   end
 

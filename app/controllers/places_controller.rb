@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action :set_calender, only: [:index, :new]
+  before_action :set_calender, only: %i[index new]
 
   def index
     @places = Place.all
@@ -12,13 +12,13 @@ class PlacesController < ApplicationController
     @place_comment = PlaceComment.new
     @events = Event.where(place_id: params[:id])
     @event_array = []
-      @events.each do |event|
-        ev = {}
-          ev['start'] = event.start_date
-          ev['end'] = event.end_date
-          ev['url'] = event_url(event, format: :html)
-          @event_array << ev
-      end
+    @events.each do |event|
+      ev = {}
+      ev['start'] = event.start_date
+      ev['end'] = event.end_date
+      ev['url'] = event_url(event, format: :html)
+      @event_array << ev
+    end
     gon.events = @event_array
   end
 
@@ -40,13 +40,13 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     @events = Event.where(place_id: params[:id])
     @event_array = []
-      @events.each do |event|
-        ev = {}
-          ev['start'] = event.start_date
-          ev['end'] = event.end_date
-          ev['url'] = event_url(event, format: :html)
-          @event_array << ev
-      end
+    @events.each do |event|
+      ev = {}
+      ev['start'] = event.start_date
+      ev['end'] = event.end_date
+      ev['url'] = event_url(event, format: :html)
+      @event_array << ev
+    end
     gon.events = @event_array
   end
 

@@ -1,6 +1,6 @@
 class IdolsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action :set_calender, only: [:index, :new]
+  before_action :set_calender, only: %i[index new]
 
   def index
     @idols = Idol.all
@@ -10,14 +10,14 @@ class IdolsController < ApplicationController
     @idol = Idol.find(params[:id])
     @events = Event.where(idol_id: params[:id])
     @event_array = []
-      @events.each do |event|
-        ev = {}
-          ev['title'] = event.title
-          ev['start'] = event.start_date
-          ev['end'] = event.end_date
-          ev['url'] = event_url(event, format: :html)
-          @event_array << ev
-      end
+    @events.each do |event|
+      ev = {}
+      ev['title'] = event.title
+      ev['start'] = event.start_date
+      ev['end'] = event.end_date
+      ev['url'] = event_url(event, format: :html)
+      @event_array << ev
+    end
     gon.events = @event_array
   end
 
@@ -39,14 +39,14 @@ class IdolsController < ApplicationController
     @idol = Idol.find(params[:id])
     @events = Event.where(idol_id: params[:id])
     @event_array = []
-      @events.each do |event|
-        ev = {}
-          ev['title'] = event.title
-          ev['start'] = event.start_date
-          ev['end'] = event.end_date
-          ev['url'] = event_url(event, format: :html)
-          @event_array << ev
-      end
+    @events.each do |event|
+      ev = {}
+      ev['title'] = event.title
+      ev['start'] = event.start_date
+      ev['end'] = event.end_date
+      ev['url'] = event_url(event, format: :html)
+      @event_array << ev
+    end
     gon.events = @event_array
   end
 
