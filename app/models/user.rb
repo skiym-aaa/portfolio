@@ -15,6 +15,8 @@ class User < ApplicationRecord
   has_many :place_comments, dependent: :destroy
   has_many :event_comments, dependent: :destroy
   has_many :chats
+  has_many :event_registers, dependent: :destroy
+  has_many :event_event_registers, through: :event_registers, source: :event
 
   validates :name, length: { maximum: 20, minimum: 2 }
 

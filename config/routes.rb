@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   end
   resources :events do
     resource :event_comments, only: [:create, :destroy]
+    resource :event_registers, only: [:create, :destroy]
   end
 
   # letter_opener用のルーティング
