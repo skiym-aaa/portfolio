@@ -1,13 +1,22 @@
-<% if @model == 'idol' %>
-  <h3>'<%= @content %>'の検索結果(アイドル)</h3>
-  <hr>
+<div class="row">
+
+  <!-- サイドバー -->
+  <div class="col-xs-4">
+    <%= render "layouts/sidebar"%>
+  </div>
+
+  <% if @model == 'idol' %>
+    <h3>'<%= @content %>'の検索結果(アイドル)</h3>
+    <hr>
   <%= render 'idols/index', idols: @records %>
-<% elsif @model == 'place' %>
-  <h3>'<%= @content %>'の検索結果(場所)</h3>
-  <hr>
-  <%= render 'places/index', places: @records %>
-<% else @model == 'event' %>
-  <h3>'<%= @content %>'の検索結果(イベント)</h3>
-  <hr>
-  <%= render 'events/index', events: @records %>
-<% end %>
+  <% elsif @model == 'place' %>
+    <h3>'<%= @content %>'の検索結果(場所)</h3>
+    <hr>
+    <%= render 'places/index', places: @records %>
+  <% else @model == 'event' %>
+    <h3>'<%= @content %>'の検索結果(イベント)</h3>
+    <hr>
+    <%= render 'events/index', events: @records %>
+  <% end %>
+
+</div>

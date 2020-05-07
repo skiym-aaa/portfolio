@@ -1,6 +1,7 @@
 <div class="row">
   <h2 class="heading"><span>マイページ</span></h2>
   <hr>
+
   <div class="col-xs-6">
     <div class="row">
       <div class="col-xs-6">
@@ -74,9 +75,18 @@
         </table>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <h4 style="text-align: center;"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>オススメイベント情報</h4>
+        <%= render "events/index", events: @events %>
+      </div>
+    </div>
   </div>
+
   <div class="col-xs-6">
-    <h4 style="text-align: center;"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>オススメイベント情報</h4>
-    <%= render "events/index", events: @events %>
+    <h3>マイカレンダー</h3>
+    <div id="calendar"></div>
   </div>
+
 </div>

@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
+  before_action :set_calender, only: [:search]
+
   def search
     @model = params['search']['model']
     @content = params['search']['content']

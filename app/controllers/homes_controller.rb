@@ -1,4 +1,6 @@
 class HomesController < ApplicationController
+  before_action :set_calender, only: [:top]
+
   def top
     if Rails.env.production?
       @events = Event.all.order('RAND()').limit(3)

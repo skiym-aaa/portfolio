@@ -1,11 +1,22 @@
 class EventsController < InheritedResources::Base
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_event, only: %i[show edit update destroy]
+  before_action :set_calender, only: [:new]
 
   # GET /events
   # GET /events.json
   def index
     @events = Event.all.order(:start_date)
+    @event_array = []
+      @events.each do |event|
+        ev = {}
+          ev['title'] = event.title
+          ev['start'] = event.start_date
+          ev['end'] = event.end_date
+          ev['url'] = event_url(event, format: :html)
+          @event_array << ev
+      end
+    gon.events = @event_array
   end
 
   # GET /events/1
@@ -14,6 +25,15 @@ class EventsController < InheritedResources::Base
     @idol = Idol.find(@event.idol_id)
     @place = Place.find(@event.place_id)
     @event_comment = EventComment.new
+    @event = Event.find(params[:id])
+    @event_array = []
+      ev = {}
+        ev['title'] = @event.title
+        ev['start'] = @event.start_date
+        ev['end'] = @event.end_date
+        ev['url'] = event_url(@event, format: :html)
+        @event_array << ev
+    gon.events = @event_array
   end
 
   # GET /events/new
@@ -22,7 +42,17 @@ class EventsController < InheritedResources::Base
   end
 
   # GET /events/1/edit
-  def edit; end
+  def edit
+    @event = Event.find(params[:id])
+    @event_array = []
+      ev = {}
+        ev['title'] = @event.title
+        ev['start'] = @event.start_date
+        ev['end'] = @event.end_date
+        ev['url'] = event_url(@event, format: :html)
+        @event_array << ev
+    gon.events = @event_array
+  end
 
   # POST /events
   # POST /events.json
