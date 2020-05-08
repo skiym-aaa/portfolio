@@ -21,7 +21,7 @@
           <ul class="bxslider">
             <% @place_photos.each do |place_photo| %>
               <li>
-                <%= link_to place_place_photo_url(place_photo) do %>
+                <%= link_to place_place_photos_url(place_id: @place.id) do %>
                   <%= image_tag place_photo.image_id.to_s %>
                 <% end %>
               </li>
@@ -32,7 +32,7 @@
             <%= image_tag @place.image_id.to_s, size: "360x240" %>
           <% end %>
         <% else %>
-          <%= image_tag "no_image.jpg", size: "360x240" %>
+          <img src="<%= asset_path "no_image.jpg" %>" alt="No_Image">
         <% end %>
       </div>
 
