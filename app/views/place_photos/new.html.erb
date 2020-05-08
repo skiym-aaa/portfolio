@@ -9,16 +9,12 @@
     <h2 class="heading"><span>場所写真追加</span>&emsp;<%= @place.name %></h2>
     <hr>
 
-    <%= form_for @place_photo, url: place_place_photos_path(@place.id) do |f| %>
-    <!-- エラーメッセージ -->
-    <%= render 'layouts/errors', obj: @place_photo %>
-
-      <!-- 画像投稿機能 -->
-      <div class="col-xs-6">
-        <%= f.label :画像 %>
-        <%= f.file_field :image_id %>
-        <hr>
-        <%= f.submit "写真追加", class: "btn btn-lg btn-primary" %>
+    <%= form_for @place_photo, url: place_place_photos_path(@place.id), html: {  class: "dropzone"} do |f| %>
+      <div class="dz-message" data-dz-message>
+        <span>ファイルをここにドロップするか<br>ここをクリックしてください<br>ファイルは自動でアップロードされます！</span>
+      </div>
+      <div class="fallback">
+        <%= f.file_field :image_id, multiple: true %>
       </div>
     <% end %>
 
@@ -26,3 +22,15 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(function() {
+    // disable auto discover
+    Dropzone.autoDiscover = false;
+
+    $(".dropzone").dropzone({
+      maxFilesize: 1,
+      addRemoveLinks: true
+    });
+  });
+</script>

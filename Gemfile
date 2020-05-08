@@ -108,3 +108,5 @@ end
 gem 'bxslider-rails'
 # Add gon
 gem 'gon'
+# ドラッグ&ドロップ
+gem "dropzonejs-rails"

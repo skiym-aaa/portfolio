@@ -19,5 +19,9 @@ ul.bxslider li img {
   display: block;
   font-size: .85em;
   padding: 10px;
-  text-align: center;    /* キャプションを中央寄せ */
+  text-align: center;
+}
+
+.dropzone {
+  border: 2px dashed #b4bcc2;
 }

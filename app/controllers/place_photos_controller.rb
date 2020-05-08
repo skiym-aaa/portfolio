@@ -30,6 +30,7 @@ class PlacePhotosController < ApplicationController
                    end
     @place_photo.user_id = current_user.id
     @place_photo.place_id = @place.id
+    @place_photo.image_id = params[:file]
     if @place_photo.save
       redirect_to place_path(@place), notice: '写真の追加が完了しました！'
     else

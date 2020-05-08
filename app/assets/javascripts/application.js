@@ -20,6 +20,7 @@
 //= require fullcalendar
 //= require jquery.raty
 //= require bxslider
+//= require dropzone
 
 // カレンダー機能
 $(function () {
