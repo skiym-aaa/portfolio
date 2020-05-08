@@ -31,7 +31,11 @@
     </table>
 
     <div class="actions">
-      <%= form.submit %>
+      <% if current_page?(new_event_path) %>
+        <%= form.submit "新規登録" %>
+      <% else %>
+        <%= form.submit "編集" %>
+      <% end %>
     </div>
   <% end %>
 </div>
