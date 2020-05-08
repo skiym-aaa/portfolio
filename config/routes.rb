@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
   resources :places, only: [:index, :show, :new, :create, :edit, :update] do
-    resources :place_photos, only: [:show, :new, :create]
+    resources :place_photos, only: [:new, :create]
     resource :place_comments, only: [:create, :destroy]
     resource :bookmarks, only: [:create, :destroy]
   end

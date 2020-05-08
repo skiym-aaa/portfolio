@@ -15,8 +15,23 @@
     <div class="row">
 
       <!-- 画像 -->
+      <script src="http://bxslider.com/lib/jquery.bxslider.js"></script>
       <div class="col-xs-7 photo">
-        <% if @place.image_id? %>
+        <% if @place_photos.exists? %>
+          <ul class="bxslider">
+            <% @place_photos.each do |place_photo| %>
+              <li>
+                <%= link_to place_place_photo_path(place_photo) do %>
+                  <% if place_photo.image_id? %>
+                    <%= image_tag place_photo.image_id.to_s %>
+                  <% else %>
+                    <%= image_tag 'no_image.png' %>
+                  <% end %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        <% elsif @place.image_id? %>
           <%= link_to @place.image_id.url do %>
             <%= image_tag @place.image_id.to_s, size: "360x240" %>
           <% end %>

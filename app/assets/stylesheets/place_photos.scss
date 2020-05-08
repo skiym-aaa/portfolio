@@ -1,7 +1,6 @@
 ul.bxslider li {
   // 指定したい幅と高さ
-  width: 200px;
-  height: 200px;
+  height: 240px;
   position: relative;
 }
 ul.bxslider li img {
@@ -13,4 +12,12 @@ ul.bxslider li img {
   max-width: 100%;
   max-height: 100%;
   margin: auto;
+}
+
+.bx-wrapper .bx-caption span {
+  color: #fff;
+  display: block;
+  font-size: .85em;
+  padding: 10px;
+  text-align: center;    /* キャプションを中央寄せ */
 }

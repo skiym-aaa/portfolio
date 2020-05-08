@@ -6,15 +6,15 @@
   </div>
 
   <% if @model == 'idol' %>
-    <h3>'<%= @content %>'の検索結果(アイドル)</h3>
+    <h3 class="glyphicon glyphicon-search">'<%= @content %>'の検索結果(アイドル)</h3>
     <hr>
   <%= render 'idols/index', idols: @records %>
   <% elsif @model == 'place' %>
-    <h3>'<%= @content %>'の検索結果(場所)</h3>
+    <h3 class="glyphicon glyphicon-search">'<%= @content %>'の検索結果(場所)</h3>
     <hr>
     <%= render 'places/index', places: @records %>
   <% else @model == 'event' %>
-    <h3>'<%= @content %>'の検索結果(イベント)</h3>
+    <h3 class="glyphicon glyphicon-search">'<%= @content %>'の検索結果(イベント)</h3>
     <hr>
     <%= render 'events/index', events: @records %>
   <% end %>

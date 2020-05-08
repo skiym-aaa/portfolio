@@ -129,6 +129,10 @@
   background-color: #F5F5F5;
  }
 
+ .top-heading {
+  text-align: center;
+ }
+
  .index-heading {
   margin: 0px;
   float: left
@@ -171,6 +175,11 @@
   background: #e0ffff;
   float: left;
   margin-left: 20px;
+}
+
+.btn1-max {
+  text-align: center;
+  width: 100%;
 }
 
 .btn1:active {
