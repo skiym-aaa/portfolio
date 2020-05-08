@@ -21,7 +21,7 @@
           <ul class="bxslider">
             <% @place_photos.each do |place_photo| %>
               <li>
-                <%= link_to place_place_photo_path(place_photo) do %>
+                <%= link_to place_place_photo_url(place_photo) do %>
                   <% if place_photo.image_id? %>
                     <%= image_tag place_photo.image_id.to_s %>
                   <% else %>
