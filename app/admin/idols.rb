@@ -10,7 +10,6 @@ ActiveAdmin.register Idol do
     column :name
     column :about
     column :official_site
-    column :image_id, as: :file
 
     actions
   end
@@ -35,7 +34,7 @@ ActiveAdmin.register Idol do
       f.input :name
       f.input :about
       f.input :official_site
-      f.input :image_id
+      f.input :image_id, :as => :file
     end
     f.actions
   end

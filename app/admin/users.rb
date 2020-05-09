@@ -32,7 +32,7 @@ ActiveAdmin.register User do
       f.input :email
       f.input :password
       f.input :encrypted_password
-      f.input :image_id
+      f.input :image_id, :as => :file
     end
     f.actions
   end

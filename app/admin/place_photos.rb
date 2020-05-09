@@ -8,7 +8,6 @@ ActiveAdmin.register PlacePhoto do
     column :id
     column :user
     column :place
-    column :image_id, as: :file
 
     actions
   end
@@ -30,7 +29,7 @@ ActiveAdmin.register PlacePhoto do
     f.inputs do
       f.input :user
       f.input :place
-      f.input :image_id
+      f.input :image_id, :as => :file
     end
     f.actions
   end

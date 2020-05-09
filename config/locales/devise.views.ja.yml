@@ -55,12 +55,15 @@ ja:
         idol:
           attributes:
             name:
+              taken: "は既に使用されています。"
               blank: "が入力されていません。"
         place:
           attributes:
             name:
+              taken: "は既に使用されています。"
               blank: "が入力されていません。"
             address:
+              taken: "は既に使用されています。"
               blank: "が入力されていません。"
         place_comment:
           attributes:
