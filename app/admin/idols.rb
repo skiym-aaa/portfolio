@@ -1,4 +1,5 @@
 ActiveAdmin.register Idol do
+  mount_uploader :image_id, ImagesUploader
   # 一覧ページの検索条件
   filter :user
   filter :name
