@@ -110,3 +110,5 @@ gem 'bxslider-rails'
 gem 'gon'
 # ドラッグ&ドロップ
 gem "dropzonejs-rails"
+# # for image uploader with AWS S3
+gem 'fog'

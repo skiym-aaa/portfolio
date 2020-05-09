@@ -1,12 +1,12 @@
 class ImagesUploader < CarrierWave::Uploader::Base
   # permissions 0777
-  # MiniMagickを有効にします
+  # MiniMagickを有効にする
   include CarrierWave::MiniMagick
 
-  # このアップローダーを利用した画像の最大数を指定します。
+  # このアップローダーを利用した画像の最大数を指定
   process resize_to_fit: [1920, 1280]
 
-  # 上記とは別にサムネイルを別サイズで用意します。
+  # 上記とは別にサムネイルを別サイズで用意
   version :thumb do
     process resize_to_fill: [240, 240]
   end
@@ -14,14 +14,24 @@ class ImagesUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
-  # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+  if Rails.env.development?
+    storage :file
+  elsif Rails.env.test?
+    storage :file
+  else
+    storage :fog
+  end
 
-  # Override the directory where uploaded files will be stored.
-  # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
+
+  def extension_whitelist
+    %w(png jpg)
+  end
+
+  def filename
+    original_filename if original_filename
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
