@@ -113,3 +113,5 @@ gem "dropzonejs-rails"
 # # for image uploader with AWS S3
 gem 'fog-aws'
 gem 'ovirt-engine-sdk', '>= 4.4.0'
+# Add Font Awesome
+gem 'font-awesome-sass', '~> 5.4.1'
