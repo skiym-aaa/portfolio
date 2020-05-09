@@ -5,6 +5,8 @@ class CreateIdols < ActiveRecord::Migration[5.2]
       t.string :name
       t.text :about
       t.string :official_site
+      t.string :official_twitter
+      t.string :official_youtube
       t.string :image_id
       t.timestamps
     end

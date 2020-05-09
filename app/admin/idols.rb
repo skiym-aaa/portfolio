@@ -10,6 +10,8 @@ ActiveAdmin.register Idol do
     column :name
     column :about
     column :official_site
+    column :official_twitter
+    column :official_youtube
 
     actions
   end
@@ -22,6 +24,8 @@ ActiveAdmin.register Idol do
       row :name
       row :about
       row :official_site
+      row :official_twitter
+      row :official_youtube
       row :image_id do
         if idol.image_id.to_s == ""
           image_tag(asset_path "no_image.jpg")
@@ -39,10 +43,12 @@ ActiveAdmin.register Idol do
       f.input :name
       f.input :about
       f.input :official_site
+      f.input :official_twitter
+      f.input :official_youtube
       f.input :image_id, :as => :file
     end
     f.actions
   end
 
-  permit_params :user_id, :name, :about, :official_site, :image_id # 更新可能な attribute を記載
+  permit_params :user_id, :name, :about, :official_site, :official_twitter, :official_youtube, :image_id # 更新可能な attribute を記載
 end

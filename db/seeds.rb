@@ -8,7 +8,7 @@
 AdminUser.create!(email: ENV['admin_email'], password: ENV['admin_password'], password_confirmation: ENV['admin_password'])
 User.create!(email: ENV['user_email'], password: ENV['user_password'], password_confirmation: ENV['user_password'], name: 'さっきー')
 # アイドル
-Idol.create!(user_id: '1', name: '9nine', about: 'パフォマンスガールズユニット', official_site: 'http://9nine-fan.lespros.co.jp/')
+Idol.create!(user_id: '1', name: '9nine', about: 'パフォマンスガールズユニット', official_site: 'http://9nine-fan.lespros.co.jp/', official_twitter: 'https://twitter.com/lespros_9nine' ,official_youtube: 'https://www.youtube.com/user/9nineSMEJ')
 Idol.create!(user_id: '1', name: 'ベイビーレイズJAPAN', about: '2018年9月24日解散', official_site: 'http://babyraids.lespros.co.jp/')
 Idol.create!(user_id: '1', name: '大阪☆春夏秋冬', about: '', official_site: 'https://syukasyun.com/')
 Idol.create!(user_id: '1', name: 'EMPiRE', about: '', official_site: 'https://empire-official.com/')

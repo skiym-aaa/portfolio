@@ -23,6 +23,18 @@
         <h4>About</h4>
         <p><%= @idol.about %></p>
         <%= link_to "公式サイト", @idol.official_site %>
+        <div class="social-icon">
+          <% if @idol.official_twitter? %>
+            <%= link_to @idol.official_twitter do %>
+              <img src="<%= asset_path "twitter.png" %>" alt="Twitter">
+            <% end %>
+          <% end %>
+          <% if @idol.official_youtube? %>
+            <%= link_to @idol.official_youtube do %>
+              <img src="<%= asset_path "youtube.png" %>" alt="Youtube">
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
     <hr>

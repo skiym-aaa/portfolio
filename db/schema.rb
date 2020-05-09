@@ -105,6 +105,8 @@ ActiveRecord::Schema.define(version: 2020_05_07_153152) do
     t.string "name"
     t.text "about"
     t.string "official_site"
+    t.string "official_twitter"
+    t.string "official_youtube"
     t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
