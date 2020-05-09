@@ -2,10 +2,10 @@ class Place < ApplicationRecord
   mount_uploader :image_id, ImagesUploader
 
   belongs_to :user
-  has_many :place_photos
-  has_many :place_comments
-  has_many :events
-  has_many :bookmarks
+  has_many :place_photos, dependent: :destroy
+  has_many :place_comments, dependent: :destroy
+  has_many :events, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   def bookmarked_by?(user)
     bookmarks.where(user_id: user.id).exists?

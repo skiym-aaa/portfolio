@@ -2,8 +2,8 @@ class Event < ApplicationRecord
   belongs_to :user
   belongs_to :idol
   belongs_to :place
-  has_many :event_comments
-  has_many :event_registers
+  has_many :event_comments, dependent: :destroy
+  has_many :event_registers, dependent: :destroy
 
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 30 }
