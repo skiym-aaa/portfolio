@@ -20,7 +20,11 @@ ActiveAdmin.register User do
       row :email
       row :name
       row :image_id do
-        image_tag(user.image_id.url)
+        if user.image_id.to_s == ""
+          image_tag(asset_path "no_image.jpg")
+        else
+          image_tag(user.image_id.url)
+        end
       end
     end
   end

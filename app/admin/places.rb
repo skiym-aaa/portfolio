@@ -25,7 +25,11 @@ ActiveAdmin.register Place do
       row :about
       row :official_site
       row :image_id do
-        image_tag(place.image_id.url)
+        if place.image_id.to_s == ""
+          image_tag(asset_path "no_image.jpg")
+        else
+          image_tag(place.image_id.url)
+        end
       end
     end
   end
@@ -33,6 +37,7 @@ ActiveAdmin.register Place do
   # 新規作成/編集ページ
   form do |f|
     f.inputs do
+      f.input :user
       f.input :name
       f.input :address
       f.input :about
@@ -42,5 +47,5 @@ ActiveAdmin.register Place do
     f.actions
   end
 
-  permit_params :name, :address, :about, :official_site, :image_id # 更新可能な attribute を記載
+  permit_params :user_id, :name, :address, :about, :official_site, :image_id # 更新可能な attribute を記載
 end

@@ -23,7 +23,11 @@ ActiveAdmin.register Idol do
       row :about
       row :official_site
       row :image_id do
-        image_tag(idol.image_id.url)
+        if idol.image_id.to_s == ""
+          image_tag(asset_path "no_image.jpg")
+        else
+          image_tag(idol.image_id.url)
+        end
       end
     end
   end
@@ -31,6 +35,7 @@ ActiveAdmin.register Idol do
   # 新規作成/編集ページ
   form do |f|
     f.inputs do
+      f.input :user
       f.input :name
       f.input :about
       f.input :official_site
@@ -39,5 +44,5 @@ ActiveAdmin.register Idol do
     f.actions
   end
 
-  permit_params :name, :about, :official_site, :image_id # 更新可能な attribute を記載
+  permit_params :user_id, :name, :about, :official_site, :image_id # 更新可能な attribute を記載
 end
