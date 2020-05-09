@@ -19,7 +19,7 @@ ActiveAdmin.register PlacePhoto do
       row :user
       row :place
       row :image_id do
-        image_tag(place_photo.image_id.url)
+        image_tag(place_photo.image_id.url, size: "360x240")
       end
     end
   end

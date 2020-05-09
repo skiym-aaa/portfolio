@@ -26,7 +26,7 @@ ActiveAdmin.register Idol do
         if idol.image_id.to_s == ""
           image_tag(asset_path "no_image.jpg")
         else
-          image_tag(idol.image_id.url)
+          image_tag(idol.image_id.url, size: "360x360")
         end
       end
     end

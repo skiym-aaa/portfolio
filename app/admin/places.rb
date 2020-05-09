@@ -28,7 +28,7 @@ ActiveAdmin.register Place do
         if place.image_id.to_s == ""
           image_tag(asset_path "no_image.jpg")
         else
-          image_tag(place.image_id.url)
+          image_tag(place.image_id.url, size: "360x240")
         end
       end
     end
