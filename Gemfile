@@ -112,3 +112,4 @@ gem 'gon'
 gem "dropzonejs-rails"
 # # for image uploader with AWS S3
 gem 'fog'
+gem 'ovirt-engine-sdk', '>= 4.4.0'

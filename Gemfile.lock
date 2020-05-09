@@ -655,6 +655,7 @@ DEPENDENCIES
   mini_magick
   momentjs-rails
   mysql2
+  ovirt-engine-sdk (>= 4.4.0)
   pry-byebug
   pry-doc
   pry-rails
