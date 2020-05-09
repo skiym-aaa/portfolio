@@ -114,7 +114,7 @@ ja:
       place_photo:
         image_id: "写真"
       event:
-        idol: "アイドル"
+        idol: "アイドル名"
         place: "場所"
         title: "イベントタイトル"
         body: "イベント内容"
