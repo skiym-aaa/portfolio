@@ -2,7 +2,6 @@
   <thead>
     <tr>
       <th>イベント名</th>
-      <th>イベント内容</th>
       <th>アイドル名</th>
       <th>場所名</th>
       <th>開始予定時間</th>
@@ -15,7 +14,6 @@
     <% events.each do |event| %>
       <tr>
         <td><%= link_to event.title, event_path(event) %></td>
-        <td><%= event.body %></td>
         <td><%= link_to event.idol.name, idol_path(event.idol.id) %></td>
         <td><%= link_to event.place.name, place_path(event.place.id) %></td>
         <td><%= l event.start_date %></td>

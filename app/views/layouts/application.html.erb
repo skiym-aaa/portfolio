@@ -26,7 +26,8 @@
 
       <div class="container">
         <!-- ログインページのみフラッシュメッセージの重複削除 -->
-        <% unless current_page?(new_user_session_path && about_path) %>
+        <% if current_page?(new_user_session_path) %>
+        <% else %>
           <p id ="notice"><%= notice %></p>
         <% end %>
         <%= yield %>

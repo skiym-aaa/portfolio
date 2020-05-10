@@ -44,8 +44,8 @@ ActiveAdmin.register Event do
       f.input :place
       f.input :title
       f.input :body
-      f.input :start_date
-      f.input :end_date
+      f.input :start_date, :start_year => 2020, :minute_step => 10
+      f.input :end_date, :start_year => 2020, :minute_step => 10
     end
     f.actions
   end
