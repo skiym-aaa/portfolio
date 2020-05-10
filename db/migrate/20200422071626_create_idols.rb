@@ -8,6 +8,7 @@ class CreateIdols < ActiveRecord::Migration[5.2]
       t.string :official_twitter
       t.string :official_youtube
       t.string :image_id
+      t.text :default_image
       t.timestamps
     end
   end
