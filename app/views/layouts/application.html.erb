@@ -15,13 +15,21 @@
 
   <!-- body タグに data-turbolinks 属性を追加 -->
   <body data-turbolinks="false">
-    <%= render 'layouts/header' %>
+    <!-- boxslider呼び出し -->
+    <script src="http://bxslider.com/lib/jquery.bxslider.js"></script>
 
-    <div class="container">
-      <script src="http://bxslider.com/lib/jquery.bxslider.js"></script>
-      <p id ="notice"><%= notice %></p>
-      <%= yield %>
-    </div>
+    <!-- aboutページのみ全面表示 -->
+    <% unless current_page?(about_path) %>
+      <%= render 'layouts/header' %>
+
+      <div class="container">
+    <% end %>
+        <!-- ログインページのみフラッシュメッセージの重複削除 -->
+        <% unless current_page?(new_user_session_path && about_path) %>
+          <p id ="notice"><%= notice %></p>
+        <% end %>
+        <%= yield %>
+      </div>
 
     <%= render 'layouts/footer' %>
   </body>

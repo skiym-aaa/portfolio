@@ -2,6 +2,8 @@
   <div class="list-box idol-box">
     <% if idol.image_id? %>
       <%= image_tag idol.image_id.to_s, size: "240x240" %>
+    <% elsif idol.default_image? %>
+      <%= idol.default_image.html_safe %>
     <% else %>
       <%= image_tag "no_image.jpg", size: "240x240" %>
     <% end %>

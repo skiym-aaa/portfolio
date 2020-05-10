@@ -5,7 +5,8 @@
     <%= render "layouts/sidebar" %>
   </div>
 
-  <div class="col-xs-8">
+  <!-- コンテンツ -->
+  <div class="col-xs-8 center">
 
     <!-- イベント -->
     <div class="row">
@@ -22,9 +23,9 @@
             <li>
               <%= link_to event_path(event) do %>
                 <% if event.idol.image_id? %>
-                  <%= image_tag event.idol.image_id.to_s, title: "#{l event.start_date} 「#{event.title}」" %>
+                  <%= image_tag event.idol.image_id.to_s, title: "#{l event.start_date} #{event.idol.name}「#{event.title}」" %>
                 <% else %>
-                  <img src="<%= asset_path "no_image.jpg" %>" alt="No_Image">
+                  <img src="<%= asset_path "no_image.jpg" %>" alt="No_Image", title="<%= "#{l event.start_date} #{event.idol.name}「#{event.title}」" %>" >
                 <% end %>
               <% end %>
             </li>
@@ -36,16 +37,18 @@
         <%= link_to "もっと見る", events_path, class: "btn1 btn1-info btn1-max" %>
       </div>
     </div>
+
     <!-- アイドル -->
     <div class="row">
-      <div class="col-xs-12 top-heading">
-        <div class="idols">
+      <div class="idols">
+        <div class="col-xs-12 top-heading">
           <div class="heading">
             <h2 class="glyphicon glyphicon-user">おすすめアイドル</h2>
           </div>
-          <hr>
-          <div class="contents">
-            <%= render "idols/index", idols: @idols %>
+        </div>
+        <hr>
+        <div class="contents">
+          <%= render "idols/index", idols: @idols %>
         </div>
         <div class="col-xs-12">
           <%= link_to "もっと見る", idols_path, class: "btn1 btn1-info btn1-max" %>
