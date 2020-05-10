@@ -25,10 +25,10 @@ ActiveAdmin.register Place do
       row :about
       row :official_site
       row :image_id do
-        if place.image_id.to_s == ""
-          image_tag(asset_path "no_image.jpg")
+        if place.image_id.to_s == ''
+          image_tag(asset_path('no_image.jpg'))
         else
-          image_tag(place.image_id.url, size: "360x240")
+          image_tag(place.image_id.url, size: '360x240')
         end
       end
     end
@@ -42,7 +42,7 @@ ActiveAdmin.register Place do
       f.input :address
       f.input :about
       f.input :official_site
-      f.input :image_id, :as => :file
+      f.input :image_id, as: :file
     end
     f.actions
   end

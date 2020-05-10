@@ -27,10 +27,10 @@ ActiveAdmin.register Idol do
       row :official_twitter
       row :official_youtube
       row :image_id do
-        if idol.image_id.to_s == ""
-          image_tag(asset_path "no_image.jpg")
+        if idol.image_id.to_s == ''
+          image_tag(asset_path('no_image.jpg'))
         else
-          image_tag(idol.image_id.url, size: "360x360")
+          image_tag(idol.image_id.url, size: '360x360')
         end
       end
     end
@@ -45,7 +45,7 @@ ActiveAdmin.register Idol do
       f.input :official_site
       f.input :official_twitter
       f.input :official_youtube
-      f.input :image_id, :as => :file
+      f.input :image_id, as: :file
     end
     f.actions
   end

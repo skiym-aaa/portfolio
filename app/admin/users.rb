@@ -20,8 +20,8 @@ ActiveAdmin.register User do
       row :email
       row :name
       row :image_id do
-        if user.image_id.to_s == ""
-          image_tag(asset_path "no_image.jpg")
+        if user.image_id.to_s == ''
+          image_tag(asset_path('no_image.jpg'))
         else
           image_tag(user.image_id.url)
         end
@@ -36,7 +36,7 @@ ActiveAdmin.register User do
       f.input :email
       f.input :password
       f.input :encrypted_password
-      f.input :image_id, :as => :file
+      f.input :image_id, as: :file
     end
     f.actions
   end

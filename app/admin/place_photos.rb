@@ -19,7 +19,7 @@ ActiveAdmin.register PlacePhoto do
       row :user
       row :place
       row :image_id do
-        image_tag(place_photo.image_id.url, size: "360x240")
+        image_tag(place_photo.image_id.url, size: '360x240')
       end
     end
   end
@@ -29,7 +29,7 @@ ActiveAdmin.register PlacePhoto do
     f.inputs do
       f.input :user
       f.input :place
-      f.input :image_id, :as => :file
+      f.input :image_id, as: :file
     end
     f.actions
   end
