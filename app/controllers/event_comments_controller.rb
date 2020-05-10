@@ -1,4 +1,6 @@
 class EventCommentsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @event = Event.find(params[:event_id])
     @event_comment = EventComment.new(event_comment_params)

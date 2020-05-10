@@ -12,6 +12,8 @@
         <% else %>
           <%= link_to "お気に入り登録", place_bookmarks_path(place.id), method: :post , class: "glyphicon glyphicon-heart-empty btn1 btn1-danger" %>
         <% end %>
+    <% else %>
+      <%= link_to "お気に入り登録", place_bookmarks_path(place.id), method: :post , class: "glyphicon glyphicon-heart-empty btn1 btn1-danger" %>
     <% end %>
   </div>
 <% end %>
