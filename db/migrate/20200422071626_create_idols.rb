@@ -3,7 +3,7 @@ class CreateIdols < ActiveRecord::Migration[5.2]
     create_table :idols do |t|
       t.references :user, foreign_key: true
       t.string :name
-      t.text :about, default: "description"
+      t.text :about
       t.string :official_site
       t.string :official_twitter
       t.string :official_youtube
