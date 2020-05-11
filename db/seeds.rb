@@ -57,4 +57,4 @@ Place.create!(user_id: '1', name: '日本青年館', address: '東京都新宿�
 # Place.create!(user_id: '1', name: '', address: '', about: '', official_site: '')
 
 # イベント
-# Event.create!(user_id: '1', idol_id: '', place_id: '', title: '', body: '開催予定', start_date: '2020-00-00 00:00:00', end_date: '2020-00-00 00:00:00')
+Event.create!(user_id: '1', idol_id: '15', place_id: '13', title: 'Pimms 7th Anniversary LIVE', body: '開催予定', start_date: '2020-05-24 18:30:00', end_date: '2020-05-24 20:30:00')

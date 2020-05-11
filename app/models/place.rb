@@ -14,4 +14,5 @@ class Place < ApplicationRecord
   validates :user_id, presence: true
   validates :name, presence: true, uniqueness: true, length: { maximum: 30 }
   validates :address, presence: true, length: { maximum: 50 }
+  validates :about, length: { maximum: 140 }
 end

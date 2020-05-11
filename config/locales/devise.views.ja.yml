@@ -88,6 +88,10 @@ ja:
               invalid: "が不正な値です。"
             body:
               blank: "が入力されていません。"
+            start_date:
+              invalid: "が不正な値です。"
+            end_date:
+              invalid: "が不正な値です。"
         event_comment:
           attributes:
             body:
@@ -129,6 +133,8 @@ ja:
         title: "イベントタイトル"
         genre: "ジャンル"
         body: "イベント内容"
+        start_date: "開始時間"
+        end_date: "終了時間"
       event_comment:
         body: "コメント"
       message:
