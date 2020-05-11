@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2020_05_07_153152) do
     t.integer "idol_id"
     t.integer "place_id"
     t.string "title"
+    t.integer "genre"
     t.string "body"
     t.datetime "start_date"
     t.datetime "end_date"

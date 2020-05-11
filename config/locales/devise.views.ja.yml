@@ -83,6 +83,8 @@ ja:
               required: "が入力されていません。"
             title:
               blank: "が入力されていません。"
+            genre:
+              blank: "が入力されていません。"
             body:
               blank: "が入力されていません。"
         event_comment:
@@ -96,6 +98,10 @@ ja:
             email:
               blank: "が入力されていません。"
               invalid: "が不正な値です。"
+            content:
+              blank: "が入力されていません。"
+        chat:
+          attributes:
             content:
               blank: "が入力されていません。"
     attributes:
@@ -120,12 +126,15 @@ ja:
         idol: "アイドル名"
         place: "場所"
         title: "イベントタイトル"
+        genre: "ジャンル"
         body: "イベント内容"
       event_comment:
         body: "コメント"
       message:
         name: "名前"
         email: "メールアドレス"
+        content: "内容"
+      chat:
         content: "内容"
 
     models:

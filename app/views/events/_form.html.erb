@@ -9,6 +9,10 @@
         <td><%= form.text_field :title %></td>
       </tr>
       <tr>
+        <td><%= form.label :イベントジャンル %></td>
+        <td><%= form.select :genre, Event.genres.keys.map {|k| [k, k]}, {include_blank: '---'} %></td>
+      </tr>
+      <tr>
         <td><%= form.label :イベント内容 %></td>
         <td><%= form.text_field :body %></td>
       </tr>
