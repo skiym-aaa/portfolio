@@ -4,7 +4,7 @@ ActiveAdmin.register Event do
   filter :idol
   filter :place
   filter :title
-  filter :genre, :as => :select
+  filter :genre, as: :select
   filter :body
   filter :start_date
   filter :end_date
@@ -48,8 +48,8 @@ ActiveAdmin.register Event do
       f.input :title
       f.input :genre
       f.input :body
-      f.input :start_date, :start_year => 2020, :minute_step => 10 # 10分刻み
-      f.input :end_date, :start_year => 2020, :minute_step => 10
+      f.input :start_date, start_year: 2020, minute_step: 10 # 10分刻み
+      f.input :end_date, start_year: 2020, minute_step: 10
     end
     f.actions
   end

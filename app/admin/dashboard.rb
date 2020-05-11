@@ -10,7 +10,8 @@ ActiveAdmin.register_page 'Dashboard' do
     # end
 
     # Here is an example of a simple dashboard with columns and panels.
-    #
+
+    # イベント
     columns do
       column do
         panel '最近投稿されたイベント' do
@@ -46,6 +47,7 @@ ActiveAdmin.register_page 'Dashboard' do
       end
     end
 
+    # アイドル
     columns do
       column do
         panel '最近投稿されたアイドル' do
@@ -71,6 +73,7 @@ ActiveAdmin.register_page 'Dashboard' do
       end
     end
 
+    # 場所
     columns do
       column do
         panel '最近投稿された場所' do
@@ -95,12 +98,6 @@ ActiveAdmin.register_page 'Dashboard' do
         end
       end
     end
-
-    #   column do
-    #     panel "Info" do
-    #       para "Welcome to ActiveAdmin."
-    #     end
-    #   end
   end
 end
 # content

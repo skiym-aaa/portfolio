@@ -27,6 +27,7 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  # メール設定
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
       :address => "smtp.gmail.com",
@@ -46,7 +47,6 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   # LetterOpener用の設定
-  # 本番環境の場合は変更が必要(←あとで変える)
   config.action_mailer.default_url_options = { host: "http://52.194.202.0/" }
   # config.action_mailer.delivery_method = :letter_opener_web
 

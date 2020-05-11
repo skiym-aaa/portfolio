@@ -5,9 +5,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :idols, dependent: :destroy
-  has_many :places, dependent: :destroy
-  has_many :events, dependent: :destroy
+  has_many :idols
+  has_many :places
+  has_many :events
   has_many :favorites, dependent: :destroy
   has_many :favorite_idols, through: :favorites, source: :idol
   has_many :bookmarks, dependent: :destroy
@@ -19,8 +19,4 @@ class User < ApplicationRecord
   has_many :event_event_registers, through: :event_registers, source: :event, dependent: :destroy
 
   validates :name, length: { maximum: 20, minimum: 2 }
-
-  def active_for_authentication?
-    super && (is_deleted == false)
-  end
 end

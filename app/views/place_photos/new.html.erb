@@ -9,6 +9,7 @@
     <h2 class="heading"><span>場所写真追加</span>&emsp;<%= @place.name %></h2>
     <hr>
 
+    <!-- 写真投稿フォーム -->
     <%= form_for @place_photo, url: place_place_photos_path(@place.id), html: {  class: "dropzone"} do |f| %>
       <div class="dz-message" data-dz-message>
         <span>ファイルをここにドロップするか<br>ここをクリックしてください<br>ファイルは自動でアップロードされます！</span>

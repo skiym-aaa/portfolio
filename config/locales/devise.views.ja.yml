@@ -85,6 +85,7 @@ ja:
               blank: "が入力されていません。"
             genre:
               blank: "が入力されていません。"
+              invalid: "が不正な値です。"
             body:
               blank: "が入力されていません。"
         event_comment:

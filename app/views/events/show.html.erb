@@ -61,7 +61,7 @@
     </div>
     <hr>
 
-    <!-- 編集ボタン -->
+    <!-- 登録(解除)ボタン -->
     <div class="row">
       <div class="col-xs-6">
         <% if user_signed_in? %>
@@ -74,6 +74,7 @@
           <%= link_to "イベント登録", event_event_registers_path(@event.id), method: :post , class: "btn1 btn1-danger" %>
         <% end %>
       </div>
+      <!-- 編集ボタン -->
       <div class="col-xs-6">
         <%= link_to "編集する", edit_event_path(@event.id), class: "btn1 btn1-warning" %>
       </div>

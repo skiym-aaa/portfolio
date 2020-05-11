@@ -5,6 +5,7 @@
     <%= render "layouts/sidebar"%>
   </div>
 
+  <!-- アイドル詳細 -->
   <div class="col-xs-8">
     <h2 class="heading"><span>アイドル詳細</span>&emsp;<%= @idol.name %></h2>
     <hr>
@@ -55,6 +56,7 @@
         <% end %>
       </div>
 
+      <!-- 編集ボタン -->
       <div class="col-xs-6">
         <%= link_to "編集する", edit_idol_path(@idol.id), class: "btn1 btn1-warning" %>
       </div>

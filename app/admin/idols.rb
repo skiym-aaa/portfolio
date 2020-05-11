@@ -50,5 +50,5 @@ ActiveAdmin.register Idol do
     f.actions
   end
 
-  permit_params :user_id, :name, :about, :official_site, :official_twitter, :official_youtube, :image_id # 更新可能な attribute を記載
+  permit_params :user_id, :name, :about, :official_site, :official_twitter, :official_youtube, :image_id
 end

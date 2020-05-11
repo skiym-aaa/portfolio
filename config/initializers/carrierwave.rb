@@ -1,4 +1,5 @@
 CarrierWave.configure do |config|
+  # S3設定
   config.fog_credentials = {
     provider: 'AWS',
     aws_access_key_id: ENV['aws_access_key_id'],

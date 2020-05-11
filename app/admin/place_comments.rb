@@ -36,5 +36,5 @@ ActiveAdmin.register PlaceComment do
     f.actions
   end
 
-  permit_params :user_id, :place_id, :body, :rate # 更新可能な attribute を記載
+  permit_params :user_id, :place_id, :body, :rate
 end

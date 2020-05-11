@@ -1,6 +1,7 @@
 <% if user_signed_in? %>
   <h3>コメント</h3>
   <%= form_with model: [place, place_comment], url: place_place_comments_path(place.id), method: :post, data: {remote: true} do |f| %>
+
   <!-- エラーメッセージ -->
   <%= render 'layouts/errors', obj: place_comment %>
 

@@ -3,12 +3,14 @@ ActiveAdmin.register User do
   filter :id
   filter :email
   filter :name
+  filter :is_deleted
 
   # 一覧ページ
   index do
     column :id
     column :email
     column :name
+    column :is_deleted
 
     actions
   end
@@ -19,6 +21,7 @@ ActiveAdmin.register User do
       row :id
       row :email
       row :name
+      row :is_deleted
       row :image_id do
         if user.image_id.to_s == ''
           image_tag(asset_path('no_image.jpg'))
@@ -41,5 +44,5 @@ ActiveAdmin.register User do
     f.actions
   end
 
-  permit_params :email, :name, :password, :encrypted_password, :image_id # 更新可能な attribute を記載
+  permit_params :email, :name, :password, :encrypted_password, :image_id
 end

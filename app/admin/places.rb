@@ -47,5 +47,5 @@ ActiveAdmin.register Place do
     f.actions
   end
 
-  permit_params :user_id, :name, :address, :about, :official_site, :image_id # 更新可能な attribute を記載
+  permit_params :user_id, :name, :address, :about, :official_site, :image_id
 end

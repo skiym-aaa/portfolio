@@ -34,5 +34,5 @@ ActiveAdmin.register PlacePhoto do
     f.actions
   end
 
-  permit_params :user_id, :place_id, :image_id # 更新可能な attribute を記載
+  permit_params :user_id, :place_id, :image_id
 end

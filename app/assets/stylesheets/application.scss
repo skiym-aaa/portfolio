@@ -125,122 +125,125 @@
   text-decoration: none;
  }
 
- .head {
-  height: 30px;
- }
+   /* タイトル */
+   .head {
+    height: 30px;
+   }
 
- .heading {
-  margin: 0px;
- }
+   .heading {
+    margin: 0px;
+   }
 
- .heading span {
-  background-color: #F5F5F5;
- }
+   .heading span {
+    background-color: #F5F5F5;
+   }
 
- .top-heading {
-  text-align: center;
- }
+   .top-heading {
+    text-align: center;
+   }
 
- .index-heading {
-  margin: 0px;
-  float: left
- }
+   .index-heading {
+    margin: 0px;
+    float: left
+   }
 
- .index-heading span {
-  background-color: #F5F5F5;
- }
+   .index-heading span {
+    background-color: #F5F5F5;
+   }
 
- .btn1 {
-  display: inline-block;
-  padding: 0.5em 1em;
-  text-decoration: none;
-  color: #FFF;
-  border-bottom: solid 4px #627295;
-  border-radius: 3px;
+ 　/* ボタン */
+ 　.btn1 {
+  　display: inline-block;
+  　padding: 0.5em 1em;
+  　text-decoration: none;
+  　color: #FFF;
+  　border-bottom: solid 4px #627295;
+  　border-radius: 3px;
 
-  a, a:link, a:visited {
-  color: white;
-  }
-}
+    　a, a:link, a:visited {
+    　color: white;
+    　}
+　 }
 
-.btn1-success {
-  background: #00ff7f;
-}
-
-.btn1-danger {
-  background: #ffb6c1;
-}
-
-.btn1-warning {
-  background: #ffa500;
-}
-
-.btn1-info {
-  background: #ffff00;
-}
-
-.btn1-add {
-  background: #e0ffff;
-  float: left;
-  margin-left: 20px;
-}
-
-.btn1-max {
-  text-align: center;
-  width: 100%;
-}
-
-.btn1:active {
-  /*ボタンを押したとき*/
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);/*下に動く*/
-  border-bottom: none;/*線を消す*/
-}
-
-.list-box {
-  margin-top: 10px;
-  float: left;
-  position: relative;
-  text-align: center;
-}
-
-.list-body {
-  display: block;
-  color: gray;
-  font-size: 12px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  .btn1-success {
+    background: #00ff7f;
   }
 
-.list-title {
-  display: block;
-  font-size: 18px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  .btn1-danger {
+    background: #ffb6c1;
   }
 
-.idol-box {
-  width: 240px;
-  height: 360px;
-}
+  .btn1-warning {
+    background: #ffa500;
+  }
 
-.place-box {
-  width: 240px;
-  height: 270px;
-}
+  .btn1-info {
+    background: #ffff00;
+  }
 
-.new-photo {
-  width: 323px;
-}
+  .btn1-add {
+    background: #e0ffff;
+    float: left;
+    margin-left: 20px;
+  }
 
-.user-photo {
-  width:242px;
-}
+  .btn1-max {
+    text-align: center;
+    width: 100%;
+  }
 
-.photo {
-  width: 377px;
-}
+  .btn1:active {
+    /*ボタンを押したとき*/
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
+  }
+
+  /* 一覧表示コンテンツ */
+  .list-box {
+    margin-top: 10px;
+    float: left;
+    position: relative;
+    text-align: center;
+  }
+
+  .list-body {
+    display: block;
+    color: gray;
+    font-size: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    }
+
+  .list-title {
+    display: block;
+    font-size: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    }
+
+  .idol-box {
+    width: 240px;
+    height: 360px;
+  }
+
+  .place-box {
+    width: 240px;
+    height: 270px;
+  }
+
+  .new-photo {
+    width: 323px;
+  }
+
+  .user-photo {
+    width:242px;
+  }
+
+  .photo {
+    width: 377px;
+  }
 
 

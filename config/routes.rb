@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update, :confirm, :destroy]
   get '/user/confirm' => 'users#confirm'
+  # 退会用のアクション
   put '/users/:id/hide' => 'users#hide', as: 'user_hide'
 
   resources :idols, only: [:index, :show, :new, :create, :edit, :update] do

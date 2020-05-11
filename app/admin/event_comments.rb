@@ -33,5 +33,5 @@ ActiveAdmin.register EventComment do
     f.actions
   end
 
-  permit_params :user_id, :event_id, :body # 更新可能な attribute を記載
+  permit_params :user_id, :event_id, :body
 end

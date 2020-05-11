@@ -8,6 +8,6 @@ $(document).ready(function(){
     slideWidth: 360,      // 各スライドの幅
     randomStart: true,    // 最初に表示するスライドをランダムに設定
     autoHover: true,      // ホバー時に自動スライドを停止
-    captions: true
+    captions: true　　　　　// キャプション追加
   });
 });
