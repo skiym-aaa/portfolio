@@ -91,6 +91,9 @@ $(function() {
   $('.menu-trigger').on('click', function() {
     $(this).toggleClass('active');
     $('#sp-menu').fadeToggle();
+    // boxsliderのボタン消す
+    $('.bx-prev').fadeToggle();
+    $('.bx-next').fadeToggle();
     return false;
   });
 
