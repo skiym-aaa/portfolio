@@ -12,11 +12,11 @@ RSpec.describe 'EventCommentモデルのテスト', type: :model do
     context 'bodyカラム' do
       it '空欄でないこと' do
         event_comment.body = ''
-        expect(event_comment.valid?).to eq false;
+        expect(event_comment.valid?).to eq false
       end
       it '140文字以下であること' do
-        event_comment.body = Faker::Lorem.characters(number:141)
-        expect(event_comment.valid?).to eq false;
+        event_comment.body = Faker::Lorem.characters(number: 141)
+        expect(event_comment.valid?).to eq false
       end
     end
   end

@@ -12,7 +12,7 @@
     <div class="row">
 
       <!-- 画像 -->
-      <div class="col-xs-6">
+      <div class="col-md-6 col-xs-12">
         <% if @idol.image_id? %>
           <%= image_tag @idol.image_id.to_s, size: "300x300" %>
         <% elsif @idol.default_image? %>
@@ -22,7 +22,7 @@
         <% end %>
       </div>
       <!-- 詳細 -->
-      <div class="col-xs-6">
+      <div class="col-md-6 col-xs-12">
         <p>
           <strong>イベント名:</strong>
           <%= @event.title %>

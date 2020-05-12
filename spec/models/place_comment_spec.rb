@@ -10,17 +10,17 @@ RSpec.describe 'PlaceCommentモデルのテスト', type: :model do
     context 'bodyカラム' do
       it '空欄でないこと' do
         place_comment.body = ''
-        expect(place_comment.valid?).to eq false;
+        expect(place_comment.valid?).to eq false
       end
       it '140文字以下であること' do
-        place_comment.body = Faker::Lorem.characters(number:141)
-        expect(place_comment.valid?).to eq false;
+        place_comment.body = Faker::Lorem.characters(number: 141)
+        expect(place_comment.valid?).to eq false
       end
     end
     context 'rateカラム' do
       it '空欄でないこと' do
         place_comment.rate = ''
-        expect(place_comment.valid?).to eq false;
+        expect(place_comment.valid?).to eq false
       end
     end
   end

@@ -9,23 +9,23 @@ RSpec.describe '場所のテスト', type: :model do
     context 'nameカラム' do
       it '空欄でないこと' do
         place.name = ''
-        expect(place.valid?).to eq false;
+        expect(place.valid?).to eq false
       end
     end
     context 'addressカラム' do
       it '空欄でないこと' do
         place.address = ''
-        expect(place.valid?).to eq false;
+        expect(place.valid?).to eq false
       end
       it '50文字以下であること' do
-        place.address = Faker::Lorem.characters(number:51)
-        expect(place.valid?).to eq false;
+        place.address = Faker::Lorem.characters(number: 51)
+        expect(place.valid?).to eq false
       end
     end
     context 'aboutカラム' do
       it '140文字以下であること' do
-        place.about = Faker::Lorem.characters(number:141)
-        expect(place.valid?).to eq false;
+        place.about = Faker::Lorem.characters(number: 141)
+        expect(place.valid?).to eq false
       end
     end
   end

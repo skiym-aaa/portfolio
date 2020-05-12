@@ -9,17 +9,17 @@ RSpec.describe 'アイドルのテスト', type: :model do
     context 'nameカラム' do
       it '空欄でないこと' do
         idol.name = ''
-        expect(idol.valid?).to eq false;
+        expect(idol.valid?).to eq false
       end
       it '30文字以下であること' do
-        idol.name = Faker::Lorem.characters(number:31)
-        expect(idol.valid?).to eq false;
+        idol.name = Faker::Lorem.characters(number: 31)
+        expect(idol.valid?).to eq false
       end
     end
     context 'aboutカラム' do
       it '140文字以下であること' do
-        idol.about = Faker::Lorem.characters(number:141)
-        expect(idol.valid?).to eq false;
+        idol.about = Faker::Lorem.characters(number: 141)
+        expect(idol.valid?).to eq false
       end
     end
   end
@@ -36,4 +36,3 @@ RSpec.describe 'アイドルのテスト', type: :model do
     end
   end
 end
-

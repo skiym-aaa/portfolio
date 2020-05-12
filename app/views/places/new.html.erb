@@ -16,13 +16,13 @@
       <%= render 'layouts/errors', obj: @place %>
 
         <!-- 画像投稿機能 -->
-        <div class="col-xs-6 new-photo">
+        <div class="col-md-6 col-xs-12 new-photo">
           <%= f.label :画像 %>
           <%= f.file_field :image_id %>
         </div>
 
         <!-- 情報入力フォーム -->
-        <div class="col-xs-6">
+        <div class="col-md-6 col-xs-12">
           <table>
             <tr>
               <td><%= f.label :場所名 %></td>

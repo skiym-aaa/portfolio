@@ -12,29 +12,29 @@ RSpec.describe 'イベントのテスト', type: :model do
       it '空欄でないこと' do
         # binding.pry
         event.title = ''
-        expect(event.valid?).to eq false;
+        expect(event.valid?).to eq false
       end
       it '30文字以下であること' do
-        event.title = Faker::Lorem.characters(number:31)
-        expect(event.valid?).to eq false;
+        event.title = Faker::Lorem.characters(number: 31)
+        expect(event.valid?).to eq false
       end
     end
     context 'bodyカラム' do
       it '50文字以下であること' do
-        event.body = Faker::Lorem.characters(number:51)
-        expect(event.valid?).to eq false;
+        event.body = Faker::Lorem.characters(number: 51)
+        expect(event.valid?).to eq false
       end
     end
     context 'start_dateカラム' do
       it '空欄でないこと' do
         event.start_date = ''
-        expect(event.valid?).to eq false;
+        expect(event.valid?).to eq false
       end
     end
     context 'end_dateカラム' do
       it '空欄でないこと' do
         event.end_date = ''
-        expect(event.valid?).to eq false;
+        expect(event.valid?).to eq false
       end
     end
   end
