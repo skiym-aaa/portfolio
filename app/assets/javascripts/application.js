@@ -84,3 +84,37 @@ $(function () {
         }
     // });
 });
+
+// ハンバーガーメニュー
+$(function() {
+
+  $('.menu-trigger').on('click', function() {
+    $(this).toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    return false;
+  });
+
+  $('.menu a').on('click', function() {
+    $('.menu-trigger').toggleClass('active');
+    $('#sp-menu').fadeToggle();
+  });
+
+  // トップに戻るボタン
+  $('#back a').on('click',function(){
+    $('body, html').animate({
+      scrollTop:0
+    }, 800);
+      return false;
+  });
+ });
+
+// トップに戻るボタン
+$(function() {
+
+  $('#back a').on('click',function(){
+    $('body, html').animate({
+      scrollTop:0
+    }, 800);
+      return false;
+  });
+ });
