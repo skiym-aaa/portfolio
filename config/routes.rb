@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  resources :users, only: [:show, :edit, :update, :confirm, :destroy]
+  resources :users, only: [:show, :edit, :update, :destroy]
   get '/user/confirm' => 'users#confirm'
   # 退会用のアクション
   put '/users/:id/hide' => 'users#hide', as: 'user_hide'

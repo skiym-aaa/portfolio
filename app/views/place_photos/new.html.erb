@@ -12,7 +12,7 @@
     <!-- 写真投稿フォーム -->
     <%= form_for @place_photo, url: place_place_photos_path(@place.id), html: {  class: "dropzone"} do |f| %>
       <div class="dz-message" data-dz-message>
-        <span>ファイルをここにドロップするか<br>ここをクリックしてください<br>ファイルは自動でアップロードされます！</span>
+        <span>ファイルをここにドロップするか<br>ここをクリックしてください。<br>ファイルは自動でアップロードされます！</span>
       </div>
       <div class="fallback">
         <%= f.file_field :image_id, multiple: true %>
