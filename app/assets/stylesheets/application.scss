@@ -86,6 +86,10 @@ body {
  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 }
 
+img {
+ object-fit: contain;
+}
+
 /* ロゴ */
 .logo {
   text-align: center;
