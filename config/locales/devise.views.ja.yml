@@ -57,18 +57,26 @@ ja:
             name:
               taken: "は既に使用されています。"
               blank: "が入力されていません。"
+              too_long: "は30文字以下に設定して下さい。"
+            about:
+              too_long: "は140文字以下に設定して下さい。"
         place:
           attributes:
             name:
               taken: "は既に使用されています。"
               blank: "が入力されていません。"
+              too_long: "は30文字以下に設定して下さい。"
             address:
               taken: "は既に使用されています。"
               blank: "が入力されていません。"
+              too_long: "は50文字以下に設定して下さい。"
+            about:
+              too_long: "は140文字以下に設定して下さい。"
         place_comment:
           attributes:
             body:
               blank: "が入力されていません。"
+              too_long: "は140文字以下に設定して下さい。"
             rate:
               blank: "が入力されていません。"
         place_photo:
@@ -83,6 +91,7 @@ ja:
               required: "が入力されていません。"
             title:
               blank: "が入力されていません。"
+              too_long: "は50文字以下に設定して下さい。"
             genre:
               blank: "が入力されていません。"
               invalid: "が不正な値です。"
@@ -96,15 +105,19 @@ ja:
           attributes:
             body:
               blank: "が入力されていません。"
+              too_long: "は140文字以下に設定して下さい。"
         message:
           attributes:
             name:
               blank: "が入力されていません。"
+              too_long: "は20文字以下に設定して下さい。"
             email:
               blank: "が入力されていません。"
               invalid: "が不正な値です。"
+              too_long: "は30文字以下に設定して下さい。"
             content:
               blank: "が入力されていません。"
+              too_long: "は1000文字以下に設定して下さい。"
         chat:
           attributes:
             content:
