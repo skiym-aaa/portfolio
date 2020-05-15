@@ -61,8 +61,8 @@
 .comment-list .comment-avatar img {
   display: block;
   width: 100%;
-  height: 100%;
   border-radius: 100%;
+  object-fit: cover;
 }
 .comment-list .comment-author {
   margin-bottom: 5px;
