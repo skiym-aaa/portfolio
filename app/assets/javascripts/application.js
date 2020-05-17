@@ -13,7 +13,7 @@
 //= require jquery
 //= require rails-ujs
 //= require activestorage
-// require turbolinks
+
 //= require bootstrap-sprockets
 //= require_tree .
 //= require moment
@@ -24,23 +24,22 @@
 
 // カレンダー機能
 $(function () {
-    console.log(gon.events)
     // 画面遷移を検知
     // $(document).on('turbolinks:load', function () {
         if ($('#calendar').length) {
 
-            function Calendar() {
-                return $('#calendar').fullCalendar({
-                });
-            }
-            function clearCalendar() {
-                $('#calendar').html('');
-            }
+            // function Calendar() {
+            //     return $('#calendar').fullCalendar({
+            //     });
+            // }
+            // function clearCalendar() {
+            //     $('#calendar').html('');
+            // }
 
-            $(document).on('turbolinks:load', function () {
-                Calendar();
-            });
-            $(document).on('turbolinks:before-cache', clearCalendar);
+            // $(document).ready(
+            //     Calendar()
+            // );
+            // $(document).ready(clearCalendar);
 
             //events: '/events.json', 以下に追加
             $('#calendar').fullCalendar({
