@@ -1,16 +1,26 @@
-<!-- boxslider練習用ページ(route追加必要あり) -->
-<script src="http://bxslider.com/lib/jquery.bxslider.js"></script>
+<div class="row">
 
-<ul class="bxslider">
-  <% @place_photos.each do |place_photo| %>
-    <li>
-      <%= link_to place_place_photo_path(place_photo) do %>
-        <% if place_photo.image_id? %>
-          <%= image_tag place_photo.image_id.to_s, title: "1" %>
-        <% else %>
-          <%= image_tag 'no_image.png' %>
-        <% end %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+  <!-- サイドバー -->
+  <div class="col-xs-4">
+    <%= render "layouts/sidebar"%>
+  </div>
+
+  <div class="col-xs-8">
+    <h2 class="heading"><span>場所写真詳細</span>&emsp;<%= @place.name %></h2>
+    <hr>
+    <div class="row">
+
+      <!-- 画像 -->
+      <div class="col-xs-12 photo">
+        <%= image_tag @place_photo.image_id.to_s, size: "360x240" %>
+        <div class="place-photo-tag">
+          <% @place_photo.tags.each do |tag| %>
+            <span class="label label-primary"><%= tag.name %></span>
+          <% end %>
+          <h6>投稿者：<%= @place_photo.user.name %></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
