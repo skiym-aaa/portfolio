@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_05_18_080425) do
     t.integer "user_id"
     t.integer "event_id"
     t.text "body"
+    t.decimal "score", precision: 5, scale: 3
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_event_comments_on_event_id"

@@ -44,6 +44,7 @@
                   </span>
                 </div>
                 <div class="comment-entry"><%= event_comment.body %></div>
+                <span class="comment-score"><%= event_comment.score %></span>
               </div>
               <!-- コメント投稿者のみ削除リンク -->
               <% if user_signed_in? %>
