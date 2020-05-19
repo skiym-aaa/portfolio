@@ -3,7 +3,9 @@ class PlacePhotosController < ApplicationController
   before_action :set_calender, only: [:new]
 
   def show
-    @place_photos = PlacePhoto.where(place_id: params[:place_id])
+    @place = Place.find(params[:place_id])
+    @place_photo = PlacePhoto.find(params[:id])
+    # カレンダー表示
     @events = Event.where(place_id: params[:place_id])
     @event_array = []
     @events.each do |event|
@@ -32,7 +34,11 @@ class PlacePhotosController < ApplicationController
     @place_photo.place_id = @place.id
     @place_photo.image_id = params[:file]
     if @place_photo.save
-      redirect_to place_path(@place), notice: '写真の追加が完了しました！'
+      tags = Vision.get_image_data(@place_photo.image_id.url)
+      tags.each do |tag|
+        @place_photo.tags.create(name: tag)
+      end
+      # redirect_to place_path(@place), notice: '写真の追加が完了しました！'
     else
       render :new
     end

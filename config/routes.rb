@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     post '/ajax_favorites' => 'favorites#ajax_create'
   end
   resources :places, only: [:index, :show, :new, :create, :edit, :update] do
-    resources :place_photos, only: [:new, :create]
+    resources :place_photos, only: [:show, :new, :create]
     resource :place_comments, only: [:create, :destroy]
     resource :bookmarks, only: [:create, :destroy]
     delete '/ajax_bookmarks' => 'bookmarks#ajax_destroy'

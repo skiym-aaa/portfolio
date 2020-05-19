@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_153152) do
+ActiveRecord::Schema.define(version: 2020_05_18_080425) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -151,6 +151,14 @@ ActiveRecord::Schema.define(version: 2020_05_07_153152) do
   create_table "rooms", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.integer "place_photo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_photo_id"], name: "index_tags_on_place_photo_id"
   end
 
   create_table "users", force: :cascade do |t|

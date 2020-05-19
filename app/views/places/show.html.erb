@@ -41,7 +41,7 @@
           <ul class="bxslider">
             <% @place_photos.each do |place_photo| %>
               <li>
-                <%= link_to place_place_photos_url(place_id: @place.id) do %>
+                <%= link_to place_place_photo_path(place_id: @place.id, id: place_photo.id) do %>
                   <%= image_tag place_photo.image_id.to_s %>
                 <% end %>
               </li>
@@ -72,7 +72,7 @@
       <div class="row">
         <div class="col-xs-12">
           <% @place_photos.each do |place_photo| %>
-            <%= link_to place_photo.image_id.url do %>
+            <%= link_to place_place_photo_path(place_id: @place.id, id: place_photo.id) do %>
               <%= image_tag place_photo.image_id.to_s, size: "60x40" %>
             <% end %>
           <% end %>
