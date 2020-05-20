@@ -1,3 +1,11 @@
+<% if @model == 'idol' %>
+  <% provide(:title, "#{@content}の検索結果(アイドル)") %>
+<% elsif @model == 'place' %>
+  <% provide(:title, "#{@content}の検索結果(場所)") %>
+<% else %>
+  <% provide(:title, "#{@content}の検索結果(イベント)") %>
+<% end %>
+
 <div class="row">
 
   <!-- サイドバー -->
