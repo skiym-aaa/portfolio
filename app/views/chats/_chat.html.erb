@@ -1,5 +1,12 @@
 <div class="chats">
-  <p>From <%= chat.user.name %></p>
+
+  <!-- 退会済みユーザーは"退会済みユーザー"と表示 -->
+  <% if chat.user.is_deleted == true %>
+    <p>From 退会済みユーザー</p>
+  <% else %>
+    <p>From <%= chat.user.name %></p>
+  <% end %>
+
   <p><%= chat.content %></p>
   <p><%= l chat.created_at %></p>
 </div>
