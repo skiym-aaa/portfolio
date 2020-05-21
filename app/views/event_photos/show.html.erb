@@ -1,0 +1,35 @@
+<% provide(:title, "イベント写真(#{@event.title}-#{@event_photo.id})") %>
+
+<div class="row">
+
+  <!-- サイドバー -->
+  <div class="col-xs-4">
+    <%= render "layouts/sidebar"%>
+  </div>
+
+  <div class="col-xs-8">
+    <h2 class="heading"><span>イベント写真詳細</span>&emsp;<%= @event.title %></h2>
+    <hr>
+    <div class="row">
+
+      <!-- 画像 -->
+      <div class="col-xs-12 photo">
+        <%= image_tag @event_photo.image_id.to_s, size: "360x240" %>
+        <div class="event-photo-tag">
+          <% @event_photo.tags.each do |tag| %>
+            <span class="label label-primary"><%= tag.name %></span>
+          <% end %>
+
+          <!-- 退会済みユーザーは"退会済みユーザー"と表示 -->
+          <% if @event_photo.user.is_deleted == true %>
+            <h6>投稿者：退会みユーザー</h6>
+          <% else %>
+            <h6>投稿者：<%= @event_photo.user.name %></h6>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

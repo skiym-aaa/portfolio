@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   belongs_to :user
   belongs_to :idol
   belongs_to :place
+  has_many :event_photos, dependent: :destroy
   has_many :event_comments, dependent: :destroy
   has_many :event_registers, dependent: :destroy
 

@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     post '/ajax_bookmarks' => 'bookmarks#ajax_create'
   end
   resources :events do
+    resources :event_photos, only: [:show, :new, :create]
     resource :event_comments, only: [:create, :destroy]
     resource :event_registers, only: [:create, :destroy]
   end
