@@ -1,6 +1,5 @@
 class PlacePhotosController < ApplicationController
   before_action :authenticate_user!, except: %i[show]
-  before_action :set_calender, only: [:new]
 
   def show
     @place = Place.find(params[:place_id])
@@ -21,6 +20,17 @@ class PlacePhotosController < ApplicationController
   def new
     @place = Place.find(params[:place_id])
     @place_photo = PlacePhoto.new
+    # カレンダー表示
+    @events = Event.where(place_id: params[:place_id])
+    @event_array = []
+    @events.each do |event|
+      ev = {}
+      ev['start'] = event.start_date
+      ev['end'] = event.end_date
+      ev['url'] = event_url(event, format: :html)
+      @event_array << ev
+    end
+    gon.events = @event_array
   end
 
   def create

@@ -1,6 +1,5 @@
 class EventPhotosController < ApplicationController
   before_action :authenticate_user!, except: %i[show]
-  before_action :set_calender, only: [:new]
 
   def show
     @event = Event.find(params[:event_id])
@@ -19,6 +18,15 @@ class EventPhotosController < ApplicationController
   def new
     @event = Event.find(params[:event_id])
     @event_photo = EventPhoto.new
+    # カレンダー表示
+    @event_array = []
+    ev = {}
+    ev['title'] = @event.title
+    ev['start'] = @event.start_date
+    ev['end'] = @event.end_date
+    ev['url'] = event_url(@event, format: :html)
+    @event_array << ev
+    gon.events = @event_array
   end
 
   def create
