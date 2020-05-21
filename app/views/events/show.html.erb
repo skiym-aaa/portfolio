@@ -61,6 +61,20 @@
         </p>
       </div>
     </div>
+
+    <!-- イベント写真 -->
+    <% if @event_photos.exists? %>
+    <hr>
+      <div class="row">
+        <div class="col-xs-12">
+          <% @event_photos.each do |event_photo| %>
+            <%= link_to event_event_photo_path(event_id: @event.id, id: event_photo.id) do %>
+              <%= image_tag event_photo.image_id.to_s, size: "60x40" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
     <hr>
 
     <!-- 登録(解除)ボタン -->
@@ -75,6 +89,7 @@
         <% else %>
           <%= link_to "イベント登録", event_event_registers_path(@event.id), method: :post , class: "btn1 btn1-danger" %>
         <% end %>
+        <%= link_to "写真追加", new_event_event_photo_path(@event.id), class: "btn1 btn1-info" %>
       </div>
       <!-- 編集ボタン -->
       <div class="col-xs-6">

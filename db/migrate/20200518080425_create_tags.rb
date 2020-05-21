@@ -2,7 +2,8 @@ class CreateTags < ActiveRecord::Migration[5.2]
   def change
     create_table :tags do |t|
       t.string :name
-      t.references :place_photo, foreign_key: true
+      t.integer :place_photo
+      t.integer :event_photo
 
       t.timestamps
     end

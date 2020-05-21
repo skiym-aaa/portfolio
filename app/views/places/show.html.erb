@@ -38,7 +38,7 @@
     <div class="row">
 
       <!-- 画像 -->
-      <div class="col-xs-7 photo">
+      <div class="col-md-7 col-xs-12 photo">
         <% if @place_photos.exists? %>
           <ul class="bxslider">
             <% @place_photos.each do |place_photo| %>
@@ -59,7 +59,7 @@
       </div>
 
       <!-- 詳細 -->
-      <div class="col-xs-5">
+      <div class="col-md-5 col-xs-12">
         <h4>About</h4>
         <p><%= @place.about %></p>
         <h4>住所</h4>
@@ -95,7 +95,7 @@
         <% else %>
           <%= link_to "お気に入り登録", place_bookmarks_path(@place.id), method: :post , class: "glyphicon glyphicon-heart-empty btn1 btn1-danger" %>
         <% end %>
-          <%= link_to "写真追加", new_place_place_photo_path(@place.id), class: "btn1 btn1-info" %>
+        <%= link_to "写真追加", new_place_place_photo_path(@place.id), class: "btn1 btn1-info" %>
       </div>
       <div class="col-xs-6">
         <%= link_to "編集する", edit_place_path(@place.id), class: "btn1 btn1-warning" %>
