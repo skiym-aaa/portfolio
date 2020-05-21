@@ -150,6 +150,8 @@ ja:
         end_date: "終了時間"
       event_comment:
         body: "コメント"
+      event_photo:
+        image_id: "写真"
       message:
         name: "名前"
         email: "メールアドレス"
@@ -167,6 +169,7 @@ ja:
       place_photo: "場所写真"
       event: "イベント"
       event_comment: "イベントコメント"
+      event_photo: "イベント写真"
       message: "メッセージ"
       room: "ルーム"
       chat: "チャット"

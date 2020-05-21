@@ -14,8 +14,10 @@
 
       <!-- 画像 -->
       <div class="col-xs-12 photo">
-        <%= image_tag @place_photo.image_id.to_s, size: "360x240" %>
-        <div class="place-photo-tag">
+        <%= link_to @place_photo.image_id.url do %>
+          <%= image_tag @place_photo.image_id.to_s, size: "360x240" %>
+        <% end %>
+        <div class="photo-tag">
           <% @place_photo.tags.each do |tag| %>
             <span class="label label-primary"><%= tag.name %></span>
           <% end %>
