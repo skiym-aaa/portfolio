@@ -29,16 +29,26 @@
             <div class="comment-body bb">
               <div class="comment-avatar">
                 <div class="avatar">
-                  <% if event_comment.user.image_id? %>
+
+                  <!-- 退会済みユーザーは"no_image"を表示 -->
+                  <% if event_comment.user.image_id? && event_comment.user.is_deleted == false %>
                     <%= image_tag event_comment.user.image_id.to_s, size: "60x60" %>
                   <% else %>
                     <%= image_tag "no_image.jpg", size: "60x60" %>
                   <% end %>
+
                 </div>
               </div>
               <div class="comment-text">
                 <div class="comment-author clearfix">
-                  <%= event_comment.user.name %>
+
+                  <!-- 退会済みユーザーは"退会済みユーザー"と表示 -->
+                  <% if event_comment.user.is_deleted == true %>
+                    <p>退会済みユーザー</p>
+                  <% else %>
+                    <%= event_comment.user.name %>
+                  <% end %>
+
                   <span class="comment-meta">
                     <span class="comment-date"><%= l event_comment.created_at %></span>
                   </span>

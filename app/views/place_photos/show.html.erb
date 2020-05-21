@@ -19,7 +19,14 @@
           <% @place_photo.tags.each do |tag| %>
             <span class="label label-primary"><%= tag.name %></span>
           <% end %>
-          <h6>投稿者：<%= @place_photo.user.name %></h6>
+
+          <!-- 退会済みユーザーは"退会済みユーザー"と表示 -->
+          <% if @place_photo.user.is_deleted == true %>
+            <h6>投稿者：退会済ユーザー</h6>
+          <% else %>
+            <h6>投稿者：<%= @place_photo.user.name %></h6>
+          <% end %>
+
         </div>
       </div>
     </div>
