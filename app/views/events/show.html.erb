@@ -15,7 +15,17 @@
 
       <!-- 画像 -->
       <div class="col-md-6 col-xs-12">
-        <% if @idol.image_id? %>
+        <% if @event_photos.exists? %>
+          <ul class="bxslider">
+            <% @event_photos.each do |event_photo| %>
+              <li>
+                <%= link_to event_event_photo_path(event_id: @event.id, id: event_photo.id) do %>
+                  <%= image_tag event_photo.image_id.to_s, title: "Photo by #{event_photo.user.name}" %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        <% elsif @idol.image_id? %>
           <%= image_tag @idol.image_id.to_s, size: "300x300" %>
         <% elsif @idol.default_image? %>
           <%= @idol.default_image.html_safe %>
