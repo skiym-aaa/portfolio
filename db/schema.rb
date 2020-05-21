@@ -170,8 +170,6 @@ ActiveRecord::Schema.define(version: 2020_05_21_072452) do
     t.integer "event_photo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["event_photo_id"], name: "index_tags_on_event_photo_id"
-    t.index ["place_photo_id"], name: "index_tags_on_place_photo_id"
   end
 
   create_table "users", force: :cascade do |t|
