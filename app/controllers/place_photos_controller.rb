@@ -37,6 +37,11 @@ class PlacePhotosController < ApplicationController
       tags = Vision.get_image_data(@place_photo.image_id.url)
       tags.each do |tag|
         @place_photo.tags.create(name: tag)
+        # r = @place_photo.tags.new(name: tag)
+        # r.save
+        # r.errors.full_messages.each do |msg|
+        #   p msg
+        # end
       end
       # redirect_to place_path(@place), notice: '写真の追加が完了しました！'
     else

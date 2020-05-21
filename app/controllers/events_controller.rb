@@ -24,8 +24,10 @@ class EventsController < InheritedResources::Base
   def show
     @idol = Idol.find(@event.idol_id)
     @place = Place.find(@event.place_id)
-    @event_comment = EventComment.new
     @event = Event.find(params[:id])
+    @event_photos = EventPhoto.where(event_id: @event.id)
+    @event_comment = EventComment.new
+    # カレンダー表示
     @event_array = []
     ev = {}
     ev['title'] = @event.title
