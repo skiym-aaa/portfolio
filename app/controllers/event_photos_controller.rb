@@ -40,7 +40,7 @@ class EventPhotosController < ApplicationController
     @event_photo.event_id = @event.id
     @event_photo.image_id = params[:file]
     if @event_photo.save
-      tags = Vision.get_image_data(@event_photo.image_id.url)
+      tags = Vision.get_face_data(@event_photo.image_id.url)
       tags.each do |tag|
         @event_photo.tags.create(name: tag)
       end
