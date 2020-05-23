@@ -6,7 +6,21 @@ class PlaceCommentsController < ApplicationController
     @place_comment = PlaceComment.new(place_comment_params)
     @place_comment.user_id = current_user.id
     @place_comment.place_id = @place.id
-    @place_comment.rate = params[:score]
+    @place_comment_score = Language.get_data(place_comment_params[:body]).round(1)
+    binding.pry
+    if @place_comment_score < 0
+      @place_comment.rate = 2.5
+    elsif @place_comment_score.between?(0.1,0.2)
+      @place_comment.rate = 3.0
+    elsif @place_comment_score.between?(0.3,0.4)
+      @place_comment.rate = 3.5
+    elsif @place_comment_score.between?(0.5,0.6)
+      @place_comment.rate = 4.0
+    elsif @place_comment_score.between?(0.7,0.8)
+      @place_comment.rate = 4.5
+    else
+      @place_comment.rate = 5.0
+    end
     @place_comment.save
     flash.now[:notice] = 'コメントの作成が完了しました！'
     # ajaxのrender用
