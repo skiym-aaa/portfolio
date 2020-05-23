@@ -7,7 +7,6 @@ class PlaceCommentsController < ApplicationController
     @place_comment.user_id = current_user.id
     @place_comment.place_id = @place.id
     @place_comment_score = Language.get_data(place_comment_params[:body]).round(1)
-    binding.pry
     if @place_comment_score < 0
       @place_comment.rate = 2.5
     elsif @place_comment_score.between?(0.1,0.2)
