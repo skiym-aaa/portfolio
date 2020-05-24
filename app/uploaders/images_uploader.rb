@@ -23,7 +23,23 @@ class ImagesUploader < CarrierWave::Uploader::Base
   end
 
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    if Rails.env.production?
+      if model.class.to_s.underscore == "place_photo"
+        "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.place.id}"
+      elsif model.class.to_s.underscore == "event_photo"
+        "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.event.id}"
+      else
+        "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+      end
+    else
+      if model.class.to_s.underscore == "place_photo"
+        "uploads/local/#{model.class.to_s.underscore}/#{mounted_as}/#{model.place.id}"
+      elsif model.class.to_s.underscore == "event_photo"
+        "uploads/local/#{model.class.to_s.underscore}/#{mounted_as}/#{model.event.id}"
+      else
+        "uploads/local/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+      end
+    end
   end
 
   def extension_whitelist
