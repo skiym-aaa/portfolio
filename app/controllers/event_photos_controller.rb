@@ -40,9 +40,12 @@ class EventPhotosController < ApplicationController
     @event_photo.event_id = @event.id
     @event_photo.image_id = params[:file]
     if @event_photo.save
-      tags = Vision.get_face_data(@event_photo.image_id.url)
-      tags.each do |tag|
-        @event_photo.tags.create(name: tag)
+      unless Vision.get_face_data(@event_photo.image_id.url) == nil
+        tags = Vision.get_face_data(@event_photo.image_id.url)
+        binding.pry
+        tags.each do |tag|
+          @event_photo.tags.create(name: tag)
+        end
       end
       # redirect_to event_path(@event), notice: '写真の追加が完了しました！'
     else
