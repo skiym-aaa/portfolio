@@ -11,6 +11,7 @@ AdminUser.create!(email: ENV['admin_email'], password: ENV['admin_password'], pa
 
 # ユーザー
 User.create!(email: ENV['user_email'], password: ENV['user_password'], password_confirmation: ENV['user_password'], name: 'さっきー')
+User.create!(email: ENV['test_user_email'], password: ENV['test_user_password'], password_confirmation: ENV['test_user_password'], name: 'テストユーザー')
 
 # アイドル
 Idol.create!(user_id: '1', name: '9nine', about: 'パフォマンスガールズユニット', official_site: 'http://9nine-fan.lespros.co.jp/', official_twitter: 'https://twitter.com/lespros_9nine' ,official_youtube: 'https://www.youtube.com/user/9nineSMEJ', default_image: '<a target="_blank"  href="https://www.amazon.co.jp/gp/product/B072MZQQ26/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B072MZQQ26&linkCode=as2&tag=skiymaaa0123-22&linkId=1a2e3566ebd0d8ba6d989732fb9c1336"><img border="0" src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=B072MZQQ26&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=skiymaaa0123-22" ></a><img src="//ir-jp.amazon-adsystem.com/e/ir?t=skiymaaa0123-22&l=am2&o=9&a=B072MZQQ26" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />')
