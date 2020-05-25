@@ -24,17 +24,19 @@ class ImagesUploader < CarrierWave::Uploader::Base
 
   def store_dir
     if Rails.env.production?
-      if model.class.to_s.underscore == "place_photo"
+      # モデルごとに保存先の振り分け(place_photoはplace_idに一致させる)
+      if model.class.to_s.underscore == 'place_photo'
         "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.place.id}"
-      elsif model.class.to_s.underscore == "event_photo"
+      elsif model.class.to_s.underscore == 'event_photo'
         "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.event.id}"
       else
         "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
       end
     else
-      if model.class.to_s.underscore == "place_photo"
+      # localの場合の保存先
+      if model.class.to_s.underscore == 'place_photo'
         "uploads/local/#{model.class.to_s.underscore}/#{mounted_as}/#{model.place.id}"
-      elsif model.class.to_s.underscore == "event_photo"
+      elsif model.class.to_s.underscore == 'event_photo'
         "uploads/local/#{model.class.to_s.underscore}/#{mounted_as}/#{model.event.id}"
       else
         "uploads/local/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
