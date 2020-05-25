@@ -61,7 +61,6 @@ module Vision
       face_array = []
       likelihoods = [ "VERY_LIKELY", "LIKELY" ]
       unless JSON.parse(response.body)["responses"][0]["faceAnnotations"] == nil
-        binding.pry
         if likelihoods.include?(JSON.parse(response.body)["responses"][0]["faceAnnotations"][0]["joyLikelihood"])
           face_array.push("Joy")
         end

@@ -42,7 +42,6 @@ class EventPhotosController < ApplicationController
     if @event_photo.save
       unless Vision.get_face_data(@event_photo.image_id.url) == nil
         tags = Vision.get_face_data(@event_photo.image_id.url)
-        binding.pry
         tags.each do |tag|
           @event_photo.tags.create(name: tag)
         end
