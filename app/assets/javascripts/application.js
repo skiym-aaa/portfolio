@@ -10,8 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require rails-ujs
+//= require jquery3
+//= require jquery_ujs
 //= require activestorage
 
 //= require bootstrap-sprockets
@@ -78,7 +78,16 @@ $(function () {
                 eventRender: function(event, element) {
                     element.css("font-size", "0.8em");
                     element.css("padding", "5px");
-                }
+                },
+                eventMouseover: function(event, jsEvent, view) {
+                    $('#modalInfo').html(`${event.start.format('YYYY/MM/DD-HH:mm')}　${event.title}`);
+                    $('#modalDetail').html(`<p>イベント詳細：　<a href=${event.url}>${event.url}</a></p>`);
+                    $('#calendarEventModal').modal('show');
+                },
+                // eventMouseout: function(event, jsEvent, view) {
+                //     console.log("mouseout");
+                //    $('#calendarEventModal').modal('hide');
+                // }
             });
         }
     // });
