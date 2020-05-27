@@ -11,15 +11,15 @@
     <% end %>
     <span class="list-title"><%= link_to idol.name, idol_path(idol) %></span>
 
-      <!-- お気に入りボタン -->
-      <% if user_signed_in? %>
-        <% if idol.favorited_by?(current_user) %>
-          <%= link_to "お気に入り解除", idol_favorites_path(idol.id), method: :delete , class: "glyphicon glyphicon-heart-empty btn1 btn1-success" %>
-        <% else %>
-          <%= link_to "お気に入り登録", idol_favorites_path(idol.id), method: :post , class: "glyphicon glyphicon-heart-empty btn1 btn1-danger" %>
-        <% end %>
+    <!-- お気に入りボタン -->
+    <% if user_signed_in? %>
+      <% if idol.favorited_by?(current_user) %>
+        <%= link_to "お気に入り解除", idol_favorites_path(idol.id), method: :delete , class: "glyphicon glyphicon-heart-empty btn1 btn1-success" %>
       <% else %>
         <%= link_to "お気に入り登録", idol_favorites_path(idol.id), method: :post , class: "glyphicon glyphicon-heart-empty btn1 btn1-danger" %>
       <% end %>
+    <% else %>
+      <%= link_to "お気に入り登録", idol_favorites_path(idol.id), method: :post , class: "glyphicon glyphicon-heart-empty btn1 btn1-danger" %>
+    <% end %>
   </div>
 <% end %>

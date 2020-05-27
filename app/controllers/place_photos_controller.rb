@@ -1,36 +1,15 @@
 class PlacePhotosController < ApplicationController
   before_action :authenticate_user!, except: %i[show]
+  before_action :set_place_photo_calender, only: [:show, :new]
 
   def show
     @place = Place.find(params[:place_id])
     @place_photo = PlacePhoto.find(params[:id])
-    # カレンダー表示
-    @events = Event.where(place_id: params[:place_id])
-    @event_array = []
-    @events.each do |event|
-      ev = {}
-      ev['start'] = event.start_date
-      ev['end'] = event.end_date
-      ev['url'] = event_url(event, format: :html)
-      @event_array << ev
-    end
-    gon.events = @event_array
   end
 
   def new
     @place = Place.find(params[:place_id])
     @place_photo = PlacePhoto.new
-    # カレンダー表示
-    @events = Event.where(place_id: params[:place_id])
-    @event_array = []
-    @events.each do |event|
-      ev = {}
-      ev['start'] = event.start_date
-      ev['end'] = event.end_date
-      ev['url'] = event_url(event, format: :html)
-      @event_array << ev
-    end
-    gon.events = @event_array
   end
 
   def create
@@ -44,14 +23,10 @@ class PlacePhotosController < ApplicationController
     @place_photo.place_id = @place.id
     @place_photo.image_id = params[:file]
     if @place_photo.save
+      # VisionAIでタグ付け(ラベル)
       tags = Vision.get_image_data(@place_photo.image_id.url)
       tags.each do |tag|
         @place_photo.tags.create(name: tag)
-        # r = @place_photo.tags.new(name: tag)
-        # r.save
-        # r.errors.full_messages.each do |msg|
-        #   p msg
-        # end
       end
       # redirect_to place_path(@place), notice: '写真の追加が完了しました！'
     else
@@ -63,5 +38,18 @@ class PlacePhotosController < ApplicationController
 
   def place_photo_params
     params.require(:place_photo).permit(:image_id)
+  end
+
+  def set_place_photo_calender
+    @events = Event.where(place_id: params[:place_id])
+    @event_array = []
+    @events.each do |event|
+      ev = {}
+      ev['start'] = event.start_date
+      ev['end'] = event.end_date
+      ev['url'] = event_url(event, format: :html)
+      @event_array << ev
+    end
+    gon.events = @event_array
   end
 end

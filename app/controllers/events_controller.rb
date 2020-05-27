@@ -2,6 +2,7 @@ class EventsController < InheritedResources::Base
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_event, only: %i[show edit update destroy]
   before_action :set_calender, only: [:new]
+  before_action :set_event_calender, only: [:show, :edit]
 
   # GET /events
   # GET /events.json
@@ -24,18 +25,8 @@ class EventsController < InheritedResources::Base
   def show
     @idol = Idol.find(@event.idol_id)
     @place = Place.find(@event.place_id)
-    @event = Event.find(params[:id])
     @event_photos = EventPhoto.where(event_id: @event.id)
     @event_comment = EventComment.new
-    # カレンダー表示
-    @event_array = []
-    ev = {}
-    ev['title'] = @event.title
-    ev['start'] = @event.start_date
-    ev['end'] = @event.end_date
-    ev['url'] = event_url(@event, format: :html)
-    @event_array << ev
-    gon.events = @event_array
   end
 
   # GET /events/new
@@ -45,15 +36,6 @@ class EventsController < InheritedResources::Base
 
   # GET /events/1/edit
   def edit
-    @event = Event.find(params[:id])
-    @event_array = []
-    ev = {}
-    ev['title'] = @event.title
-    ev['start'] = @event.start_date
-    ev['end'] = @event.end_date
-    ev['url'] = event_url(@event, format: :html)
-    @event_array << ev
-    gon.events = @event_array
   end
 
   # POST /events
@@ -107,5 +89,16 @@ class EventsController < InheritedResources::Base
   # Only allow a list of trusted parameters through.
   def event_params
     params.require(:event).permit(:user_id, :idol_id, :place_id, :title, :genre, :body, :start_date, :end_date)
+  end
+
+  def set_event_calender
+    @event_array = []
+    ev = {}
+    ev['title'] = @event.title
+    ev['start'] = @event.start_date
+    ev['end'] = @event.end_date
+    ev['url'] = event_url(@event, format: :html)
+    @event_array << ev
+    gon.events = @event_array
   end
 end

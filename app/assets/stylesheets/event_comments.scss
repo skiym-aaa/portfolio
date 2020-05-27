@@ -4,6 +4,7 @@
   margin-bottom: 30px;
   padding-top: 20px;
 }
+
 .comment-list .comment-count {
   margin: 0;
   padding: 0;
@@ -13,19 +14,23 @@
   font-weight: 500;
   color: #333333;
 }
+
 .link-add-comment {
   color: #1f3a93;
   float: right;
 }
+
 .link-add-comment:hover {
   color: #1f3a93;
   text-decoration: underline;
 }
+
 .comment-list li.comment {
   padding-left: 80px;
   position: relative;
   list-style: none;
 }
+
 .comment-body {
   padding: 23px 20px;
   position: relative;
@@ -34,13 +39,16 @@
   border: 1px solid #dddddd;
   border-radius: 2px;
 }
+
 .comment-list .comment-body {
   padding-left: 55px;
   background: transparent;
 }
+
 .comment-list li.comment {
   padding-left: 0;
 }
+
 .comment-list .comment-avatar {
   position: absolute;
   top: 20px;
@@ -52,27 +60,32 @@
   border-radius: 70px;
   background: #fff;
 }
+
 .comment-list ul.children .comment-avatar {
   left: -30px;
   width: 60px;
   height: 60px;
   border-radius: 60px;
 }
+
 .comment-list .comment-avatar img {
   display: block;
   width: 100%;
   border-radius: 100%;
   object-fit: cover;
 }
+
 .comment-list .comment-author {
   margin-bottom: 5px;
 }
+
 .comment-list .comment-author .link-author {
   display: block;
   font-size: 14px;
   color: #ffffff;
   font-weight: 600;
 }
+
 .comment-list .comment-author .comment-meta {
   display: block;
   margin-top: 4px;
@@ -80,9 +93,11 @@
   font-size: 12px;
   color: #333333;
 }
+
 .comment-list .comment-author .comment-meta .link-reply {
   color: #1f3a93;
 }
+
 .comment-list .comment-entry {
   line-height: 19px;
 }
