@@ -86,15 +86,7 @@
     <!-- お気に入りボタン -->
     <div class="row">
       <div class="col-xs-6">
-        <% if user_signed_in? %>
-          <% if @place.bookmarked_by?(current_user) %>
-            <%= link_to "お気に入り解除", place_bookmarks_path(@place.id), method: :delete , class: "glyphicon glyphicon-heart-empty btn1 btn1-success" %>
-          <% else %>
-            <%= link_to "お気に入り登録", place_bookmarks_path(@place.id), method: :post , class: "glyphicon glyphicon-heart-empty btn1 btn1-danger" %>
-          <% end %>
-        <% else %>
-          <%= link_to "お気に入り登録", place_bookmarks_path(@place.id), method: :post , class: "glyphicon glyphicon-heart-empty btn1 btn1-danger" %>
-        <% end %>
+        <%= render 'bookmarks/bookmark', place: @place %>
         <%= link_to "写真追加", new_place_place_photo_path(@place.id), class: "btn1 btn1-info" %>
       </div>
       <div class="col-xs-6">
