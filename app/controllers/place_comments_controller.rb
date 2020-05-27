@@ -6,6 +6,7 @@ class PlaceCommentsController < ApplicationController
     @place_comment = PlaceComment.new(place_comment_params)
     @place_comment.user_id = current_user.id
     @place_comment.place_id = @place.id
+    # NaturalLanguageでコメントをスコア化
     @place_comment_score = Language.get_data(place_comment_params[:body]).round(1)
     @place_comment.rate = if @place_comment_score < 0
                             2.5
