@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Userモデルのテスト', type: :model do
+RSpec.describe 'ユーザーモデルのテスト', type: :model do
   # pending "add some examples to (or delete) #{__FILE__}"
 
   describe 'バリデーションのテスト' do
