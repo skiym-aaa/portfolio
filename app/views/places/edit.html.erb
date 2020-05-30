@@ -18,7 +18,7 @@
       <%= render 'layouts/errors', obj: @place %>
 
         <!-- 画像投稿機能 -->
-        <div class="col-md-7 col-xs-12 photo">
+        <div class="col-md-6 col-xs-12 photo">
           <% if @place.image_id? %>
             <%= image_tag @place.image_id.to_s, size: "360x240" %>
             <%= f.file_field :image_id %>
@@ -33,7 +33,7 @@
         </div>
 
         <!-- 情報入力フォーム -->
-        <div class="col-md-5 col-xs-12">
+        <div class="col-md-6 col-xs-12">
           <table>
             <tr>
               <td><%= f.label :場所名 %></td>

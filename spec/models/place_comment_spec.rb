@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'PlaceCommentモデルのテスト', type: :model do
+RSpec.describe '場所コメントモデルのテスト', type: :model do
   # pending "add some examples to (or delete) #{__FILE__}"
   describe 'バリデーションのテスト' do
     let(:user) { create(:user) }

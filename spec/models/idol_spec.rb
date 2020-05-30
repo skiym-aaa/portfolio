@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'アイドルのテスト', type: :model do
+RSpec.describe 'アイドルモデルのテスト', type: :model do
   # pending "add some examples to (or delete) #{__FILE__}"
   describe 'バリデーションのテスト' do
     let(:user) { create(:user) }

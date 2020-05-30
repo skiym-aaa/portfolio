@@ -7,7 +7,7 @@ class HomesController < ApplicationController
       @events = Event.all.order('RAND()').limit(3)
       @idols = Idol.all.order('RAND()').limit(3)
       @places = Place.all.order('RAND()').limit(3)
-    elsif Rails.env.development?
+    else
       @events = Event.all.order('RANDOM()').limit(3)
       @idols = Idol.all.order('RANDOM()').limit(3)
       @places = Place.all.order('RANDOM()').limit(3)

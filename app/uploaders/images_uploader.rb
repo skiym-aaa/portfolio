@@ -17,7 +17,7 @@ class ImagesUploader < CarrierWave::Uploader::Base
   if Rails.env.development?
     storage :fog # fileにするとArgumentError
   elsif Rails.env.test?
-    storage :file
+    storage :fog
   else
     storage :fog
   end

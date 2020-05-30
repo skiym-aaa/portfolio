@@ -18,7 +18,7 @@
       <%= render 'layouts/errors', obj: @idol %>
 
         <!-- 画像投稿機能 -->
-        <div class="col-md-7 col-xs-12 photo">
+        <div class="col-md-6 col-xs-12 photo">
           <% if @idol.image_id? %>
             <%= image_tag @idol.image_id.to_s, size: "360x360" %>
           <% elsif @idol.default_image? %>
@@ -34,7 +34,7 @@
         </div>
 
         <!-- 情報入力フォーム -->
-        <div class="col-md-5 col-xs-12">
+        <div class="col-md-6 col-xs-12">
           <table>
             <tr>
               <td><%= f.label :アイドル名 %></td>

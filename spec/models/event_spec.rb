@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'イベントのテスト', type: :model do
+RSpec.describe 'イベントモデルのテスト', type: :model do
   # pending "add some examples to (or delete) #{__FILE__}"
   describe 'バリデーションのテスト' do
     let(:user) { create(:user) }
@@ -14,17 +14,17 @@ RSpec.describe 'イベントのテスト', type: :model do
         event.title = ''
         expect(event.valid?).to eq false
       end
-      it '30文字以下であること' do
-        event.title = Faker::Lorem.characters(number: 31)
-        expect(event.valid?).to eq false
-      end
-    end
-    context 'bodyカラム' do
       it '50文字以下であること' do
-        event.body = Faker::Lorem.characters(number: 51)
+        event.title = Faker::Lorem.characters(number: 51)
         expect(event.valid?).to eq false
       end
     end
+    # context 'bodyカラム' do
+    #   it '50文字以下であること' do
+    #     event.body = Faker::Lorem.characters(number: 51)
+    #     expect(event.valid?).to eq false
+    #   end
+    # end
     context 'start_dateカラム' do
       it '空欄でないこと' do
         event.start_date = ''
