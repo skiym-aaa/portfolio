@@ -15,9 +15,6 @@ RSpec.describe 'EventPhotos', type: :request do
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end
-      it 'カレンダーが表示される' do
-        expect(page).to have_selector '#calendar'
-      end
     end
   end
 
@@ -47,9 +44,6 @@ RSpec.describe 'EventPhotos', type: :request do
       end
       it 'イベント写真追加と表示される' do
         expect(page).to have_content('イベント写真追加')
-      end
-      it 'カレンダーが表示される' do
-        expect(page).to have_selector '#calendar'
       end
     end
   end

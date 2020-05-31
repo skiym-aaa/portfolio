@@ -4,7 +4,7 @@ RSpec.describe 'Idols', type: :request do
   let(:user) { create(:user) }
   let!(:idol) { create(:idol, user_id: user.id) }
 
-  describe 'アイドルのテスト' do
+  describe 'アイドル画面リクエストテスト' do
     describe 'アイドル一覧ページ' do
       context 'アイドル一覧ページが正しく表示される' do
         before do
@@ -12,9 +12,6 @@ RSpec.describe 'Idols', type: :request do
         end
         it 'リクエストは200 OKとなること' do
           expect(response.status).to eq 200
-        end
-        it 'カレンダーが表示される' do
-          expect(page).to have_selector '#calendar'
         end
       end
     end
@@ -26,9 +23,6 @@ RSpec.describe 'Idols', type: :request do
         end
         it 'リクエストは200 OKとなること' do
           expect(response.status).to eq 200
-        end
-        it 'カレンダーが表示される' do
-          expect(page).to have_selector '#calendar'
         end
       end
     end
@@ -71,9 +65,6 @@ RSpec.describe 'Idols', type: :request do
         it 'アイドル新規登録と表示される' do
           expect(page).to have_content('アイドル新規登録')
         end
-        it 'カレンダーが表示される' do
-          expect(page).to have_selector '#calendar'
-        end
       end
     end
 
@@ -84,9 +75,6 @@ RSpec.describe 'Idols', type: :request do
         end
         it 'アイドル編集と表示される' do
           expect(page).to have_content('アイドル編集')
-        end
-        it 'カレンダーが表示される' do
-          expect(page).to have_selector '#calendar'
         end
       end
     end

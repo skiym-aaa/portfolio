@@ -6,7 +6,7 @@ RSpec.describe 'Events', type: :request do
   let!(:place) { create(:place, user_id: user.id) }
   let!(:event) { create(:event, user_id: user.id, idol_id: idol.id, place_id: place.id) }
 
-  describe 'イベントのテスト' do
+  describe 'イベント画面リクエストテスト' do
     describe 'イベント一覧ページ' do
       context 'イベント一覧ページが正しく表示される' do
         before do

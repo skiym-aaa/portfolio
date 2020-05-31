@@ -4,7 +4,7 @@ RSpec.describe 'Places', type: :request do
   let(:user) { create(:user) }
   let!(:place) { create(:place, user_id: user.id) }
 
-  describe '場所のテスト' do
+  describe '場所画面リクエストテスト' do
     describe '場所一覧ページ' do
       context '場所一覧ページが正しく表示される' do
         before do
@@ -12,9 +12,6 @@ RSpec.describe 'Places', type: :request do
         end
         it 'リクエストは200 OKとなること' do
           expect(response.status).to eq 200
-        end
-        it 'カレンダーが表示される' do
-          expect(page).to have_selector '#calendar'
         end
       end
     end
@@ -25,9 +22,6 @@ RSpec.describe 'Places', type: :request do
         end
         it 'リクエストは200 OKとなること' do
           expect(response.status).to eq 200
-        end
-        it 'カレンダーが表示される' do
-          expect(page).to have_selector '#calendar'
         end
       end
     end
@@ -69,9 +63,6 @@ RSpec.describe 'Places', type: :request do
         it '場所新規登録と表示される' do
           expect(page).to have_content('場所新規登録')
         end
-        it 'カレンダーが表示される' do
-          expect(page).to have_selector '#calendar'
-        end
       end
     end
 
@@ -82,9 +73,6 @@ RSpec.describe 'Places', type: :request do
         end
         it '場所編集と表示される' do
           expect(page).to have_content('場所編集')
-        end
-        it 'カレンダーが表示される' do
-          expect(page).to have_selector '#calendar'
         end
       end
     end
