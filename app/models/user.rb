@@ -15,6 +15,8 @@ class User < ApplicationRecord
   has_many :favorite_idols, through: :favorites, source: :idol
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_places, through: :bookmarks, source: :place
+  has_many :goods, dependent: :destroy
+  has_many :good_event_photos, through: :goods, source: :event_photo
 
   has_many :place_comments, dependent: :destroy
   has_many :event_comments, dependent: :destroy

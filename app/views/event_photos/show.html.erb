@@ -29,6 +29,8 @@
             <h6>投稿者：<%= @event_photo.user.name %></h6>
           <% end %>
 
+          <!-- グッド機能 -->
+          <%= render "goods/good", event: @event, event_photo: @event_photo %>
         </div>
       </div>
     </div>
