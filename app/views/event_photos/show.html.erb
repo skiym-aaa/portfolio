@@ -13,9 +13,9 @@
     <div class="row">
 
       <!-- 画像 -->
-      <div class="col-xs-12 photo">
+      <div class="col-xs-12">
         <%= link_to @event_photo.image_id.url do %>
-          <%= image_tag @event_photo.image_id.to_s, size: "360x240" %>
+          <%= image_tag @event_photo.image_id.to_s, size: "540x360" %>
         <% end %>
         <div class="photo-tag">
           <% @event_photo.tags.each do |tag| %>
@@ -26,11 +26,15 @@
           <% if @event_photo.user.is_deleted == true %>
             <h6>投稿者：退会みユーザー</h6>
           <% else %>
-            <h6>投稿者：<%= @event_photo.user.name %></h6>
+            <h6>投稿者：<%= link_to @event_photo.user.name, user_path(@event_photo.user) %></h6>
           <% end %>
+
+          <!-- フォローボタン -->
+          <%= render "relationships/follow", user: @event_photo.user %>
 
           <!-- グッド機能 -->
           <%= render "goods/good", event: @event, event_photo: @event_photo %>
+
         </div>
       </div>
     </div>

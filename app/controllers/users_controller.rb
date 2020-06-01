@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :baria_user, except: [:confirm]
+  before_action :baria_user, except: [:show, :confirm]
   before_action :set_calender, only: [:show]
 
   def show
