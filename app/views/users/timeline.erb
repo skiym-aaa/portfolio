@@ -1,0 +1,40 @@
+<% provide(:title, "タイムライン") %>
+
+<!-- タブ・メニュー -->
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#sampleContentA" data-toggle="tab">タイムライン</a></li>
+  <li><a href="#sampleContentB" data-toggle="tab">いいね</a></li>
+  <li><a href="#sampleContentC" data-toggle="tab">フォロー</a></li>
+  <li><a href="#sampleContentD" data-toggle="tab">フォロワー</a></li>
+</ul>
+
+<!-- タブ内容 -->
+<div class="tab-content">
+  <div class="tab-pane active" id="sampleContentA">
+    <h2>タイムライン</h2>
+    <%= render '/event_photos/index', event_photo: @event_photos %>
+  </div>
+
+  <div class="tab-pane" id="sampleContentB">
+    <h2>Favorite EventPhotos</h2>
+    <%= render '/event_photos/index', event_photo: current_user.good_event_photos %>
+   </div>
+
+  <div class="tab-pane" id="sampleContentC">
+    <h2>Follow Users</h2>
+    <% if @user.following_user.count > 0 %>
+      <%= render '/users/index', users: @user.following_user %>
+    <% else %>
+      <p>ユーザーはいません</p>
+    <% end %>
+  </div>
+
+  <div class="tab-pane" id="sampleContentD">
+    <h2>Follower Users</h2>
+    <% if @user.follower_user.count > 0 %>
+      <%= render '/users/index', users: @user.follower_user %>
+    <% else %>
+      <p>ユーザーはいません</p>
+    <% end %>
+  </div>
+</div>

@@ -12,8 +12,9 @@
           <li><%= link_to " アイドル",idols_path, class: "glyphicon glyphicon-user" %></li>
           <li><%= link_to " 場所",places_path, class: "glyphicon glyphicon-map-marker" %></li>
           <li><%= link_to " イベント",events_path, class: "glyphicon glyphicon-calendar" %></li>
+          <li><%= link_to " タイムライン",user_timeline_path(current_user), class: "glyphicon glyphicon-time" %></li>
           <li><%= link_to " マイページ",user_path(current_user), class: "glyphicon glyphicon-home" %></li>
-          <li><%= link_to ' 連絡先', contact_index_path, class: "glyphicon glyphicon-envelope" %></li>
+          <!-- <li><%= link_to ' 連絡先', contact_index_path, class: "glyphicon glyphicon-envelope" %></li> -->
           <li><%= link_to ' チャット', rooms_path, class: "glyphicon glyphicon-volume-up" %></li>
           <li><%= link_to " ログアウト",destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out logout' %></li>
 
@@ -24,7 +25,7 @@
           <li><%= link_to " イベント",events_path, class: "glyphicon glyphicon-calendar" %></li>
           <li><%= link_to " 新規登録",new_user_registration_path, class: 'glyphicon glyphicon-edit sign_up' %></li>
           <li><%= link_to " ログイン", user_session_path, class: "glyphicon glyphicon-log-in" %></li>
-          <li><%= link_to ' 連絡先', contact_index_path, class: "glyphicon glyphicon-envelope" %></li>
+          <!-- <li><%= link_to ' 連絡先', contact_index_path, class: "glyphicon glyphicon-envelope" %></li> -->
         <% end %>
       </ul>
     </nav>
@@ -40,6 +41,7 @@
       <li><%= link_to " アイドル",idols_path, class: "glyphicon glyphicon-user" %></li>
       <li><%= link_to " 場所",places_path, class: "glyphicon glyphicon-map-marker" %></li>
       <li><%= link_to " イベント",events_path, class: "glyphicon glyphicon-calendar" %></li>
+      <li><%= link_to " タイムライン",user_timeline_path(current_user), class: "glyphicon glyphicon-time" %></li>
       <li><%= link_to " マイページ",user_path(current_user), class: "glyphicon glyphicon-home" %></li>
       <li><%= link_to ' 連絡先', contact_index_path, class: "glyphicon glyphicon-envelope" %></li>
       <li><%= link_to ' チャット', rooms_path, class: "glyphicon glyphicon-volume-up" %></li>

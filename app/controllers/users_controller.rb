@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :baria_user, except: [:show, :confirm]
-  before_action :set_calender, only: [:show]
+  # before_action :set_calender, only: [:show]
 
   def show
     @user = User.find(params[:id])
@@ -29,6 +29,21 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def timeline
+    @user = User.find(params[:id])
+    relation = EventPhoto.includes(:event)
+    @event_photos = relation
+                    .where(user_id: @user.id)
+                    .or(relation.where(user_id: @user.following_user.ids))
+                    .or(relation.where(event_id: @user.event_event_registers.ids))
+                    .or(relation.where(events: {idol_id: @user.favorite_idols.ids}))
+    # @event_photos = EventPhoto
+    #                 .where(user_id: @user.id)
+    #                 .or(EventPhoto.where(user_id: @user.following_user.ids))
+    #                 .or(EventPhoto.where(event_id: @user.event_event_registers.ids))
+    #                 .or(EventPhoto.includes(:event).where(events: {idol_id: @user.favorite_idols.ids}))
   end
 
   def confirm

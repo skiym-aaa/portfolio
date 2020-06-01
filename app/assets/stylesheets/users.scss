@@ -1,3 +1,19 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* タイムライン */
+
+.masonry-wrapper-cols {
+  background-color: #EAEBED;
+  text-align: center;
+}
+
+.masonry-block {
+  margin: 50px 0;
+  background-color: #FFFFFF;
+}
+
+.masonry-block img {
+  margin: 10px auto;
+}
+
+.block-content ul li {
+  list-style: none;
+}

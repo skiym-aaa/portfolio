@@ -18,9 +18,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update, :destroy] do
     resource :relationships, only: [:create, :destroy]
-    get 'follows' => 'relationships#follower', as: 'follows'
-    get 'followers' => 'relationships#followed', as: 'followers'
+    get '/follows' => 'relationships#follower', as: 'follows'
+    get '/followers' => 'relationships#followed', as: 'followers'
   end
+  get '/users/:id/timeline' => 'users#timeline', as: 'user_timeline'
   get '/user/confirm' => 'users#confirm'
   # 退会用のアクション
   put '/users/:id/hide' => 'users#hide', as: 'user_hide'
