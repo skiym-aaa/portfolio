@@ -31,10 +31,12 @@
         <% end %>
 
         <!-- フォローボタン -->
-        <%= render "relationships/follow", user: @event_photo.user %>
+        <div id="ajax_follow">
+          <%= render "relationships/follow", user: @event_photo.user %>
+        </div>
 
         <!-- グッド機能 -->
-        <div id ="ajax_good">
+        <div id="ajax_good">
           <%= render "goods/good", event: @event, event_photo: @event_photo %>
         </div>
       </div>

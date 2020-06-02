@@ -1,0 +1,5 @@
+// タイムライン
+$("#ajax_fallowing").html("<%= j(render '/users/index', users: current_user.following_user) %>")
+$("#ajax_fallower").html("<%= j(render '/users/index', users: current_user.follower_user) %>")
+// イベント写真詳細
+$("#ajax_follow").html("<%= j(render 'relationships/follow', user: @user ) %>")

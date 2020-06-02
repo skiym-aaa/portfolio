@@ -26,19 +26,23 @@
 
   <div class="tab-pane" id="sampleContentC">
     <h2>Follow Users</h2>
-    <% if @user.following_user.count > 0 %>
-      <%= render '/users/index', users: @user.following_user %>
-    <% else %>
-      <p>ユーザーはいません</p>
-    <% end %>
+    <div id="ajax_fallowing">
+      <% if @user.following_user.count > 0 %>
+          <%= render '/users/index', users: @user.following_user %>
+      <% else %>
+        <p>ユーザーはいません</p>
+      <% end %>
+    </div>
   </div>
 
   <div class="tab-pane" id="sampleContentD">
     <h2>Follower Users</h2>
-    <% if @user.follower_user.count > 0 %>
-      <%= render '/users/index', users: @user.follower_user %>
-    <% else %>
-      <p>ユーザーはいません</p>
-    <% end %>
+    <div id="ajax_fallower">
+      <% if @user.follower_user.count > 0 %>
+          <%= render '/users/index', users: @user.follower_user %>
+      <% else %>
+        <p>ユーザーはいません</p>
+      <% end %>
+    </div>
   </div>
 </div>
