@@ -1,0 +1,73 @@
+<div class="row" style="text-align: center">
+  <div class="col-xs-6">
+    <h2><%= user.name %></h2>
+    <!-- フォローボタン -->
+    <div id="ajax_follow" style="margin-top: 30px;">
+      <%= render "relationships/follow", user: user %>
+    </div>
+  </div>
+  <div class="col-xs-6 user-photo">
+    <h4>プロフィール画像</h4>
+    <% if user.image_id? %>
+      <%= image_tag user.image_id.to_s, size: "150x150" %>
+    <% else %>
+      <%= image_tag "no_image.jpg", size: "150x150" %>
+    <% end %>
+  </div>
+</div>
+<hr>
+
+<div class="row">
+  <!-- タブ・メニュー -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#sampleContentA" data-toggle="tab">イベント写真</a></li>
+    <li><a href="#sampleContentB" data-toggle="tab">場所写真</a></li>
+    <li><a href="#sampleContentC" data-toggle="tab">フォロー</a></li>
+    <li><a href="#sampleContentD" data-toggle="tab">フォロワー</a></li>
+  </ul>
+​
+  <!-- タブ内容 -->
+  <div class="tab-content">
+    <div class="tab-pane active" id="sampleContentA">
+      <h2>EventPhotos</h2>
+      <div id="ajax_event_photos">
+        <% if user.event_photos.count > 0 %>
+          <%= render '/event_photos/index', event_photos: user.event_photos %>
+        <% else %>
+          <p>投稿したイベント写真はありません</p>
+        <% end %>
+      </div>
+    </div>
+​
+    <div class="tab-pane" id="sampleContentB">
+      <h2>PlacePhotos</h2>
+        <% if user.place_photos.count > 0 %>
+          <%= render '/place_photos/index', place_photos: user.place_photos %>
+        <% else %>
+          <p>投稿した場所写真はありません</p>
+        <% end %>
+    </div>
+​
+    <div class="tab-pane" id="sampleContentC">
+      <h2>Follow Users</h2>
+      <div id="ajax_fallowing">
+        <% if user.following_user.count > 0 %>
+            <%= render '/users/index', users: user.following_user %>
+        <% else %>
+          <p>ユーザーはいません</p>
+        <% end %>
+      </div>
+    </div>
+​
+    <div class="tab-pane" id="sampleContentD">
+      <h2>Follower Users</h2>
+      <div id="ajax_fallower">
+        <% if user.follower_user.count > 0 %>
+            <%= render '/users/index', users: user.follower_user %>
+        <% else %>
+          <p>ユーザーはいません</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

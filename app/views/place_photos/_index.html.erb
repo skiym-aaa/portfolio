@@ -1,0 +1,36 @@
+<div class="masonry-wrapper-cols">
+  <div class="row">
+    <div class="col-md-8 col-sm-offset-2">
+      <% place_photos.each do |place_photo| %>
+        <div class="masonry-block">
+
+          <div class="block-image">
+            <%= link_to place_photo.image_id.url do %>
+              <%= image_tag place_photo.image_id.to_s, size: "540x360" %>
+            <% end %>
+          </div>
+
+          <div class="block-content">
+            <% place_photo.tags.each do |tag| %>
+              <span class="label label-primary"><%= tag.name %></span>
+            <% end %>
+            <!-- 退会済みユーザーは"no_image"を表示 -->
+            <!--<% if place_photo.user.image_id? && place_photo.user.is_deleted == false %>
+              <%= image_tag place_photo.user.image_id.to_s, size: "60x60" %>
+            <% else %>
+              <%= image_tag "no_image.jpg", size: "60x60" %>
+            <% end %> -->
+            <h3 class="block-title"></h3>
+            <p><%= place_photo.place.name %></p>
+            <ul class="inline-meta">
+              <li>
+                <p>By<%= link_to place_photo.user.name, user_path(place_photo.user) %>　<%= l place_photo.created_at %></p>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

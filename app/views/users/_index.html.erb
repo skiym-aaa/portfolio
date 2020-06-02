@@ -18,7 +18,7 @@
             <%= image_tag "no_image.jpg", size: "60x60" %>
           <% end %>
         </td>
-        <td><%= user.name%></td>
+        <td><%= link_to user.name, user_path(user) %></td>
         <td>フォロー数：<%= user.follower.count %></td>
         <td>フォロワー数：<%= user.followed.count %></td>
         <td>
