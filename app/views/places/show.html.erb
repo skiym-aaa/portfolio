@@ -44,7 +44,7 @@
             <% @place_photos.each do |place_photo| %>
               <li>
                 <%= link_to place_place_photo_path(place_id: @place.id, id: place_photo.id) do %>
-                  <%= image_tag place_photo.image_id.to_s, title: "Photo by #{place_photo.user.name}" %>
+                  <%= image_tag place_photo.image_id.to_s, title: "Photo by #{link_to place_photo.user.name, user_path(place_photo.user)}" %>
                 <% end %>
               </li>
             <% end %>

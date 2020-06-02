@@ -20,7 +20,7 @@
             <% @event_photos.each do |event_photo| %>
               <li>
                 <%= link_to event_event_photo_path(event_id: @event.id, id: event_photo.id) do %>
-                  <%= image_tag event_photo.image_id.to_s, title: "Photo by #{event_photo.user.name}" %>
+                  <%= image_tag event_photo.image_id.to_s, title: "Photo by #{link_to event_photo.user.name, user_path(event_photo.user)}" %>
                 <% end %>
               </li>
             <% end %>

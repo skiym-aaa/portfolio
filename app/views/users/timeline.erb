@@ -12,12 +12,16 @@
 <div class="tab-content">
   <div class="tab-pane active" id="sampleContentA">
     <h2>タイムライン</h2>
-    <%= render '/event_photos/index', event_photo: @event_photos %>
+    <div id="timeline">
+      <%= render '/event_photos/index', event_photos: @event_photos %>
+    </div>
   </div>
 
   <div class="tab-pane" id="sampleContentB">
     <h2>Favorite EventPhotos</h2>
-    <%= render '/event_photos/index', event_photo: current_user.good_event_photos %>
+    <div id="favorite_eventphotos">
+      <%= render '/event_photos/index', event_photos: current_user.good_event_photos %>
+    </div>
    </div>
 
   <div class="tab-pane" id="sampleContentC">

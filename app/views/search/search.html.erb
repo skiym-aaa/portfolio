@@ -50,15 +50,27 @@
     <% if @model == 'idol' %>
       <h3 class="glyphicon glyphicon-search">'<%= @content %>'の検索結果(アイドル)</h3>
       <hr>
-    <%= render 'idols/index', idols: @records %>
+      <% if @records.count > 0 %>
+        <%= render 'idols/index', idols: @records %>
+      <% else %>
+        <p>検索結果はありません</p>
+      <% end %>
     <% elsif @model == 'place' %>
       <h3 class="glyphicon glyphicon-search">'<%= @content %>'の検索結果(場所)</h3>
       <hr>
-      <%= render 'places/index', places: @records %>
+      <% if @records.count > 0 %>
+        <%= render 'places/index', places: @records %>
+      <% else %>
+        <p>検索結果はありません</p>
+      <% end %>
     <% else @model == 'event' %>
       <h3 class="glyphicon glyphicon-search">'<%= @content %>'の検索結果(イベント)</h3>
       <hr>
-      <%= render 'events/index', events: @records %>
+      <% if @records.count > 0 %>
+        <%= render 'events/index', events: @records %>
+      <% else %>
+        <p>検索結果はありません</p>
+      <% end %>
     <% end %>
   </div>
 

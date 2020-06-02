@@ -7,29 +7,28 @@
     <%= render "layouts/sidebar"%>
   </div>
 
-  <div class="col-xs-8">
+  <div class="col-xs-8" style="text-align: center">
     <h2 class="heading"><span>場所写真詳細</span>&emsp;<%= @place.name %></h2>
     <hr>
     <div class="row">
 
       <!-- 画像 -->
-      <div class="col-xs-12 photo">
+      <div class="col-xs-12">
         <%= link_to @place_photo.image_id.url do %>
-          <%= image_tag @place_photo.image_id.to_s, size: "360x240" %>
+          <%= image_tag @place_photo.image_id.to_s, size: "540x360" %>
         <% end %>
         <div class="photo-tag">
           <% @place_photo.tags.each do |tag| %>
             <span class="label label-primary"><%= tag.name %></span>
           <% end %>
-
-          <!-- 退会済みユーザーは"退会済みユーザー"と表示 -->
-          <% if @place_photo.user.is_deleted == true %>
-            <h6>投稿者：退会みユーザー</h6>
-          <% else %>
-            <h6>投稿者：<%= @place_photo.user.name %></h6>
-          <% end %>
-
         </div>
+
+        <!-- 退会済みユーザーは"退会済みユーザー"と表示 -->
+        <% if @place_photo.user.is_deleted == true %>
+          <h4>投稿者：退会みユーザー</h4>
+        <% else %>
+          <h4>投稿者：<%= @place_photo.user.name %></h4>
+        <% end %>
       </div>
     </div>
   </div>
