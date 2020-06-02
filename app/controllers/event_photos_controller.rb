@@ -1,6 +1,6 @@
 class EventPhotosController < ApplicationController
   before_action :authenticate_user!, except: %i[show]
-  before_action :set_event_photo_calender, only: [:show, :new]
+  before_action :set_event_photo_calender, only: %i[show new]
 
   def show
     @event_photo = EventPhoto.find(params[:id])

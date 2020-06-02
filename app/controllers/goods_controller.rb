@@ -25,6 +25,6 @@ class GoodsController < ApplicationController
                     .where(user_id: @user.id)
                     .or(relation.where(user_id: @user.following_user.ids))
                     .or(relation.where(event_id: @user.event_event_registers.ids))
-                    .or(relation.where(events: {idol_id: @user.favorite_idols.ids}))
+                    .or(relation.where(events: { idol_id: @user.favorite_idols.ids }))
   end
 end

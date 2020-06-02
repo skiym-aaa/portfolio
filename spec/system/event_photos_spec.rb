@@ -9,8 +9,8 @@ RSpec.describe 'EventPhotos', type: :system do
 
   before do
     visit new_user_session_path
-    fill_in name="user[email]", with: user.email
-    fill_in name="user[password]", with: user.password
+    fill_in name = 'user[email]', with: user.email
+    fill_in name = 'user[password]', with: user.password
     click_button 'ログイン'
   end
 
@@ -33,7 +33,7 @@ RSpec.describe 'EventPhotos', type: :system do
           visit new_event_event_photo_path(event)
         end
         it 'カレンダーが表示される' do
-            expect(page).to have_selector '#calendar'
+          expect(page).to have_selector '#calendar'
         end
       end
     end

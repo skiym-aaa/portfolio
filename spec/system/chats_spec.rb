@@ -5,13 +5,13 @@ RSpec.describe 'Chats', type: :system do
 
   before do
     visit new_user_session_path
-    fill_in name="user[email]", with: user.email
-    fill_in name="user[password]", with: user.password
+    fill_in name = 'user[email]', with: user.email
+    fill_in name = 'user[password]', with: user.password
     click_button 'ログイン'
   end
 
   describe 'チャットルームのテスト' do
-    context "チャットルーム一覧の表示確認" do
+    context 'チャットルーム一覧の表示確認' do
       before do
         visit rooms_path
       end
@@ -23,7 +23,7 @@ RSpec.describe 'Chats', type: :system do
         expect(page).to have_content 'Room'
       end
     end
-    context "チャットルームの表示確認" do
+    context 'チャットルームの表示確認' do
       before do
         visit rooms_path
         click_link '新規チャットルーム作成'

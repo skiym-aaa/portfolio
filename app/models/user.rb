@@ -24,14 +24,13 @@ class User < ApplicationRecord
   has_many :event_registers, dependent: :destroy
   has_many :event_event_registers, through: :event_registers, source: :event, dependent: :destroy
 
-
   # フォロワー機能
-  has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy #フォロー取得
+  has_many :follower, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy # フォロー取得
   # 外部キーの定義
-  has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy #フォロワー取得
+  has_many :followed, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy # フォロワー取得
   # 外部キーの定義
-  has_many :following_user, through: :follower, source: :followed #自分がフォローしている人
-  has_many :follower_user, through: :followed, source: :follower #自分をフォローしている人
+  has_many :following_user, through: :follower, source: :followed # 自分がフォローしている人
+  has_many :follower_user, through: :followed, source: :follower # 自分をフォローしている人
   # foregin_key = 入口　source = 出口　through: :○○○ = 中間テーブルは○○○
   # follower_id(自分) → follower_id(自分)を目印にfollower(中間テーブル)に入り,
   # followed_id(自分がフォローしている人＝他人)の情報を取得して出てくる。
@@ -46,11 +45,10 @@ class User < ApplicationRecord
     follower.find_by(followed_id: user_id).destroy
   end
 
-  #フォローしていればtrueを返す
+  # フォローしていればtrueを返す
   def following?(user)
     following_user.include?(user)
   end
-
 
   validates :name, length: { maximum: 20, minimum: 2 }
 

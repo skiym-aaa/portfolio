@@ -7,7 +7,7 @@ RSpec.describe 'Homes', type: :system do
   # let!(:event) { create(:event, user_id: user.id, idol_id: idol.id, place_id: place.id) }
 
   describe 'トップページのテスト' do
-    context "表示の確認" do
+    context '表示の確認' do
       before do
         visit root_path
       end

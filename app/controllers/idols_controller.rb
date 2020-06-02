@@ -1,7 +1,7 @@
 class IdolsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_calender, only: %i[index new]
-  before_action :set_idol_calender, only: [:show, :edit]
+  before_action :set_idol_calender, only: %i[show edit]
 
   def index
     @idols = Idol.all

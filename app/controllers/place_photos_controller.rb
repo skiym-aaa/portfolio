@@ -1,6 +1,6 @@
 class PlacePhotosController < ApplicationController
   before_action :authenticate_user!, except: %i[show]
-  before_action :set_place_photo_calender, only: [:show, :new]
+  before_action :set_place_photo_calender, only: %i[show new]
 
   def show
     @place = Place.find(params[:place_id])

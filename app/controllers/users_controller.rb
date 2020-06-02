@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :baria_user, except: [:show, :confirm]
+  before_action :baria_user, except: %i[show confirm]
   # before_action :set_calender, only: [:show]
 
   def show
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
                     .where(user_id: @user.id)
                     .or(relation.where(user_id: @user.following_user.ids))
                     .or(relation.where(event_id: @user.event_event_registers.ids))
-                    .or(relation.where(events: {idol_id: @user.favorite_idols.ids}))
+                    .or(relation.where(events: { idol_id: @user.favorite_idols.ids }))
     # @event_photos = EventPhoto
     #                 .where(user_id: @user.id)
     #                 .or(EventPhoto.where(user_id: @user.following_user.ids))
