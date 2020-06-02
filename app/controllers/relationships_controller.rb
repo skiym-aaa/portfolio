@@ -1,16 +1,15 @@
 class RelationshipsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_follow_ajax, only: [:create, :destroy]
+
   def create
     current_user.follow(params[:user_id])
     # redirect_to request.referer
-    # ajax用
-    @user = User.find(params[:user_id])
   end
 
   def destroy
     current_user.unfollow(params[:user_id])
     # redirect_to request.referer
-    # ajax用
-    @user = User.find(params[:user_id])
   end
 
   def follower
@@ -21,5 +20,9 @@ class RelationshipsController < ApplicationController
   def followed
     user = User.find(params[:user_id])
     @users = user.follower_user
+  end
+
+  def set_follow_ajax
+    @user = User.find(params[:user_id])
   end
 end

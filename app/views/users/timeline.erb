@@ -13,14 +13,22 @@
   <div class="tab-pane active" id="sampleContentA">
     <h2>タイムライン</h2>
     <div id="timeline">
-      <%= render '/event_photos/index', event_photos: @event_photos %>
+      <% if @event_photos.count > 0 %>
+        <%= render '/event_photos/index', event_photos: @event_photos %>
+      <% else %>
+        <p>タイムラインはありません</p>
+      <% end %>
     </div>
   </div>
 
   <div class="tab-pane" id="sampleContentB">
     <h2>Favorite EventPhotos</h2>
     <div id="favorite_eventphotos">
-      <%= render '/event_photos/index', event_photos: current_user.good_event_photos %>
+      <% if current_user.good_event_photos.count > 0 %>
+        <%= render '/event_photos/index', event_photos: current_user.good_event_photos %>
+      <% else %>
+        <p>いいねした投稿はありません</p>
+      <% end %>
     </div>
    </div>
 

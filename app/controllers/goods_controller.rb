@@ -1,4 +1,6 @@
 class GoodsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_good_ajax
 
   def create
     @event = Event.find(params[:event_id])
@@ -6,14 +8,6 @@ class GoodsController < ApplicationController
     good = current_user.goods.new(event_id: @event.id, event_photo_id: @event_photo.id)
     good.save
     # redirect_to request.referer
-    # ajax用
-    @user = current_user
-    relation = EventPhoto.includes(:event)
-    @event_photos = relation
-                    .where(user_id: @user.id)
-                    .or(relation.where(user_id: @user.following_user.ids))
-                    .or(relation.where(event_id: @user.event_event_registers.ids))
-                    .or(relation.where(events: {idol_id: @user.favorite_idols.ids}))
   end
 
   def destroy
@@ -22,6 +16,9 @@ class GoodsController < ApplicationController
     good = current_user.goods.find_by(event_id: @event.id, event_photo_id: @event_photo.id)
     good.destroy
     # redirect_to request.referer
+  end
+
+  def set_good_ajax
     @user = current_user
     relation = EventPhoto.includes(:event)
     @event_photos = relation
