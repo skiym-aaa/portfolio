@@ -12,7 +12,7 @@
 <div class="tab-content">
   <div class="tab-pane active" id="sampleContentA">
     <h2>タイムライン</h2>
-    <div id="timeline">
+    <div id="ajax_event_photos">
       <% if @event_photos.count > 0 %>
         <%= render '/event_photos/index', event_photos: @event_photos %>
       <% else %>
@@ -25,7 +25,7 @@
     <h2>Favorite EventPhotos</h2>
     <div id="favorite_eventphotos">
       <% if current_user.good_event_photos.count > 0 %>
-        <%= render '/event_photos/index', event_photos: current_user.good_event_photos %>
+        <%= render '/event_photos/index', event_photos: @user.good_event_photos %>
       <% else %>
         <p>いいねした投稿はありません</p>
       <% end %>

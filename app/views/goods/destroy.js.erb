@@ -1,5 +1,5 @@
 // タイムライン
-$("#timeline").html("<%= j(render '/event_photos/index',  event_photos: @event_photos ) %>")
-$("#favorite_eventphotos").html("<%= j(render '/event_photos/index',  event_photos: current_user.good_event_photos ) %>")
+$("#ajax_event_photos").html("<%= j(render '/event_photos/index',  event_photos: @event_photos ) %>")
+$("#favorite_eventphotos").html("<%= j(render '/event_photos/index',  event_photos: @user.good_event_photos ) %>")
 // イベント写真詳細
 $("#ajax_good").html("<%= j(render 'goods/good', event: @event, event_photo: @event_photo ) %>")

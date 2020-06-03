@@ -19,7 +19,7 @@ class GoodsController < ApplicationController
   end
 
   def set_good_ajax
-    @user = current_user
+    @user = User.find(params[:id])
     relation = EventPhoto.includes(:event)
     @event_photos = relation
                     .where(user_id: @user.id)
