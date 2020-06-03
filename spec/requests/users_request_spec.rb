@@ -34,20 +34,20 @@ RSpec.describe 'Users', type: :request do
         end
       end
     end
-    # describe 'ユーザー詳細ページ' do
+    # describe 'ユーザー編集ページ' do
     #   context '偏移できない' do
     #     before do
-    #       get user_path(user)
+    #       get edit_user_path(user)
     #     end
     #     it 'リクエストは302 OKとなること' do
     #       expect(response.status).to eq 302
     #     end
     #   end
     # end
-    # describe 'ユーザー編集ページ' do
+    # describe 'タイムラインページ' do
     #   context '偏移できない' do
     #     before do
-    #       get edit_user_path(user)
+    #       get user_timeline_path(user)
     #     end
     #     it 'リクエストは302 OKとなること' do
     #       expect(response.status).to eq 302
@@ -81,6 +81,17 @@ RSpec.describe 'Users', type: :request do
         end
         it 'ユーザー編集と表示される' do
           expect(page).to have_content('マイページ(登録情報変更)')
+        end
+      end
+    end
+
+    describe 'タイムラインページ' do
+      context 'タイムラインページが正しく表示される' do
+        before do
+          visit user_timeline_path(user)
+        end
+        it 'タイムラインと表示される' do
+          expect(page).to have_content('タイムライン')
         end
       end
     end
