@@ -21,6 +21,7 @@
 //= require jquery.raty
 //= require bxslider
 //= require dropzone
+//= require toastr
 
 // カレンダー機能
 $(function () {

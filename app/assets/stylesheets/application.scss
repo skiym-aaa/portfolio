@@ -17,10 +17,11 @@
  *= require_self
  *= require fullcalendar
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
+ @import 'bootstrap-sprockets';
+ @import 'bootstrap';
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+ @import 'toastr';
 
  /* リセットCSS */
  * {

@@ -1,3 +1,4 @@
+toastr.success("フォローしました！")
 // タイムライン
 $("#ajax_fallowing").html("<%= j(render '/users/index', users: @user.following_user) %>")
 $("#ajax_fallower").html("<%= j(render '/users/index', users: @user.follower_user) %>")

@@ -5,14 +5,14 @@ class BookmarksController < ApplicationController
     @place = Place.find(params[:place_id])
     bookmark = current_user.bookmarks.new(place_id: @place.id)
     bookmark.save
-    redirect_to request.referer
+    redirect_to request.referer, notice: 'お気に入り登録しました！'
   end
 
   def destroy
     @place = Place.find(params[:place_id])
     bookmark = current_user.bookmarks.find_by(place_id: @place.id)
     bookmark.destroy
-    redirect_to request.referer
+    redirect_to request.referer, notice: 'お気に入り解除しました！'
   end
 
   # 非同期通信用アクション

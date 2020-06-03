@@ -1,3 +1,4 @@
+toastr.success("いいねしました！")
 // タイムライン
 $("#ajax_event_photos").html("<%= j(render '/event_photos/index',  event_photos: @event_photos ) %>")
 $("#favorite_eventphotos").html("<%= j(render '/event_photos/index',  event_photos: @user.good_event_photos ) %>")
