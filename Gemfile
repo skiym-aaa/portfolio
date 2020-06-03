@@ -123,3 +123,6 @@ gem 'ovirt-engine-sdk', '>= 4.4.0'
 gem 'font-awesome-sass', '~> 5.4.1'
 # フラッシュメッセージ
 gem 'toastr-rails'
+# Twitter認証
+# gem 'omniauth'
+gem 'omniauth-twitter'
