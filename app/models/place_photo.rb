@@ -8,4 +8,6 @@ class PlacePhoto < ApplicationRecord
   validates :user_id, presence: true
   validates :place_id, presence: true
   validates :image_id, presence: true
+
+  default_scope -> { order(created_at: :desc) }
 end

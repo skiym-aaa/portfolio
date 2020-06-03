@@ -18,6 +18,9 @@ class EventsController < InheritedResources::Base
       @event_array << ev
     end
     gon.events = @event_array
+    # 今月のイベント情報取得
+    this_month = Date.today.all_month
+    @this_month_events = @events.where(start_date: this_month)
   end
 
   # GET /events/1

@@ -10,6 +10,8 @@ class EventPhoto < ApplicationRecord
   validates :event_id, presence: true
   validates :image_id, presence: true
 
+  default_scope -> { order(created_at: :desc) }
+
   def gooded_by?(user)
     goods.where(user_id: user.id).exists?
   end

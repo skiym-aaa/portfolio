@@ -6,6 +6,7 @@
 <div id="calendar"></div>
 <hr>
 
-<%= render "index", events: @events %>
+<h3>今月のイベント</h3>
+<%= render "index", events: @this_month_events %>
 <br>
 <%= link_to 'イベント新規作成', new_event_path, class: "btn1 btn1-add" %>
