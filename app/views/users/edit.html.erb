@@ -17,7 +17,11 @@
         </tr>
         <tr>
           <td><%= f.label :メールアドレス %></td>
-          <td><%= f.text_field :email %></td>
+          <% if @user.provider_image_id? %>
+            <td><%= f.text_field :email, value: "" %></td>
+          <% else %>
+            <td><%= f.text_field :email %></td>
+          <% end %>
         </tr>
         <tr>
           <td><%= f.label :画像 %></td>

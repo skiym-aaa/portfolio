@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable
 
   has_many :idols
   has_many :places
@@ -50,9 +50,34 @@ class User < ApplicationRecord
     following_user.include?(user)
   end
 
-  validates :name, length: { maximum: 20, minimum: 2 }
+  # validates :name, length: { maximum: 20, minimum: 2 }
 
   def active_for_authentication?
     super && (is_deleted == false)
+  end
+
+  # Twitter認証
+  def self.find_for_oauth(auth)
+    user = User.where(uid: auth.uid, provider: auth.provider).first
+
+    unless user
+      binding.pry
+      user = User.create(
+        uid:      auth.uid,
+        provider: auth.provider,
+        email:    User.dummy_email(auth),
+        password: Devise.friendly_token[0, 20],
+        provider_image_id: auth.info.image,
+        name: auth.info.name,
+      )
+    end
+
+    user
+  end
+
+  private
+
+  def self.dummy_email(auth)
+    "#{auth.uid}-#{auth.provider}@example.com"
   end
 end

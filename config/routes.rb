@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   resources :rooms, only: [:index, :create, :show]
 
   devise_for :users, :controllers => {
-    :registrations => 'users/registrations'
+    :registrations => 'users/registrations',
+    :omniauth_callbacks => 'users/omniauth_callbacks'
    }
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

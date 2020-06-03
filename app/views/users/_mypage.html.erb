@@ -12,8 +12,10 @@
             <td><%= user.name %></td>
           </tr>
           <tr>
-            <td>メールアドレス</td>
-            <td><%= user.email %></td>
+            <% unless user.provider? %>
+              <td>メールアドレス</td>
+              <td><%= user.email %></td>
+            <% end %>
           </tr>
         </table>
         <%= link_to "編集する",edit_user_path(user), class: "btn1 btn1-warning" %>
@@ -23,6 +25,8 @@
         <p>プロフィール画像</p>
         <% if user.image_id? %>
           <%= image_tag user.image_id.to_s, size: "150x150" %>
+        <% elsif user.provider_image_id? %>
+          <%= image_tag user.provider_image_id, size: "150x150" %>
         <% else %>
           <%= image_tag "no_image.jpg", size: "150x150" %>
         <% end %>
