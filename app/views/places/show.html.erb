@@ -65,6 +65,11 @@
         <h4>住所</h4>
         <p><%= @place.address %></p>
         <%= link_to "公式サイト", @place.official_site %>
+        <div class="twitter" style="margin-top: 20px;">
+        　<a href="//twitter.com/share" class="twitter-share-button" data-text="<%= @place.name %>|idol places" data-url="<%= request.url %>" data-lang="ja">
+         Tweet
+         </a>
+        </div>
       </div>
     </div>
 
