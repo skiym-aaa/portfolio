@@ -66,7 +66,7 @@ class User < ApplicationRecord
         provider: auth.provider,
         email:    User.dummy_email(auth),
         password: Devise.friendly_token[0, 20],
-        provider_image_id: auth.info.image,
+        provider_image_id: auth.info.image.gsub(/http/,'https').gsub(/_normal/,''),
         name: auth.info.name,
       )
     end
