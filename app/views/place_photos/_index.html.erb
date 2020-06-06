@@ -21,7 +21,7 @@
               <%= image_tag "no_image.jpg", size: "60x60" %>
             <% end %> -->
             <h3 class="block-title"></h3>
-            <p><%= place_photo.place.name %></p>
+            <p><%= link_to place_photo.place.name, place_path(place_photo.place) %></p>
             <ul class="inline-meta">
               <li>
                 <p>By<%= link_to place_photo.user.name, user_path(place_photo.user) %>　<%= l place_photo.created_at %></p>

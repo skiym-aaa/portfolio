@@ -42,7 +42,8 @@ class IdolsController < ApplicationController
   private
 
   def idol_params
-    params.require(:idol).permit(:user_id, :name, :about, :official_site, :image_id)
+    params.require(:idol).permit(:user_id, :name, :about, :image_id,
+     :official_site, :official_twitter, :official_youtube)
   end
 
   def set_idol_calender

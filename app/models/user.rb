@@ -5,6 +5,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
 
+  validates :name, presence: true, length: { maximum: 50, minimum: 2 }
+
   has_many :idols
   has_many :places
   has_many :events
@@ -49,8 +51,6 @@ class User < ApplicationRecord
   def following?(user)
     following_user.include?(user)
   end
-
-  # validates :name, length: { maximum: 20, minimum: 2 }
 
   def active_for_authentication?
     super && (is_deleted == false)

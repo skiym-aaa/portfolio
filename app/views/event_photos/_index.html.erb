@@ -25,7 +25,9 @@
                 <i class="fa fa-map-marker"></i><%= event_photo.event.title %>
               <% end %>
             </h3>
-            <p><%= event_photo.event.idol.name %></p>
+            <p><%= link_to event_photo.event.idol.name, idol_path(event_photo.event.idol) %>
+              |
+            <%= link_to event_photo.event.place.name, place_path(event_photo.event.place) %></p>
             <ul class="inline-meta">
               <li>
                 <p>By<%= link_to event_photo.user.name, user_path(event_photo.user) %>　<%= l event_photo.created_at %></p>

@@ -27,7 +27,9 @@
       <div class="col-md-5 col-xs-12">
         <h4>About</h4>
         <p><%= @idol.about %></p>
-        <%= link_to "公式サイト", @idol.official_site %>
+        <% if @idol.official_site? %>
+          <%= link_to "公式サイト", @idol.official_site %>
+        <% end %>
         <div class="social-icon">
           <% if @idol.official_twitter? %>
             <%= link_to @idol.official_twitter do %>

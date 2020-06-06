@@ -41,11 +41,11 @@
 ​
     <div class="tab-pane" id="sampleContentB">
       <h2>PlacePhotos</h2>
-        <% if user.place_photos.count > 0 %>
-          <%= render '/place_photos/index', place_photos: user.place_photos %>
-        <% else %>
-          <p>投稿した場所写真はありません</p>
-        <% end %>
+      <% if user.place_photos.count > 0 %>
+        <%= render '/place_photos/index', place_photos: user.place_photos %>
+      <% else %>
+        <p>投稿した場所写真はありません</p>
+      <% end %>
     </div>
 ​
     <div class="tab-pane" id="sampleContentC">

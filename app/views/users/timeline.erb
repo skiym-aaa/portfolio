@@ -4,8 +4,9 @@
 <ul class="nav nav-tabs">
   <li class="active"><a href="#sampleContentA" data-toggle="tab">タイムライン</a></li>
   <li><a href="#sampleContentB" data-toggle="tab">いいね</a></li>
-  <li><a href="#sampleContentC" data-toggle="tab">フォロー</a></li>
-  <li><a href="#sampleContentD" data-toggle="tab">フォロワー</a></li>
+  <li><a href="#sampleContentC" data-toggle="tab">場所写真</a></li>
+  <li><a href="#sampleContentD" data-toggle="tab">フォロー</a></li>
+  <li><a href="#sampleContentE" data-toggle="tab">フォロワー</a></li>
 </ul>
 
 <!-- タブ内容 -->
@@ -33,6 +34,15 @@
    </div>
 
   <div class="tab-pane" id="sampleContentC">
+    <h2>PlacePhotos</h2>
+    <% if current_user.place_photos.count > 0 %>
+      <%= render '/place_photos/index', place_photos: current_user.place_photos %>
+    <% else %>
+      <p>投稿した場所写真はありません</p>
+    <% end %>
+  </div>
+
+  <div class="tab-pane" id="sampleContentD">
     <h2>Follow Users</h2>
     <div id="ajax_fallowing">
       <% if @user.following_user.count > 0 %>
@@ -43,7 +53,7 @@
     </div>
   </div>
 
-  <div class="tab-pane" id="sampleContentD">
+  <div class="tab-pane" id="sampleContentE">
     <h2>Follower Users</h2>
     <div id="ajax_fallower">
       <% if @user.follower_user.count > 0 %>

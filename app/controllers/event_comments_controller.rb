@@ -7,7 +7,7 @@ class EventCommentsController < ApplicationController
     @event_comment.user_id = current_user.id
     @event_comment.event_id = @event.id
     # natural_languageでscore表示
-    @event_comment.score = Language.get_data(event_comment_params[:body])
+    # @event_comment.score = Language.get_data(event_comment_params[:body])
     @event_comment.save
     flash.now[:notice] = 'コメントの作成が完了しました！'
     # ajaxのrender用
