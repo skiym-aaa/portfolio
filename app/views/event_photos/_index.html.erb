@@ -1,46 +1,49 @@
-<div class="masonry-wrapper-cols">
-  <div class="row">
-    <div class="col-md-8 col-sm-offset-2">
-      <% event_photos.each do |event_photo| %>
-        <div class="masonry-block">
+<% if event_photos.empty? %>
+  <p>投稿はありません</p>
+<% else %>
+  <div class="masonry-wrapper-cols">
+    <div class="row">
+      <div class="col-md-8 col-sm-offset-2">
+        <% event_photos.each do |event_photo| %>
+          <div class="masonry-block">
 
-          <div class="block-image">
-            <%= link_to event_photo.image_id.url do %>
-              <%= image_tag event_photo.image_id.to_s, size: "540x360" %>
-            <% end %>
-          </div>
-
-          <div class="block-content">
-            <% event_photo.tags.each do |tag| %>
-              <span class="label label-primary"><%= tag.name %></span>
-            <% end %>
-            <!-- 退会済みユーザーは"no_image"を表示 -->
-            <!--<% if event_photo.user.image_id? && event_photo.user.is_deleted == false %>
-              <%= image_tag event_photo.user.image_id.to_s, size: "60x60" %>
-            <% else %>
-              <%= image_tag "no_image.jpg", size: "60x60" %>
-            <% end %> -->
-            <h3 class="block-title">
-              <%= link_to event_path(event_photo.event.id) do %>
-                <i class="fa fa-map-marker"></i><%= event_photo.event.title %>
+            <div class="block-image">
+              <%= link_to event_photo.image_id.url do %>
+                <%= image_tag event_photo.image_id.to_s, size: "540x360" %>
               <% end %>
-            </h3>
-            <p><%= link_to event_photo.event.idol.name, idol_path(event_photo.event.idol) %>
-              |
-            <%= link_to event_photo.event.place.name, place_path(event_photo.event.place) %></p>
-            <ul class="inline-meta">
-              <li>
-                <p>By<%= link_to event_photo.user.name, user_path(event_photo.user) %>　<%= l event_photo.created_at %></p>
-              </li>
-              <li>
-                <!-- グッド機能 -->
-                <%= render "goods/good", event: event_photo.event, event_photo: event_photo %>
-              </li>
-            </ul>
-          </div>
+            </div>
 
-        </div>
-      <% end %>
+            <div class="block-content">
+              <% event_photo.tags.each do |tag| %>
+                <span class="label label-primary"><%= tag.name %></span>
+              <% end %>
+              <!-- 退会済みユーザーは"no_image"を表示 -->
+              <!--<% if event_photo.user.image_id? && event_photo.user.is_deleted == false %>
+                <%= image_tag event_photo.user.image_id.to_s, size: "60x60" %>
+              <% else %>
+                <%= image_tag "no_image.jpg", size: "60x60" %>
+              <% end %> -->
+              <h3 class="block-title">
+                <%= link_to event_path(event_photo.event.id) do %>
+                  <i class="fa fa-map-marker"></i><%= event_photo.event.title %>
+                <% end %>
+              </h3>
+              <p><%= link_to event_photo.event.idol.name, idol_path(event_photo.event.idol) %>
+                |
+              <%= link_to event_photo.event.place.name, place_path(event_photo.event.place) %></p>
+              <ul class="inline-meta">
+                <li>
+                  <p>By<%= link_to event_photo.user.name, user_path(event_photo.user) %>　<%= l event_photo.created_at %></p>
+                </li>
+                <li>
+                  <!-- グッド機能 -->
+                  <%= render "goods/good", event: event_photo.event, event_photo: event_photo %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

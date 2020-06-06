@@ -14,53 +14,33 @@
   <div class="tab-pane active" id="sampleContentA">
     <h2>タイムライン</h2>
     <div id="ajax_event_photos">
-      <% if @event_photos.count > 0 %>
-        <%= render '/event_photos/index', event_photos: @event_photos %>
-      <% else %>
-        <p>タイムラインはありません</p>
-      <% end %>
+      <%= render '/event_photos/index', event_photos: @event_photos %>
     </div>
   </div>
 
   <div class="tab-pane" id="sampleContentB">
     <h2>Favorite EventPhotos</h2>
     <div id="favorite_eventphotos">
-      <% if current_user.good_event_photos.count > 0 %>
-        <%= render '/event_photos/index', event_photos: @user.good_event_photos %>
-      <% else %>
-        <p>いいねした投稿はありません</p>
-      <% end %>
+      <%= render '/event_photos/index', event_photos: @user.good_event_photos %>
     </div>
    </div>
 
   <div class="tab-pane" id="sampleContentC">
     <h2>PlacePhotos</h2>
-    <% if current_user.place_photos.count > 0 %>
-      <%= render '/place_photos/index', place_photos: current_user.place_photos %>
-    <% else %>
-      <p>投稿した場所写真はありません</p>
-    <% end %>
+    <%= render '/place_photos/index', place_photos: current_user.place_photos %>
   </div>
 
   <div class="tab-pane" id="sampleContentD">
     <h2>Follow Users</h2>
     <div id="ajax_fallowing">
-      <% if @user.following_user.count > 0 %>
-          <%= render '/users/index', users: @user.following_user %>
-      <% else %>
-        <p>ユーザーはいません</p>
-      <% end %>
+      <%= render '/users/index', users: @user.following_user %>
     </div>
   </div>
 
   <div class="tab-pane" id="sampleContentE">
     <h2>Follower Users</h2>
     <div id="ajax_fallower">
-      <% if @user.follower_user.count > 0 %>
-          <%= render '/users/index', users: @user.follower_user %>
-      <% else %>
-        <p>ユーザーはいません</p>
-      <% end %>
+      <%= render '/users/index', users: @user.follower_user %>
     </div>
   </div>
 </div>
