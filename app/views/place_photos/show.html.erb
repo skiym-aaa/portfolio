@@ -21,13 +21,18 @@
           <% @place_photo.tags.each do |tag| %>
             <span class="label label-primary"><%= tag.name %></span>
           <% end %>
+        <div class="twitter-share">
+        　<a href="//twitter.com/share" class="twitter-share-button" data-text="<%= @place.name %>写真|idol places-アイドル現場情報共有サイト-" data-url="<%= request.url %>" data-lang="ja">
+         Tweet
+         </a>
+        </div>
         </div>
 
         <!-- 退会済みユーザーは"退会済みユーザー"と表示 -->
         <% if @place_photo.user.is_deleted == true %>
           <h4>投稿者：退会みユーザー</h4>
         <% else %>
-          <h4>投稿者：<%= @place_photo.user.name %></h4>
+          <h4>投稿者：<%= link_to @place_photo.user.name, user_path(@place_photo.user) %></h4>
         <% end %>
       </div>
     </div>
