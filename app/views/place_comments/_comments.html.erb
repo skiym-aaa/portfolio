@@ -16,7 +16,7 @@
                   <!-- 退会済みユーザーは"no_image"を表示 -->
                   <% if place_comment.user.image_id? && place_comment.user.is_deleted == false %>
                     <%= image_tag place_comment.user.image_id.to_s, size: "60x60" %>
-                  <% elsif place_comment.user.provider_image_id? %>
+                  <% elsif place_comment.user.provider_image_id? && place_comment.user.is_deleted == false %>
                     <%= image_tag place_comment.user.provider_image_id, size: "60x60" %>
                   <% else %>
                     <%= image_tag "no_image.jpg", size: "60x60" %>

@@ -33,7 +33,7 @@
                   <!-- 退会済みユーザーは"no_image"を表示 -->
                   <% if event_comment.user.image_id? && event_comment.user.is_deleted == false %>
                     <%= image_tag event_comment.user.image_id.to_s, size: "60x60" %>
-                  <% elsif event_comment.user.provider_image_id? %>
+                  <% elsif event_comment.user.provider_image_id? && event_comment.user.is_deleted == false %>
                     <%= image_tag event_comment.user.provider_image_id, size: "60x60" %>
                   <% else %>
                     <%= image_tag "no_image.jpg", size: "60x60" %>

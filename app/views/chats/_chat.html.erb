@@ -1,7 +1,7 @@
 <div class="chats">
 
   <!-- 退会済みユーザーは"退会済みユーザー"と表示 -->
-  <% if chat.user.is_deleted == true %>
+  <% if chat.user.is_deleted %>
     <p>From 退会済みユーザー</p>
   <% else %>
     <p>From <%= chat.user.name %></p>
