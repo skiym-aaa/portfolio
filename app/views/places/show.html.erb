@@ -114,7 +114,7 @@
     <div class="row">
       <div class="col-xs-12">
         <div id ="place_comment_form_<%=@place.id %>">
-          <%= render "places/comment_form", place: @place, place_comment: @place_comment %>
+          <%= render "place_comments/comment_form", place: @place, place_comment: @place_comment %>
         </div>
       </div>
     </div>
@@ -124,7 +124,7 @@
     <div class="row">
       <div class="col-xs-12">
         <div id ="place_comments_<%= @place.id %>">
-          <%= render "places/comments", place: @place %>
+          <%= render "place_comments/comments", place: @place %>
         </div>
       </div>
     </div>
