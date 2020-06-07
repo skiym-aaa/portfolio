@@ -38,6 +38,10 @@
                 <li>
                   <!-- グッド機能 -->
                   <%= render "goods/good", event: event_photo.event, event_photo: event_photo %>
+                  <!-- 投稿者のみ削除リンク -->
+                  <% if user_signed_in? && event_photo.user.id == current_user.id %>
+                    <%= link_to "削除",event_event_photo_path(event_id: event_photo.event.id, id: event_photo.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "click-btn click-btn-danger"%>
+                  <% end %>
                 </li>
               </ul>
             </div>

@@ -33,14 +33,14 @@ Rails.application.routes.draw do
     post '/ajax_favorites' => 'favorites#ajax_create'
   end
   resources :places, only: [:index, :show, :new, :create, :edit, :update] do
-    resources :place_photos, only: [:show, :new, :create]
+    resources :place_photos, only: [:show, :new, :create, :destroy]
     resources :place_comments, only: [:create, :destroy]
     resource :bookmarks, only: [:create, :destroy]
     delete '/ajax_bookmarks' => 'bookmarks#ajax_destroy'
     post '/ajax_bookmarks' => 'bookmarks#ajax_create'
   end
   resources :events do
-    resources :event_photos, only: [:show, :new, :create] do
+    resources :event_photos, only: [:show, :new, :create, :destroy] do
       resource :goods, only: [:create, :destroy]
     end
     resources :event_comments, only: [:create, :destroy]

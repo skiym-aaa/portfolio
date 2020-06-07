@@ -34,6 +34,12 @@ class PlacePhotosController < ApplicationController
     end
   end
 
+  def destroy
+    place_photo = PlacePhoto.find(params[:id])
+    place_photo.destroy
+    redirect_to request.referer, notice: '投稿を削除しました！'
+  end
+
   private
 
   def place_photo_params

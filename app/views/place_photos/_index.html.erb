@@ -28,6 +28,10 @@
               <ul class="inline-meta">
                 <li>
                   <p>By<%= link_to place_photo.user.name, user_path(place_photo.user) %>　<%= l place_photo.created_at %></p>
+                  <!-- 投稿者のみ削除リンク -->
+                  <% if user_signed_in? && place_photo.user.id == current_user.id %>
+                    <%= link_to "削除",place_place_photo_path(place_id: place_photo.place.id, id: place_photo.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "click-btn click-btn-danger"%>
+                  <% end %>
                 </li>
               </ul>
             </div>

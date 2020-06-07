@@ -34,6 +34,12 @@ class EventPhotosController < ApplicationController
     end
   end
 
+  def destroy
+    event_photo = EventPhoto.find(params[:id])
+    event_photo.destroy
+    redirect_to request.referer, notice: '投稿を削除しました！'
+  end
+
   private
 
   def event_photo_params
