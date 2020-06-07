@@ -16,6 +16,10 @@
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 
+# Coverage
+require 'simplecov'
+SimpleCov.start 'rails'
+
 require 'capybara/rspec'
 RSpec.configure do |config|
   config.include Capybara::DSL # 追記
