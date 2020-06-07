@@ -59,10 +59,8 @@
                 <!-- <span class="comment-score"><%= event_comment.score %></span> -->
               </div>
               <!-- コメント投稿者のみ削除リンク -->
-              <% if user_signed_in? %>
-                <% if event_comment.user.id == current_user.id %>
-                  <%= link_to "削除",event_event_comments_path(event_id: event_comment.id, id: event.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, remote: true, class: "btn1 btn1-danger pull-right"%>
-                <% end %>
+              <% if user_signed_in? && event_comment.user.id == current_user.id %>
+                <%= link_to "削除",event_event_comment_path(event_id: event.id, id: event_comment.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, remote: true, class: "btn1 btn1-danger pull-right"%>
               <% end %>
             </div>
           </li>

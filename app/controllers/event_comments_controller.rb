@@ -16,11 +16,11 @@ class EventCommentsController < ApplicationController
   end
 
   def destroy
-    @event_comment = EventComment.find(params[:event_id])
+    @event_comment = EventComment.find(params[:id])
     @event_comment.destroy
     flash.now[:notice] = 'コメントの削除が完了しました！'
     # ajaxのrender用
-    @event = Event.find(params[:id])
+    @event = Event.find(params[:event_id])
     @idol = Idol.find(@event.idol_id)
     @place = Place.find(@event.place_id)
     @new_event_comment = EventComment.new

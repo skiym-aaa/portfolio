@@ -29,16 +29,6 @@
         <% else %>
           <h4>投稿者：<%= link_to @event_photo.user.name, user_path(@event_photo.user) %></h4>
         <% end %>
-
-        <!-- フォローボタン -->
-        <!-- <div id="ajax_follow">
-          <%= render "relationships/follow", user: @event_photo.user %>
-        </div> -->
-
-        <!-- グッド機能 -->
-        <!-- <div id="ajax_good">
-          <%= render "goods/good", event: @event, event_photo: @event_photo %>
-        </div> -->
       </div>
     </div>
   </div>

@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 2020_06_03_095927) do
   create_table "idols", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
-    t.text "about", default: "description"
+    t.text "about"
     t.string "official_site"
     t.string "official_twitter"
     t.string "official_youtube"
@@ -163,7 +163,7 @@ ActiveRecord::Schema.define(version: 2020_06_03_095927) do
     t.integer "user_id"
     t.string "name"
     t.string "address"
-    t.text "about", default: "description"
+    t.text "about"
     t.string "official_site"
     t.string "image_id"
     t.datetime "created_at", null: false

@@ -43,10 +43,8 @@
                 </div>
               </div>
               <!-- コメント投稿者のみ削除リンク -->
-              <% if user_signed_in? %>
-                <% if place_comment.user.id == current_user.id %>
-                  <%= link_to "削除",place_place_comments_path(place_id: place_comment.id, id: place.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn1 btn1-danger pull-right", remote: true %>
-                <% end %>
+              <% if user_signed_in? && place_comment.user.id == current_user.id %>
+                <%= link_to "削除",place_place_comment_path(place_id: place.id, id: place_comment.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn1 btn1-danger pull-right", remote: true %>
               <% end %>
             </div>
 

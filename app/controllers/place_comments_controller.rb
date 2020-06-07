@@ -28,15 +28,15 @@ class PlaceCommentsController < ApplicationController
   end
 
   def destroy
-    @place_comment = PlaceComment.find(params[:place_id])
+    @place_comment = PlaceComment.find(params[:id])
     @place = @place_comment.place
     @place_comment.destroy
     flash.now[:notice] = 'コメントの削除が完了しました！'
     # ajaxのrender用
-    @place = Place.find(params[:id])
+    @place = Place.find(params[:place_id])
     @place_photos = PlacePhoto.where(place_id: @place.id)
     @new_place_comment = PlaceComment.new
-    @event = Event.where(place_id: params[:id])
+    @event = Event.where(place_id: params[:place_id])
   end
 
   def place_comment_params

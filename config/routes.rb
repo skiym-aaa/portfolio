@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   end
   resources :places, only: [:index, :show, :new, :create, :edit, :update] do
     resources :place_photos, only: [:show, :new, :create]
-    resource :place_comments, only: [:create, :destroy]
+    resources :place_comments, only: [:create, :destroy]
     resource :bookmarks, only: [:create, :destroy]
     delete '/ajax_bookmarks' => 'bookmarks#ajax_destroy'
     post '/ajax_bookmarks' => 'bookmarks#ajax_create'
@@ -43,7 +43,7 @@ Rails.application.routes.draw do
     resources :event_photos, only: [:show, :new, :create] do
       resource :goods, only: [:create, :destroy]
     end
-    resource :event_comments, only: [:create, :destroy]
+    resources :event_comments, only: [:create, :destroy]
     resource :event_registers, only: [:create, :destroy]
   end
 
