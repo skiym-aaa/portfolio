@@ -24,6 +24,10 @@
           <% end %>
         </tr>
         <tr>
+          <td><%= f.label :"プロフィール" %></td>
+          <td><%= f.text_area :body %></td>
+        </tr>
+        <tr>
           <td><%= f.label :画像 %></td>
           <td>
             <% if @user.image_id? %>

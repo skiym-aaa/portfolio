@@ -25,6 +25,10 @@
         <td><%= form.collection_select :place_id, Place.all, :id, :name, {include_blank: '---'} %></td>
       </tr>
       <tr>
+        <td><%= form.label :開場時間 %></td>
+        <td><%= form.datetime_select :open_date, :start_year => 2020, :minute_step => 10 %></td>
+      </tr>
+      <tr>
         <td><%= form.label :開始予定時間 %></td>
         <td><%= form.datetime_select :start_date, :start_year => 2020, :minute_step => 10 %></td>
       </tr>

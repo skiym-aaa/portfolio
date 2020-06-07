@@ -7,6 +7,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.string :title
       t.integer :genre
       t.string :body
+      t.datetime :open_date
       t.datetime :start_date
       t.datetime :end_date
 

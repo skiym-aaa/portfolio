@@ -90,7 +90,7 @@ class EventsController < InheritedResources::Base
 
   # Only allow a list of trusted parameters through.
   def event_params
-    params.require(:event).permit(:user_id, :idol_id, :place_id, :title, :genre, :body, :start_date, :end_date)
+    params.require(:event).permit(:user_id, :idol_id, :place_id, :title, :genre, :body, :open_date, :start_date, :end_date)
   end
 
   def set_event_calender

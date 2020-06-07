@@ -21,6 +21,13 @@ RSpec.describe 'ユーザーモデルのテスト', type: :model do
         is_expected.to eq false
       end
     end
+    context 'bodyカラム' do
+      let(:test_user) { user }
+      it '500文字以下であること' do
+        test_user.body = Faker::Lorem.characters(number: 501)
+        is_expected.to eq false
+      end
+    end
   end
   describe 'アソシエーションのテスト' do
     context 'Idolモデルとの関係' do

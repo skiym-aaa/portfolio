@@ -21,6 +21,7 @@ ActiveAdmin.register User do
       row :id
       row :email
       row :name
+      row :body
       row :is_deleted
       row :image_id do
         if user.image_id.to_s == ''
@@ -39,10 +40,11 @@ ActiveAdmin.register User do
       f.input :email
       f.input :password
       f.input :encrypted_password
+      f.input :body
       f.input :image_id, as: :file
     end
     f.actions
   end
 
-  permit_params :email, :name, :password, :encrypted_password, :image_id
+  permit_params :email, :name, :password, :encrypted_password, :body, :image_id
 end

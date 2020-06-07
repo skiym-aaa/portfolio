@@ -17,6 +17,10 @@
               <td><%= user.email %></td>
             <% end %>
           </tr>
+          <tr>
+            <td>プロフィール</td>
+            <td><%= user.body %></td>
+          </tr>
         </table>
         <%= link_to "編集する",edit_user_path(user), class: "btn1 btn1-warning" %>
         <%= link_to "退会する",user_confirm_path, class: "btn1 btn1-danger" %>

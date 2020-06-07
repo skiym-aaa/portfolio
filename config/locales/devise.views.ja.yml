@@ -30,6 +30,9 @@ ja:
               too_short: "は%{count}文字以上に設定して下さい。"
               too_long: "は%{count}文字以下に設定して下さい。"
               invalid: "は有効化でありません。"
+            body:
+              too_short: "は%{count}文字以上に設定して下さい。"
+              too_long: "は%{count}文字以下に設定して下さい。"
             email:
               taken: "は既に使用されています。"
               blank: "が入力されていません。"
@@ -97,6 +100,8 @@ ja:
               invalid: "が不正な値です。"
             body:
               blank: "が入力されていません。"
+            open_date:
+              invalid: "が不正な値です。"
             start_date:
               invalid: "が不正な値です。"
             end_date:
@@ -129,6 +134,7 @@ ja:
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
+        body: "プロフィール"
         remember_me: "次回から自動的にログイン"
       idol:
         name: "アイドル名"
@@ -146,6 +152,7 @@ ja:
         title: "イベントタイトル"
         genre: "ジャンル"
         body: "イベント内容"
+        open_date: "開場時間"
         start_date: "開始時間"
         end_date: "終了時間"
       event_comment:

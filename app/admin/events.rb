@@ -34,6 +34,7 @@ ActiveAdmin.register Event do
       row :title
       row :genre
       row :body
+      row :open_date
       row :start_date
       row :end_date
     end
@@ -48,11 +49,12 @@ ActiveAdmin.register Event do
       f.input :title
       f.input :genre
       f.input :body
+      f.input :open_date, start_year: 2020, minute_step: 10
       f.input :start_date, start_year: 2020, minute_step: 10 # 10分刻み
       f.input :end_date, start_year: 2020, minute_step: 10
     end
     f.actions
   end
 
-  permit_params :user_id, :idol_id, :place_id, :title, :genre, :body, :start_date, :end_date
+  permit_params :user_id, :idol_id, :place_id, :title, :genre, :body, :open_date, :start_date, :end_date
 end
