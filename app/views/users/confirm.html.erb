@@ -10,8 +10,8 @@
   退会する場合は、「退会する」をクリックしてください。</h4>
   <table class="confirm">
     <% if user_signed_in? && @user.id == current_user.id %>
-      <%= link_to "退会しない",user_path(@user.id), class: 'btn1 btn1-success' %>
-      <%= link_to "退会する",user_hide_path(@user.id), method: :put, class: 'btn1 btn1-danger' %>
+      <%= link_to "退会しない",user_path(@user.id), class: 'click-btn click-btn-success' %>
+      <%= link_to "退会する",user_hide_path(@user.id), method: :put, class: 'click-btn click-btn-danger' %>
     <% end %>
   </table>
 </div>

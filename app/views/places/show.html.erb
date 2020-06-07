@@ -94,10 +94,10 @@
     <div class="row">
       <div class="col-xs-6">
         <%= render 'bookmarks/bookmark', place: @place %>
-        <%= link_to "写真追加", new_place_place_photo_path(@place.id), class: "btn1 btn1-info" %>
+        <%= link_to "写真追加", new_place_place_photo_path(@place.id), class: "click-btn click-btn-info" %>
       </div>
       <div class="col-xs-6">
-        <%= link_to "編集する", edit_place_path(@place.id), class: "btn1 btn1-warning" %>
+        <%= link_to "編集する", edit_place_path(@place.id), class: "click-btn click-btn-warning" %>
       </div>
     </div>
     <hr>

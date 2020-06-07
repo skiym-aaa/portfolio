@@ -9,20 +9,6 @@
       <%= f.text_area :body, rows:'2', class:"form-control", placeholder:"コメントをここに" %>
     </div>
 
-    <!-- <div class="field" id="star">
-      <%= f.label :rate %>
-      <%= f.hidden_field :rate %>
-    </div> -->
     <%= f.submit "送信する", class:"btn btn-lg pull-right" %>
   <% end %>
 <% end %>
-
-<!-- <script>
-  $('#star').raty({
-  size     : 36,
-  starOff:  '<%= asset_path('star-off.png') %>',
-  starOn : '<%= asset_path('star-on.png') %>',
-  starHalf: '<%= asset_path('star-half.png') %>',
-  half: true,
-  });
-</script> -->

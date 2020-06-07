@@ -22,8 +22,8 @@
             <td><%= user.body %></td>
           </tr>
         </table>
-        <%= link_to "編集する",edit_user_path(user), class: "btn1 btn1-warning" %>
-        <%= link_to "退会する",user_confirm_path, class: "btn1 btn1-danger" %>
+        <%= link_to "編集する",edit_user_path(user), class: "click-btn click-btn-warning" %>
+        <%= link_to "退会する",user_confirm_path, class: "click-btn click-btn-danger" %>
       </div>
       <div class="col-xs-6 user-photo">
         <p>プロフィール画像</p>
@@ -54,7 +54,7 @@
             <% current_user.favorite_idols.each do |idol| %>
               <tr>
                 <td><%= link_to idol.name, idol_path(idol) %></td>
-                <td><%= link_to "解除", idol_favorites_path(idol.id), method: :delete , class: "btn1 btn1-success" %>
+                <td><%= link_to "解除", idol_favorites_path(idol.id), method: :delete , class: "click-btn click-btn-success" %>
                 </td>
               </tr>
             <% end %>
@@ -77,7 +77,7 @@
             <% current_user.bookmark_places.each do |place| %>
               <tr>
                 <td><%= link_to place.name, place_path(place) %></td>
-                <td><%= link_to "解除", place_bookmarks_path(place.id), method: :delete , class: "btn1 btn1-success" %>
+                <td><%= link_to "解除", place_bookmarks_path(place.id), method: :delete , class: "click-btn click-btn-success" %>
                 </td>
               </tr>
             <% end %>

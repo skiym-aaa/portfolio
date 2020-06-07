@@ -157,7 +157,7 @@ a, a:link, a:visited {
 }
 
 /* ボタン */
-.btn1 {
+.click-btn {
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
@@ -170,34 +170,34 @@ a, a:link, a:visited {
   }
 }
 
-.btn1-success {
+.click-btn-success {
   background: #00ff7f;
 }
 
-.btn1-danger {
+.click-btn-danger {
   background: #ffb6c1;
 }
 
-.btn1-warning {
+.click-btn-warning {
   background: #ffa500;
 }
 
-.btn1-info {
+.click-btn-info {
   background: #ffff00;
 }
 
-.btn1-add {
+.click-btn-add {
   background: #e0ffff;
   float: left;
   margin-left: 20px;
 }
 
-.btn1-max {
+.click-btn-max {
   text-align: center;
   width: 100%;
 }
 
-.btn1:active {
+.click-btn:active {
   /*ボタンを押したとき*/
   -webkit-transform: translateY(4px);
   transform: translateY(4px);/*下に動く*/

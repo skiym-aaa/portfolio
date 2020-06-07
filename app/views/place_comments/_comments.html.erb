@@ -44,7 +44,7 @@
               </div>
               <!-- コメント投稿者のみ削除リンク -->
               <% if user_signed_in? && place_comment.user.id == current_user.id %>
-                <%= link_to "削除",place_place_comment_path(place_id: place.id, id: place_comment.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn1 btn1-danger pull-right", remote: true %>
+                <%= link_to "削除",place_place_comment_path(place_id: place.id, id: place_comment.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "click-btn click-btn-danger pull-right", remote: true %>
               <% end %>
             </div>
 
