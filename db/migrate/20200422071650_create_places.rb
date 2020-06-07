@@ -4,7 +4,7 @@ class CreatePlaces < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
       t.string :name
       t.string :address
-      t.text :about, default: "description"
+      t.text :about
       t.string :official_site
       t.string :image_id
       t.timestamps
