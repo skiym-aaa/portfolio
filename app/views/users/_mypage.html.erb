@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-xs-6">
         <h4>登録情報</h4>
-        <table style>
+        <table>
           <tr>
             <td>名前(ニックネーム)</td>
             <td><%= user.name %></td>
@@ -41,7 +41,7 @@
     <!-- お気に入りアイドル一覧 -->
     <div class="row">
       <div class="col-xs-6">
-        <p style="text-align: center;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>お気に入りアイドル一覧</p>
+        <p class="center"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>お気に入りアイドル一覧</p>
         <table class="table table-hover">
           <thead>
             <tr class="active">
@@ -64,7 +64,7 @@
 
       <!-- お気に入り場所一覧 -->
       <div class="col-xs-6">
-        <p style="text-align: center;"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>お気に入り場所一覧</p>
+        <p class="center"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>お気に入り場所一覧</p>
         <table class="table table-hover">
           <thead>
             <tr class="active">
@@ -89,7 +89,7 @@
     <!-- おすすめイベント情報一覧 -->
     <div class="row">
       <div class="col-xs-12">
-        <h4 style="text-align: center;"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>オススメイベント情報</h4>
+        <h4 class="center"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>オススメイベント情報</h4>
         <%= render "events/index", events: events %>
       </div>
     </div>

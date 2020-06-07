@@ -87,8 +87,14 @@ body {
  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 }
 
+/* 画像 */
 img {
  object-fit: contain;
+}
+
+/* リンク */
+a, a:link, a:visited {
+  text-decoration: none;
 }
 
 /* ロゴ */
@@ -112,8 +118,13 @@ img {
 }
 
 /* サイドバー */
-.search-form select {
-  margin-top: 10px;
+#search_content {
+  margin-bottom: 10px;
+}
+
+.search-form {
+  margin-top: 20px;
+  text-align: center;
 }
 
 /* フッター */
@@ -125,9 +136,13 @@ footer {
   background-color: #c0c0c0;
 }
 
-/* リンク */
-a, a:link, a:visited {
-  text-decoration: none;
+.footer-contents {
+  margin-top: 15px;
+}
+
+/* 中央寄せ */
+.center {
+  text-align: center;
 }
 
 /* タイトル */
@@ -204,7 +219,11 @@ a, a:link, a:visited {
   border-bottom: none;/*線を消す*/
 }
 
-.twitter-share {
+.follow-btn {
+  margin-top: 30px;
+}
+
+.twitter-share-button {
   margin-top: 20px;
 }
 

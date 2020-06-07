@@ -9,6 +9,7 @@ class IdolsController < ApplicationController
 
   def show
     @idol = Idol.find(params[:id])
+    @event_photos = EventPhoto.includes(:event).where(events: { idol_id: @idol.id})
   end
 
   def new

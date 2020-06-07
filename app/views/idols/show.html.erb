@@ -13,6 +13,7 @@
     <hr>
 
     <div class="row">
+
       <!-- 画像 -->
       <div class="col-md-7 col-xs-12 photo">
         <% if @idol.image_id? %>
@@ -23,6 +24,7 @@
           <%= image_tag "no_image.jpg", size: "360x360" %>
         <% end %>
       </div>
+
       <!-- 詳細 -->
       <div class="col-md-5 col-xs-12">
         <h4>About</h4>
@@ -41,8 +43,28 @@
               <img src="<%= asset_path "youtube.png" %>" alt="Youtube">
             <% end %>
           <% end %>
+          <div class="twitter-share">
+          　<a href="//twitter.com/share" class="twitter-share-button" data-text="<%= @idol.name %>|idol places-アイドル現場情報共有サイト-" data-url="<%= request.url %>" data-lang="ja">
+           Tweet
+           </a>
+          </div>
         </div>
       </div>
+
+      <!-- イベント写真 -->
+      <% if @event_photos.exists? %>
+        <div class="row">
+          <div class="col-xs-12">
+            <hr>
+            <% @event_photos.each do |event_photo| %>
+              <%= link_to event_photo.image_id.url do %>
+                <%= image_tag event_photo.image_id.to_s, size: "60x40" %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
     </div>
     <hr>
 
