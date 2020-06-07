@@ -18,11 +18,11 @@
       </tr>
       <tr>
         <td><%= form.label :アイドル名 %></td>
-        <td><%= form.collection_select :idol_id, Idol.all, :id, :name, {include_blank: '---'} %></td>
+        <td><%= form.collection_select :idol_id, Idol.all.order(:name), :id, :name, {include_blank: '---'} %></td>
       </tr>
       <tr>
         <td><%= form.label :場所名 %></td>
-        <td><%= form.collection_select :place_id, Place.all, :id, :name, {include_blank: '---'} %></td>
+        <td><%= form.collection_select :place_id, Place.all.order(:name), :id, :name, {include_blank: '---'} %></td>
       </tr>
       <tr>
         <td><%= form.label :開場時間 %></td>
@@ -46,4 +46,16 @@
       <% end %>
     </div>
   <% end %>
+
+  <hr>
+  <div>
+    <%= link_to "新規アイドル登録", new_idol_path, class: "click-btn click-btn-add" %>
+    <%= link_to "新規場所登録", new_place_path, class: "click-btn click-btn-add" %>
+  </div>
+  <br>
+  <br>
+  <div class="balloon-top">
+    <p>アイドルと場所が見つからない場合は<br>こちらから登録してください。</p>
+  </div>
+
 </div>
