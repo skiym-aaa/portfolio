@@ -10,6 +10,7 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @place_photos = PlacePhoto.where(place_id: @place.id)
+    @next_events = Event.where(place_id: params[:id]).where('start_date >= ?', Date.today)
     @place_comment = PlaceComment.new
   end
 

@@ -4,7 +4,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @events = Event.where(idol_id: @user.favorite_idols.ids).or(Event.where(place_id: @user.bookmark_places.ids))
+    @events = Event.where(idol_id: @user.favorite_idols.ids).where('start_date >= ?', Date.today)
+              .or(Event.where(place_id: @user.bookmark_places.ids)).where('start_date >= ?', Date.today)
     @registered_events = Event.where(id: @user.event_event_registers.ids)
     @event_array = []
     @registered_events.each do |event|
@@ -39,11 +40,6 @@ class UsersController < ApplicationController
                     .or(relation.where(user_id: @user.following_user.ids))
                     .or(relation.where(event_id: @user.event_event_registers.ids))
                     .or(relation.where(events: { idol_id: @user.favorite_idols.ids }))
-    # @event_photos = EventPhoto
-    #                 .where(user_id: @user.id)
-    #                 .or(EventPhoto.where(user_id: @user.following_user.ids))
-    #                 .or(EventPhoto.where(event_id: @user.event_event_registers.ids))
-    #                 .or(EventPhoto.includes(:event).where(events: {idol_id: @user.favorite_idols.ids}))
   end
 
   def confirm
