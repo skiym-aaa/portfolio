@@ -15,7 +15,7 @@ class Event < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
 
-  default_scope -> { order(start_date: :desc) }
+  # default_scope -> { order(start_date: :desc) }
 
   def event_registered_by?(user)
     event_registers.where(user_id: user.id).exists?

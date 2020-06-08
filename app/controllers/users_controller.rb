@@ -4,8 +4,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @events = Event.where(idol_id: @user.favorite_idols.ids).where('start_date >= ?', Date.today)
-              .or(Event.where(place_id: @user.bookmark_places.ids)).where('start_date >= ?', Date.today)
+    relation = Event.where('start_date >= ?', Date.today).order(:start_date)
+    @events = relation
+              .where(idol_id: @user.favorite_idols.ids)
+              .or(relation.where(place_id: @user.bookmark_places.ids))
     @registered_events = Event.where(id: @user.event_event_registers.ids)
     @event_array = []
     @registered_events.each do |event|

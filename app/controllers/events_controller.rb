@@ -7,7 +7,7 @@ class EventsController < InheritedResources::Base
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all.order(:start_date)
+    @events = Event.order(:start_date)
     @event_array = []
     @events.each do |event|
       ev = {}
@@ -20,7 +20,7 @@ class EventsController < InheritedResources::Base
     gon.events = @event_array
     # 今月のイベント情報取得
     this_month = Date.today.all_month
-    @this_month_events = @events.where(start_date: this_month)
+    @this_month_events = @events.where(start_date: this_month).where('start_date >= ?', Date.today).order(:start_date)
   end
 
   # GET /events/1

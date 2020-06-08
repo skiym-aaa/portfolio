@@ -10,6 +10,7 @@ class IdolsController < ApplicationController
   def show
     @idol = Idol.find(params[:id])
     @event_photos = EventPhoto.includes(:event).where(events: { idol_id: @idol.id })
+    @next_events = Event.where(idol_id: params[:id]).where('start_date >= ?', Date.today).order(:start_date)
   end
 
   def new
