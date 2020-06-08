@@ -9,7 +9,7 @@ class IdolsController < ApplicationController
 
   def show
     @idol = Idol.find(params[:id])
-    @event_photos = EventPhoto.includes(:event).where(events: { idol_id: @idol.id})
+    @event_photos = EventPhoto.includes(:event).where(events: { idol_id: @idol.id })
   end
 
   def new
@@ -44,7 +44,7 @@ class IdolsController < ApplicationController
 
   def idol_params
     params.require(:idol).permit(:user_id, :name, :about, :image_id,
-     :official_site, :official_twitter, :official_youtube)
+                                 :official_site, :official_twitter, :official_youtube)
   end
 
   def set_idol_calender
