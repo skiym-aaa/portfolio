@@ -10,7 +10,7 @@ Share the best field experience!</p>
     <div class="row">
       <div class="col-xs-12 about-description">
         <h2>About idol places</h2>
-        <p>idol placesはアイドルオタクのための<br>現場情報共有サイトです。</p>
+        <p class="about-description-detail">idol placesはアイドルオタクのための<br>現場情報共有&イベント写真投稿プラットフォームです。</p>
       </div>
       <div class="col-xs-12 about-icon">
         <div class="col-xs-6 icon-min about-icon-object">
@@ -21,12 +21,20 @@ Share the best field experience!</p>
             <div class="col-xs-6"><img src="<%= asset_path "calender.png" %>" alt="カレンダー"></div>
           </div>
         </div>
-        <div class="col-xs-6 icon-min about-icon-search">
+        <div class="col-xs-3 icon-max about-icon-search">
           <div class="row">
             <img src="<%= asset_path "search.png" %>" alt="虫眼鏡">
           </div>
           <div class="row">
             <p class="search-description">イベント情報をアイドル、場所、日時から<br>探すことが出来ます。</p>
+          </div>
+        </div>
+        <div class="col-xs-3 icon-max about-icon-photo">
+          <div class="row　">
+            <img src="<%= asset_path "picture.png" %>" alt="写真">
+          </div>
+          <div class="row">
+            <p class="photo-description">現場で撮影した写真を<br>投稿してタイムラインで<br>シェアすることが出来ます。</p>
           </div>
         </div>
       </div>
@@ -39,18 +47,18 @@ Share the best field experience!</p>
       </div>
       <div class="col-xs-12 use-icon">
         <div class="col-xs-4 about-favorite">
-          <div class="icon favorite-icon"><img src="<%= asset_path "favorite.png" %>" alt="いいね"></div>
+          <div class="how-to-icon favorite-icon"><img src="<%= asset_path "favorite.png" %>" alt="いいね"></div>
         </div>
         <div class="col-xs-4 about-comment">
-          <div class="icon comment-icon"><img src="<%= asset_path "comment.png" %>" alt="コメント"></div>
+          <div class="how-to-icon comment-icon"><img src="<%= asset_path "comment.png" %>" alt="コメント"></div>
         </div>
         <div class="col-xs-4 about-create">
-          <div class="icon create-icon"><img src="<%= asset_path "create.png" %>" alt="鉛筆"></div>
+          <div class="how-to-icon create-icon"><img src="<%= asset_path "create.png" %>" alt="鉛筆"></div>
         </div>
       </div>
       <div class="col-xs-12">
         <div class="col-xs-4"><p>自分の好きなアイドル、場所をお気に入り登録して、<br>関連イベント情報を見ることが出来ます。</p></div>
-        <div class="col-xs-4"><p>イベント詳細画面でイベントについてコメントが出来ます。現場情報の共有などに便利です。</p></div>
+        <div class="col-xs-4"><p>イベント詳細画面でイベントについてコメントが出来ます。現場情報の共有などに便利です。また、チャット機能もあります。</p></div>
         <div class="col-xs-4"><p>登録されていないアイドル、場所、イベントを新規登録出来ます。また、自分だけのカレンダーを作成することも可能です。</p></div>
       </div>
     </div>
@@ -59,7 +67,7 @@ Share the best field experience!</p>
     <div class="row">
       <div class="col-xs-12 start-description">
         <h2>Start idol places</h2>
-        <p>ログインしていなくてもイベント情報の閲覧は可能です。<br>登録していただいた場合、<br>各種新規登録、コメント機能をお使い頂けます。</p>
+        <p>ログインしていなくてもイベント情報の閲覧は可能です。<br>登録していただいた場合、<br>各種新規登録、コメント(チャット)機能、マイカレンダー機能、タイムライン機能をお使い頂けます。</p>
       </div>
       <div class="col-xs-12 start-btn">
         <%= link_to "新規登録する", new_user_registration_path, class: "click-btn click-btn-success" %>
