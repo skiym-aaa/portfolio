@@ -1,8 +1,8 @@
 class EventsController < InheritedResources::Base
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_event, only: %i[show edit update destroy]
-  before_action :set_calender, only: [:new]
-  before_action :set_event_calender, only: %i[show edit]
+  before_action :set_calender, only: %i[new create]
+  before_action :set_event_calender, only: %i[show edit update]
 
   # GET /events
   # GET /events.json

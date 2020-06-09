@@ -39,7 +39,7 @@
     </table>
 
     <div class="actions">
-      <% if current_page?(new_event_path) %>
+      <% if params[:controller] == 'events' && %w(new create).include?(params[:action]) %>
         <%= form.submit "新規登録" %>
       <% else %>
         <%= form.submit "編集" %>

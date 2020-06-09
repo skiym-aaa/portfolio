@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action :set_calender, only: %i[index new]
-  before_action :set_place_calender, only: %i[show edit]
+  before_action :set_calender, only: %i[index new create]
+  before_action :set_place_calender, only: %i[show edit update]
 
   def index
     @places = Place.all
