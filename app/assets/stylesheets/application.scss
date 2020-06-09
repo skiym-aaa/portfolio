@@ -118,13 +118,14 @@ a, a:link, a:visited {
 }
 
 /* サイドバー */
-#search_content {
-  margin-bottom: 10px;
-}
-
 .search-form {
   margin-top: 20px;
   text-align: center;
+}
+
+#search_content {
+  margin-bottom: 10px;
+  font-family: FontAwesome;
 }
 
 /* フッター */
