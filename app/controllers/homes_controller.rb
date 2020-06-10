@@ -8,14 +8,14 @@ class HomesController < ApplicationController
       @today = Date.today
       @today_events = Event.all.where(start_date: @today.all_day)
 
-      @events = Event.all.order('RAND()').limit(3)
+      @events = Event.all.order('RAND()').limit(3).where('start_date >= ?', Date.today).order(:start_date)
       @idols = Idol.all.order('RAND()').limit(3)
       @places = Place.all.order('RAND()').limit(3)
     else
       @today = Date.today
       @today_events = Event.all.where(start_date: @today.all_day)
 
-      @events = Event.all.order('RANDOM()').limit(3)
+      @events = Event.all.order('RANDOM()').limit(3).where('start_date >= ?', Date.today).order(:start_date)
       @idols = Idol.all.order('RANDOM()').limit(3)
       @places = Place.all.order('RANDOM()').limit(3)
     end
