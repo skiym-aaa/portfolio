@@ -1,7 +1,11 @@
 <div class="row center">
   <div class="col-xs-6">
-    <h2><%= user.name %></h2>
-    <p><%= user.body %></p>
+    <% if user.is_deleted == true %>
+      <h2>退会済みユーザー</h2>
+    <% else %>
+      <h2><%= user.name %></h2>
+      <p><%= user.body %></p>
+    <% end %>
     <!-- フォローボタン -->
     <div id="ajax_follow" class="follow-btn">
       <%= render "relationships/follow", user: user %>

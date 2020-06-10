@@ -22,6 +22,7 @@ class ImagesUploader < CarrierWave::Uploader::Base
     storage :fog
   end
 
+  # FIXME: 同じファイル名の画像が削除されると元のファイルも表示されなくなる？
   def store_dir
     if Rails.env.production?
       # モデルごとに保存先の振り分け(place_photoはplace_idに一致させる)
