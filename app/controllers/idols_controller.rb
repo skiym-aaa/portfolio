@@ -62,5 +62,4 @@ class IdolsController < ApplicationController
     params.require(:idol).permit(:user_id, :name, :about, :image_id,
                                  :official_site, :official_twitter, :official_youtube)
   end
-
 end

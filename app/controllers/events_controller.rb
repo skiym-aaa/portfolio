@@ -103,5 +103,4 @@ class EventsController < InheritedResources::Base
   def event_params
     params.require(:event).permit(:user_id, :idol_id, :place_id, :title, :genre, :body, :open_date, :start_date, :end_date)
   end
-
 end

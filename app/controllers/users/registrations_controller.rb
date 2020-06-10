@@ -12,9 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    if @user.save
-      ThanksMailer.send_confirm_to_user(@user).deliver
-    end
+    ThanksMailer.send_confirm_to_user(@user).deliver if @user.save
   end
 
   # GET /resource/edit

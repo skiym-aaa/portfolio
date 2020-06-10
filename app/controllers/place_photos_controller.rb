@@ -57,5 +57,4 @@ class PlacePhotosController < ApplicationController
   def place_photo_params
     params.require(:place_photo).permit(:image_id)
   end
-
 end

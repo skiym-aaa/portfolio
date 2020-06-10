@@ -60,5 +60,4 @@ class PlacesController < ApplicationController
   def place_params
     params.require(:place).permit(:user_id, :name, :address, :about, :official_site, :image_id)
   end
-
 end

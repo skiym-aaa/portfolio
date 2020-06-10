@@ -56,5 +56,4 @@ class EventPhotosController < ApplicationController
   def event_photo_params
     params.require(:event_photo).permit(:image_id)
   end
-
 end
