@@ -2,7 +2,6 @@
 
 <div class="row">
 
-  <!-- サイドバー -->
   <div class="col-xs-4">
     <%= render "layouts/sidebar"%>
   </div>
@@ -30,7 +29,7 @@
 
         <!-- 退会済みユーザーは"退会済みユーザー"と表示 -->
         <% if @place_photo.user.is_deleted == true %>
-          <h4>投稿者：退会みユーザー</h4>
+          <h4>投稿者：退会済みユーザー</h4>
         <% else %>
           <h4>投稿者：<%= link_to @place_photo.user.name, user_path(@place_photo.user) %></h4>
         <% end %>

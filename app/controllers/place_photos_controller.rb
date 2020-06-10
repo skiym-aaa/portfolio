@@ -28,7 +28,6 @@ class PlacePhotosController < ApplicationController
       tags.each do |tag|
         @place_photo.tags.create(name: tag)
       end
-      # redirect_to place_path(@place), notice: '写真の追加が完了しました！'
     else
       render :new
     end
@@ -38,12 +37,6 @@ class PlacePhotosController < ApplicationController
     place_photo = PlacePhoto.find(params[:id])
     place_photo.destroy
     redirect_to request.referer, notice: '投稿を削除しました！'
-  end
-
-  private
-
-  def place_photo_params
-    params.require(:place_photo).permit(:image_id)
   end
 
   def set_place_photo_calender
@@ -58,4 +51,11 @@ class PlacePhotosController < ApplicationController
     end
     gon.events = @event_array
   end
+
+  private
+
+  def place_photo_params
+    params.require(:place_photo).permit(:image_id)
+  end
+
 end

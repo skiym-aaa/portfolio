@@ -6,6 +6,7 @@
     <div class="row">
       <div class="col-xs-6">
         <h4>登録情報</h4>
+
         <table>
           <tr>
             <td>名前(ニックネーム)</td>
@@ -22,9 +23,11 @@
             <td><%= user.body %></td>
           </tr>
         </table>
+
         <%= link_to "編集する",edit_user_path(user), class: "click-btn click-btn-warning" %>
         <%= link_to "退会する",user_confirm_path, class: "click-btn click-btn-danger" %>
       </div>
+
       <div class="col-xs-6 user-photo">
         <p>プロフィール画像</p>
         <% if user.image_id? %>

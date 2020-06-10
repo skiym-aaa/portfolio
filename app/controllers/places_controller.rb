@@ -42,12 +42,6 @@ class PlacesController < ApplicationController
     end
   end
 
-  private
-
-  def place_params
-    params.require(:place).permit(:user_id, :name, :address, :about, :official_site, :image_id)
-  end
-
   def set_place_calender
     @events = Event.where(place_id: params[:id])
     @event_array = []
@@ -60,4 +54,11 @@ class PlacesController < ApplicationController
     end
     gon.events = @event_array
   end
+
+  private
+
+  def place_params
+    params.require(:place).permit(:user_id, :name, :address, :about, :official_site, :image_id)
+  end
+
 end

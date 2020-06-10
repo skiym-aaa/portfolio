@@ -1,5 +1,6 @@
 <% if @event_comment.save %>
   toastr.success("コメントを作成しました！")
 <% end %>
+
 $("#event_comments_<%= @event.id %>").html("<%= j(render 'event_comments/comment', event: @event, event_comment: @event_comment ) %>");
 $("textarea").val("");

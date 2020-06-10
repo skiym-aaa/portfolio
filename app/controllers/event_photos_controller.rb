@@ -28,7 +28,6 @@ class EventPhotosController < ApplicationController
           @event_photo.tags.create(name: tag)
         end
       end
-      # redirect_to event_path(@event), notice: '写真の追加が完了しました！'
     else
       render :new
     end
@@ -38,12 +37,6 @@ class EventPhotosController < ApplicationController
     event_photo = EventPhoto.find(params[:id])
     event_photo.destroy
     redirect_to request.referer, notice: '投稿を削除しました！'
-  end
-
-  private
-
-  def event_photo_params
-    params.require(:event_photo).permit(:image_id)
   end
 
   def set_event_photo_calender
@@ -57,4 +50,11 @@ class EventPhotosController < ApplicationController
     @event_array << ev
     gon.events = @event_array
   end
+
+  private
+
+  def event_photo_params
+    params.require(:event_photo).permit(:image_id)
+  end
+
 end

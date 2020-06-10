@@ -42,13 +42,6 @@ class IdolsController < ApplicationController
     end
   end
 
-  private
-
-  def idol_params
-    params.require(:idol).permit(:user_id, :name, :about, :image_id,
-                                 :official_site, :official_twitter, :official_youtube)
-  end
-
   def set_idol_calender
     @events = Event.where(idol_id: params[:id])
     @event_array = []
@@ -62,4 +55,12 @@ class IdolsController < ApplicationController
     end
     gon.events = @event_array
   end
+
+  private
+
+  def idol_params
+    params.require(:idol).permit(:user_id, :name, :about, :image_id,
+                                 :official_site, :official_twitter, :official_youtube)
+  end
+
 end

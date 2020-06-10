@@ -1,5 +1,4 @@
 /* タイムライン */
-
 .masonry-wrapper-cols {
   background-color: #EAEBED;
   text-align: center;
@@ -8,10 +7,10 @@
 .masonry-block {
   margin: 50px 0;
   background-color: #FFFFFF;
-}
 
-.masonry-block img {
-  margin: 10px auto;
+  img {
+   margin: 10px auto;
+  }
 }
 
 .block-content ul li {

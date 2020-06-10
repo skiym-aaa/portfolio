@@ -1,5 +1,7 @@
 <% if place_photos.empty? %>
+
   <p>投稿はありません</p>
+
 <% else %>
   <div class="masonry-wrapper-cols">
     <div class="row">
@@ -17,12 +19,6 @@
               <% place_photo.tags.each do |tag| %>
                 <span class="label label-primary"><%= tag.name %></span>
               <% end %>
-              <!-- 退会済みユーザーは"no_image"を表示 -->
-              <!--<% if place_photo.user.image_id? && place_photo.user.is_deleted == false %>
-                <%= image_tag place_photo.user.image_id.to_s, size: "60x60" %>
-              <% else %>
-                <%= image_tag "no_image.jpg", size: "60x60" %>
-              <% end %> -->
               <h3 class="block-title"></h3>
               <p><%= link_to place_photo.place.name, place_path(place_photo.place) %></p>
               <ul class="inline-meta">

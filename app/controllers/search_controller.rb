@@ -10,6 +10,7 @@ class SearchController < ApplicationController
 
   private
 
+  # 現在使用しているのは部分一致のみ
   def search_for(model, content, method)
     if model == 'idol'
       if method == 'perfect'

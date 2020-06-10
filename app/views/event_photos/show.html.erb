@@ -2,7 +2,6 @@
 
 <div class="row">
 
-  <!-- サイドバー -->
   <div class="col-xs-4">
     <%= render "layouts/sidebar"%>
   </div>
@@ -11,7 +10,6 @@
     <h2 class="heading"><span>イベント写真詳細</span>&emsp;<%= @event.title %></h2>
     <hr>
     <div class="row">
-
       <!-- 画像 -->
       <div class="col-xs-12">
         <%= link_to @event_photo.image_id.url do %>
@@ -25,11 +23,12 @@
 
         <!-- 退会済みユーザーは"退会済みユーザー"と表示 -->
         <h4>イベント名：<%= link_to @event_photo.event.title, event_path(@event_photo.event) %></h4>
-        <% if @event_photo.user.is_deleted == true %>
-          <h4>投稿者：退会みユーザー</h4>
+        <% if @event_photo.user.is_deleted %>
+          <h4>投稿者：退会済みユーザー</h4>
         <% else %>
           <h4>投稿者：<%= link_to @event_photo.user.name, user_path(@event_photo.user) %></h4>
         <% end %>
+
       </div>
     </div>
   </div>

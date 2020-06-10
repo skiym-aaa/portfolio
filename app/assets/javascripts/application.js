@@ -65,6 +65,7 @@ $(function () {
                 element.css("font-size", "0.8em");
                 element.css("padding", "5px");
             },
+            // TODO: 'eventClick'に変更する？
             eventMouseover: function(event, jsEvent, view) {
                 $('#modalInfo').html(`${event.start.format('YYYY/MM/DD-HH:mm')}　${event.title}`);
                 $('#modalDetail').html(`<p>イベント詳細：　<a href=${event.url}>${event.url}</a></p>`);
@@ -96,7 +97,7 @@ $(function() {
     $('body, html').animate({
       scrollTop:0
     }, 800);
-      return false;
+    return false;
   });
 });
 
@@ -107,6 +108,6 @@ $(function() {
     $('body, html').animate({
       scrollTop:0
     }, 800);
-      return false;
+    return false;
   });
 });

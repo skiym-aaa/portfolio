@@ -6,7 +6,7 @@ class PlaceCommentsController < ApplicationController
     @place_comment = PlaceComment.new(place_comment_params)
     @place_comment.user_id = current_user.id
     @place_comment.place_id = @place.id
-    # NaturalLanguageでコメントをスコア化
+    # NaturalLanguage(感情分析)でコメントをスコア化(2.5未満は2.5へ)
     @place_comment_score = Language.get_data(place_comment_params[:body]).round(1)
     @place_comment.rate = if @place_comment_score < 0
                             2.5
@@ -29,15 +29,16 @@ class PlaceCommentsController < ApplicationController
 
   def destroy
     @place_comment = PlaceComment.find(params[:id])
-    @place = @place_comment.place
+    @place = Place.find(params[:place_id])
     @place_comment.destroy
     flash.now[:notice] = 'コメントの削除が完了しました！'
     # ajaxのrender用
-    @place = Place.find(params[:place_id])
     @place_photos = PlacePhoto.where(place_id: @place.id)
     @new_place_comment = PlaceComment.new
     @event = Event.where(place_id: params[:place_id])
   end
+
+  private
 
   def place_comment_params
     params.require(:place_comment).permit(:body, :rate)

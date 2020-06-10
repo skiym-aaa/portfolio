@@ -38,13 +38,14 @@ ActiveAdmin.register User do
     f.inputs do
       f.input :name
       f.input :email
-      f.input :password
-      f.input :encrypted_password
+      # f.input :password
+      # f.input :encrypted_password
       f.input :body
+      f.input :is_deleted
       f.input :image_id, as: :file
     end
     f.actions
   end
 
-  permit_params :email, :name, :password, :encrypted_password, :body, :image_id
+  permit_params :email, :name, :password, :encrypted_password, :body, :is_deleted, :image_id
 end

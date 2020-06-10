@@ -1,9 +1,10 @@
 <!-- コメントフォーム -->
 <% if user_signed_in? %>
+
   <div class="row">
     <h3>コメント</h3>
     <%= form_with model: [event, event_comment], url: event_event_comments_path(event.id), method: :post, data: {remote: true} do |f| %>
-    <!-- エラーメッセージ -->
+
     <%= render 'layouts/errors', obj: event_comment %>
 
       <div class="col-xs-12">
@@ -12,6 +13,7 @@
       <%= f.submit "送信する", class:"btn btn-lg pull-right" %>
     <% end %>
   </div>
+
 <% end %>
 <hr>
 
@@ -58,6 +60,7 @@
                 <div class="comment-entry"><%= event_comment.body %></div>
                 <!-- <span class="comment-score"><%= event_comment.score %></span> -->
               </div>
+
               <!-- コメント投稿者のみ削除リンク -->
               <% if user_signed_in? && event_comment.user.id == current_user.id %>
                 <%= link_to "削除",event_event_comment_path(event_id: event.id, id: event_comment.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, remote: true, class: "click-btn click-btn-danger pull-right"%>

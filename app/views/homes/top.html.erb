@@ -1,13 +1,10 @@
 <div class="row">
 
-  <!-- サイドバー -->
   <div class="col-xs-4">
     <%= render "layouts/sidebar" %>
   </div>
 
-  <!-- コンテンツ -->
   <div class="col-xs-8">
-
     <!-- イベント -->
     <!-- 当日イベントがある→当日のイベント/ない→おすすめのイベント -->
     <div class="row">
@@ -36,6 +33,7 @@
                 <% end %>
               </li>
             <% end %>
+
           <% else %>
             <% @events.each do |event| %>
               <li>
@@ -49,6 +47,7 @@
               </li>
             <% end %>
           <% end %>
+
         </ul>
       </div>
 
@@ -92,6 +91,7 @@
         </div>
       </div>
     </div>
+
   </div>
 
 </div>

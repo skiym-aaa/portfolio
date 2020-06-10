@@ -1,4 +1,5 @@
 <% if user_signed_in? %>
+
   <% if current_user != user %>
     <%if current_user.following?(user) %>
       <%= link_to 'フォロー外す', user_relationships_path(user_id: user.id, id: params[:id]), method: :delete, remote: true, class: "click-btn click-btn-success" %>
@@ -6,6 +7,8 @@
       <%= link_to 'フォローする', user_relationships_path(user_id: user.id, id: params[:id]), method: :POST, remote: true, class: "click-btn click-btn-danger" %>
     <% end %>
   <% end %>
+
 <% else %>
   <%= link_to 'フォローする', user_relationships_path(user.id), method: :POST, class: "click-btn click-btn-danger" %>
+
 <% end %>

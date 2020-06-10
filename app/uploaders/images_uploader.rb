@@ -15,7 +15,7 @@ class ImagesUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   if Rails.env.development?
-    storage :fog # fileにするとArgumentError
+    storage :fog # FIXME: fileにするとArgumentError
   elsif Rails.env.test?
     storage :fog
   else

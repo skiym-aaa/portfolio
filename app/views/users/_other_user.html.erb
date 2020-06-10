@@ -1,6 +1,6 @@
 <div class="row center">
   <div class="col-xs-6">
-    <% if user.is_deleted == true %>
+    <% if user.is_deleted %>
       <h2>退会済みユーザー</h2>
     <% else %>
       <h2><%= user.name %></h2>
@@ -58,5 +58,6 @@
         <%= render '/users/index', users: user.follower_user %>
       </div>
     </div>
+
   </div>
 </div>

@@ -1,6 +1,7 @@
 <% if @place_comment.save %>
   toastr.success("コメントを作成しました！")
 <% end %>
+
 $("#place_comment_form_<%= @place.id %>").html("<%= j(render 'place_comments/comment_form', place: @place, place_comment: @place_comment ) %>");
 $("textarea").val("");
 $("#place_comments_<%= @place.id %>").html("<%= j(render 'place_comments/comments', place: @place ) %>");

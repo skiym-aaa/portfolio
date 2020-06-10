@@ -3,6 +3,7 @@ require 'json'
 require 'net/https'
 module Vision
   class << self
+    # 場所写真→LABEL_DETECTION/イベント写真→FACE_DETECTIONで2つの関数を定義
     def get_image_data(image_file)
       api_url = "https://vision.googleapis.com/v1/images:annotate?key=#{ENV['API_KEY']}"
       # 画像をbase64にエンコード
@@ -57,7 +58,7 @@ module Vision
       response = https.request(request, params)
       # APIレスポンス出力
 
-      #コントローラー に渡す配列の作成
+      #コントローラーに渡す配列の作成
       face_array = []
       likelihoods = [ "VERY_LIKELY", "LIKELY" ]
       unless JSON.parse(response.body)["responses"][0]["faceAnnotations"] == nil
@@ -73,33 +74,6 @@ module Vision
         if likelihoods.include?(JSON.parse(response.body)["responses"][0]["faceAnnotations"][0]["surpriseLikelihood"])
           face_array.push("Suprise")
         end
-
-        # eachで回す書き方
-        # JSON.parse(response.body)["responses"].each do |res|
-        #   res["faceAnnotations"].each do |face|
-        #     if likelihoods.include?(face["joyLikelihood"])
-        #       unless face_array.include?("Joy")
-        #         face_array.push("Joy")
-        #       end
-        #     end
-        #     if likelihoods.include?(face["angerLikelihood"])
-        #       unless face_array.include?("Anger")
-        #         face_array.push("Anger")
-        #       end
-        #       face_array.push("Anger")
-        #     end
-        #     if likelihoods.include?(face["sorrowLikelihood"])
-        #       unless face_array.include?("Sorrow")
-        #         face_array.push("Sorrow")
-        #       end
-        #     end
-        #     if likelihoods.include?(face["surpriseLikelihood"])
-        #       unless face_array.include?("Suprise")
-        #         face_array.push("Suprise")
-        #       end
-        #     end
-        #   end
-        # end
         face_array
       end
     end

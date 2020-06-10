@@ -18,7 +18,7 @@ class EventsController < InheritedResources::Base
       @event_array << ev
     end
     gon.events = @event_array
-    # 今月のイベント情報取得
+    # 今月のイベントの情報取得
     this_month = Date.today.all_month
     @this_month_events = @events.where(start_date: this_month).where('start_date >= ?', Date.today).order(:start_date)
   end
@@ -88,11 +88,6 @@ class EventsController < InheritedResources::Base
     @event = Event.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
-  def event_params
-    params.require(:event).permit(:user_id, :idol_id, :place_id, :title, :genre, :body, :open_date, :start_date, :end_date)
-  end
-
   def set_event_calender
     @event_array = []
     ev = {}
@@ -103,4 +98,10 @@ class EventsController < InheritedResources::Base
     @event_array << ev
     gon.events = @event_array
   end
+
+  # Only allow a list of trusted parameters through.
+  def event_params
+    params.require(:event).permit(:user_id, :idol_id, :place_id, :title, :genre, :body, :open_date, :start_date, :end_date)
+  end
+
 end

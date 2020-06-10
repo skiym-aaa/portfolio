@@ -2,7 +2,6 @@
 
 <div class="row">
 
-  <!-- サイドバー -->
   <div class="col-xs-4">
     <%= render "layouts/sidebar"%>
   </div>
@@ -14,7 +13,6 @@
     <div class="row">
       <%= form_for @idol, url: idols_path do |f| %>
 
-      <!-- エラーメッセージ -->
       <%= render 'layouts/errors', obj: @idol %>
 
         <!-- 画像投稿機能 -->
@@ -57,4 +55,5 @@
       <% end %>
     </div>
   </div>
+
 </div>

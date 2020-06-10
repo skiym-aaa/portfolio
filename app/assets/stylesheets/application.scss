@@ -23,8 +23,13 @@
  @import 'font-awesome';
  @import 'toastr';
 
- /* リセットCSS */
- * {
+/* フォント */
+body {
+ font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+}
+
+/* リセットCSS */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -53,24 +58,24 @@
   border: solid 3px pink;
   background-color: #fffafa;
   border-radius: 8px;
-}
 
-#error_explanation .box-title {
-  position: absolute;
-  display: inline-block;
-  top: -13px;
-  left: 10px;
-  padding: 0 9px;
-  line-height: 1;
-  font-size: 19px;
-  background: #FFF;
-  color: red;
-  font-weight: bold;
-}
+  ul li {
+    padding-top: 5px;
+    list-style: none;
+  }
 
-#error_explanation ul li {
-  padding-top: 5px;
-  list-style: none;
+  .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 19px;
+    background: #FFF;
+    color: red;
+    font-weight: bold;
+  }
 }
 
 #flash_alert {
@@ -80,11 +85,6 @@
 .field_with_errors {
   display: contents;
   color: red;
-}
-
-/* フォント */
-body {
- font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 }
 
 /* 画像 */
@@ -106,15 +106,15 @@ a, a:link, a:visited {
 .navbar {
   min-height: 0px;
   color: #fff;
-}
 
-.navbar a {
-  color: #fff;
-}
+  a {
+   color: #fff;
+  }
 
-.navbar a:hover {
-  color: black;
-  background-color: gray;
+  a:hover {
+   color: black;
+   background-color: gray;
+  }
 }
 
 /* サイドバー */
@@ -153,10 +153,10 @@ footer {
 
 .heading {
   margin: 0px;
-}
 
-.heading span {
-  background-color: #F5F5F5;
+  span {
+   background-color: #F5F5F5;
+  }
 }
 
 .top-heading {
@@ -165,11 +165,11 @@ footer {
 
 .index-heading {
   margin: 0px;
-  float: left
-}
 
-.index-heading span {
-  background-color: #F5F5F5;
+  span {
+   background-color: #F5F5F5;
+   float: left
+  }
 }
 
 /* ボタン */
@@ -180,6 +180,13 @@ footer {
   color: #FFF;
   border-bottom: solid 4px #627295;
   border-radius: 3px;
+
+  &:active {
+   /*ボタンを押したとき*/
+   -webkit-transform: translateY(4px);
+   transform: translateY(4px);/*下に動く*/
+   border-bottom: none;/*線を消す*/
+  }
 
   a, a:link, a:visited {
   color: white;
@@ -213,13 +220,6 @@ footer {
   width: 100%;
 }
 
-.click-btn:active {
-  /*ボタンを押したとき*/
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);/*下に動く*/
-  border-bottom: none;/*線を消す*/
-}
-
 .follow-btn {
   margin-top: 30px;
 }
@@ -240,21 +240,21 @@ footer {
   font-size: 16px;
   background: #e0edff;
   border-radius: 15px;
-}
 
-.balloon-top:before {
-  content: "";
-  position: absolute;
-  top: -30px;
-  left: 25%;
-  margin-left: -15px;
-  border: 15px solid transparent;
-  border-bottom: 15px solid #e0edff;
-}
+  &:before {
+   content: "";
+   position: absolute;
+   top: -30px;
+   left: 25%;
+   margin-left: -15px;
+   border: 15px solid transparent;
+   border-bottom: 15px solid #e0edff;
+  }
 
-.balloon-top p {
-  margin: 0;
-  padding: 0;
+  p {
+   margin: 0;
+   padding: 0;
+  }
 }
 
 /* 一覧コンテンツ */
@@ -315,10 +315,10 @@ footer {
   position: fixed;
   right: 20px;
   bottom: 20px;
-}
 
-#back img {
-  width: 50px;
+  img {
+   width: 50px;
+  }
 }
 
 /* ハンバーガーアイコン */

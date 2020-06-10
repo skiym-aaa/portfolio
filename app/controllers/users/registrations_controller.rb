@@ -14,7 +14,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
     if @user.save
       ThanksMailer.send_confirm_to_user(@user).deliver
-      # redirect_to @user
     end
   end
 
