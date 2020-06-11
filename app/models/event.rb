@@ -11,7 +11,7 @@ class Event < ApplicationRecord
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 50 }
   # validates :body, length: { maximum: 50 }
-  # validates :open_date, presence: true
+  validates :open_date, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true
 

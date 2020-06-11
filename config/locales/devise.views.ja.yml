@@ -101,11 +101,11 @@ ja:
             body:
               blank: "が入力されていません。"
             open_date:
-              invalid: "が不正な値です。"
+              blank: "が入力されていません。"
             start_date:
-              invalid: "が不正な値です。"
+              blank: "が入力されていません。"
             end_date:
-              invalid: "が不正な値です。"
+              blank: "が入力されていません。"
         event_comment:
           attributes:
             body:

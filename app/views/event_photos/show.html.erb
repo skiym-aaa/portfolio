@@ -10,7 +10,7 @@
     <h2 class="heading"><span>イベント写真詳細</span>&emsp;<%= @event.title %></h2>
     <hr>
     <div class="row">
-      <!-- 画像 -->
+
       <div class="col-xs-12">
         <%= link_to @event_photo.image_id.url do %>
           <%= image_tag @event_photo.image_id.to_s, size: "540x360" %>
@@ -19,6 +19,11 @@
           <% @event_photo.tags.each do |tag| %>
             <span class="label label-primary"><%= tag.name %></span>
           <% end %>
+        </div>
+        <div class="twitter-share">
+        　<a href="//twitter.com/share" class="twitter-share-button" data-text="<%= @event.title %>写真|idol places-アイドル現場情報共有サイト-" data-url="<%= request.url %>" data-lang="ja">
+         Tweet
+         </a>
         </div>
 
         <!-- 退会済みユーザーは"退会済みユーザー"と表示 -->
