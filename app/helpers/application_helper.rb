@@ -20,7 +20,7 @@ module ApplicationHelper
     twitter_card[:card] = 'summary'
     twitter_card[:site] = '@IdolPlaces'
     twitter_card[:title] = 'idol places-アイドル現場情報共有サイト-'
-    twitter_card[:image] = 'https://user-images.githubusercontent.com/59955191/83936009-0a9dd580-a7fa-11ea-9c6e-322960f0e4b4.png'
+    twitter_card[:image] = 'https://user-images.githubusercontent.com/59955191/84363727-1af2ed80-ac0a-11ea-8a3f-27d08e4ccd45.png'
     twitter_card
   end
 end
