@@ -102,6 +102,7 @@ gem 'kaminari', '~> 1.2.0'
 # カレンダー機能
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
 # devise日本語化
 gem 'devise-i18n'
 gem 'devise-i18n-views'

@@ -22,6 +22,7 @@
 //= require bxslider
 //= require dropzone
 //= require toastr
+//= require bootstrap-datetimepicker
 
 // カレンダー機能
 $(function () {
