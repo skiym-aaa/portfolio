@@ -89,7 +89,7 @@ gem 'activeadmin'
 # 新規登録/ログイン/ログアウト機能
 gem 'devise'
 # CSSフレームワーク
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.4.1'
 # jQuery有効化
 gem 'jquery-rails'
 # 画像投稿機能
