@@ -2,6 +2,16 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
+
+    <!-- Twitterカード用の設定 -->
+    <meta name="twitter:card" content='summary' />
+    <meta name="twitter:site" content='@IdolPlaces' />
+    <meta property="og:url" content='https://idolplaces.site/' />
+    <meta property="og:title" content='idol places-アイドル現場情報共有サイト-' />
+    <meta property="og:description" content='アイドル現場の情報共有&イベント写真投稿プラットフォーム' />
+    <meta property="og:image" content='https://user-images.githubusercontent.com/59955191/83936009-0a9dd580-a7fa-11ea-9c6e-322960f0e4b4.png' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
