@@ -22,6 +22,24 @@ RSpec.describe 'アイドルモデルのテスト', type: :model do
         expect(idol.valid?).to eq false
       end
     end
+    context 'official_siteカラム' do
+      it 'URLであること' do
+        idol.official_site = Faker::Internet.url
+        expect(idol.valid?).to eq true
+      end
+    end
+    context 'official_twitterカラム' do
+      it 'URLであること' do
+        idol.official_twitter = Faker::Internet.url
+        expect(idol.valid?).to eq true
+      end
+    end
+    context 'official_youtubeカラム' do
+      it 'URLであること' do
+        idol.official_youtube = Faker::Internet.url
+        expect(idol.valid?).to eq true
+      end
+    end
   end
   describe 'アソシエーションのテスト' do
     context 'Userモデルとの関係' do
@@ -32,6 +50,11 @@ RSpec.describe 'アイドルモデルのテスト', type: :model do
     context 'Eventモデルとの関係' do
       it '1:Nとなっている' do
         expect(Idol.reflect_on_association(:events).macro).to eq :has_many
+      end
+    end
+    context 'Favoriteモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(Idol.reflect_on_association(:favorites).macro).to eq :has_many
       end
     end
   end

@@ -20,12 +20,12 @@ class User < ApplicationRecord
   has_many :bookmark_places, through: :bookmarks, source: :place
   has_many :goods, dependent: :destroy
   has_many :good_event_photos, through: :goods, source: :event_photo
+  has_many :event_registers, dependent: :destroy
+  has_many :event_event_registers, through: :event_registers, source: :event, dependent: :destroy
 
   has_many :place_comments, dependent: :destroy
   has_many :event_comments, dependent: :destroy
   has_many :chats, dependent: :destroy
-  has_many :event_registers, dependent: :destroy
-  has_many :event_event_registers, through: :event_registers, source: :event, dependent: :destroy
 
   # フォロワー機能
   has_many :follower, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy # フォロー取得

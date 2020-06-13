@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'ユーザーモデルのテスト', type: :model do
   # pending "add some examples to (or delete) #{__FILE__}"
-
   describe 'バリデーションのテスト' do
     let(:user) { build(:user) }
     subject { test_user.valid? }
@@ -53,6 +52,31 @@ RSpec.describe 'ユーザーモデルのテスト', type: :model do
     context 'EventCommentモデルとの関係' do
       it '1:Nとなっている' do
         expect(User.reflect_on_association(:event_comments).macro).to eq :has_many
+      end
+    end
+    context 'Favoriteモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:favorites).macro).to eq :has_many
+      end
+    end
+    context 'Bookmarkモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:bookmarks).macro).to eq :has_many
+      end
+    end
+    context 'EventRegisterモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:event_registers).macro).to eq :has_many
+      end
+    end
+    context 'Goodモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:goods).macro).to eq :has_many
+      end
+    end
+    context 'Chatモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:chats).macro).to eq :has_many
       end
     end
   end

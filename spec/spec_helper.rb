@@ -14,11 +14,12 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../config/environment', __dir__)
 
 # Coverage
 require 'simplecov'
 SimpleCov.start 'rails'
+
+require File.expand_path('../config/environment', __dir__)
 
 require 'capybara/rspec'
 RSpec.configure do |config|
