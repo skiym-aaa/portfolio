@@ -1,24 +1,26 @@
 require 'rails_helper'
 
 RSpec.describe 'Homes', type: :request do
-  describe 'トップページのテスト' do
-    context 'トップページが正しく表示される' do
+  describe 'トップ画面のテスト' do
+    context 'トップ画面への偏移' do
       before do
         get root_path
       end
-      it 'リクエストは200 OKとなること' do
+      it '偏移できる' do
         expect(response.status).to eq 200
       end
     end
   end
-  describe 'アバウトページのテスト' do
-    context 'アバウトページが正しく表示される' do
+
+  describe 'アバウト画面のテスト' do
+    context 'アバウト画面への偏移' do
       before do
         get about_path
       end
-      it 'リクエストは200 OKとなること' do
+      it '偏移できる' do
         expect(response.status).to eq 200
       end
     end
   end
+
 end
