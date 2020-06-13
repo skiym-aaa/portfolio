@@ -10,7 +10,7 @@ class Event < ApplicationRecord
 
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 50 }
-  # validates :body, length: { maximum: 50 }
+  validates :body, format: /\A#{URI::regexp(%w(http https))}\z/, allow_blank: true
   validates :open_date, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true

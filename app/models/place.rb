@@ -11,6 +11,7 @@ class Place < ApplicationRecord
   validates :name, presence: true, uniqueness: true, length: { maximum: 30 }
   validates :address, presence: true, length: { maximum: 50 }
   validates :about, length: { maximum: 140 }
+  validates :official_site, format: /\A#{URI::regexp(%w(http https))}\z/, allow_blank: true
 
   def bookmarked_by?(user)
     bookmarks.where(user_id: user.id).exists?

@@ -63,6 +63,12 @@ ja:
               too_long: "は30文字以下に設定して下さい。"
             about:
               too_long: "は140文字以下に設定して下さい。"
+            official_site:
+              invalid: "は有効でありません。"
+            official_twitter:
+              invalid: "は有効でありません。"
+            official_youtube:
+              invalid: "は有効でありません。"
         place:
           attributes:
             name:
@@ -75,6 +81,8 @@ ja:
               too_long: "は50文字以下に設定して下さい。"
             about:
               too_long: "は140文字以下に設定して下さい。"
+            official_site:
+              invalid: "は有効でありません。"
         place_comment:
           attributes:
             body:
@@ -100,6 +108,7 @@ ja:
               invalid: "が不正な値です。"
             body:
               blank: "が入力されていません。"
+              invalid: "は有効でありません。"
             open_date:
               blank: "が入力されていません。"
             start_date:
@@ -138,9 +147,13 @@ ja:
         remember_me: "次回から自動的にログイン"
       idol:
         name: "アイドル名"
+        official_site: "公式サイト"
+        official_twitter: "Twitter"
+        official_youtube: "Youtube"
       place:
         name: "場所名"
         address: "住所"
+        official_site: "公式サイト"
       place_comment:
         body: "コメント"
         rate: "評価"

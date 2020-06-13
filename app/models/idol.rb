@@ -12,4 +12,7 @@ class Idol < ApplicationRecord
   validates :user_id, presence: true
   validates :name, presence: true, uniqueness: true, length: { maximum: 30 }
   validates :about, length: { maximum: 140 }
+  validates :official_site, format: /\A#{URI::regexp(%w(http https))}\z/, allow_blank: true
+  validates :official_twitter, format: /\A#{URI::regexp(%w(http https))}\z/, allow_blank: true
+  validates :official_youtube, format: /\A#{URI::regexp(%w(http https))}\z/, allow_blank: true
 end
