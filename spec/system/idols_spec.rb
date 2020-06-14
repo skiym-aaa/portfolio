@@ -6,8 +6,8 @@ RSpec.describe 'Idols', type: :system do
 
   before do
     visit new_user_session_path
-    fill_in name = 'user[email]', with: user.email
-    fill_in name = 'user[password]', with: user.password
+    fill_in 'user[email]', with: user.email
+    fill_in 'user[password]', with: user.password
     click_button 'ログイン'
   end
 
@@ -19,6 +19,23 @@ RSpec.describe 'Idols', type: :system do
         end
         it 'カレンダーが表示される' do
           expect(page).to have_selector '#calendar'
+        end
+      end
+      context '動作の確認',type: :feature, js: true do
+        before do
+          visit idols_path
+        end
+        it 'お気に入り登録ができる' do
+          click_on 'お気に入り登録'
+
+          expect(page).to have_content 'お気に入り解除'
+        end
+        it 'お気に入り解除ができる' do
+          page.save_screenshot 'screenshot.png'
+          click_on 'お気に入り登録'
+          click_on 'お気に入り解除'
+
+          expect(page).to have_content 'お気に入り登録'
         end
       end
     end
