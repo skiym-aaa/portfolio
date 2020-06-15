@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'EventPhotos', type: :request do
   let(:user) { create(:user) }
-  let!(:idol) { create(:idol, user_id: user.id) }
-  let!(:place) { create(:place, user_id: user.id) }
-  let!(:event) { create(:event, user_id: user.id, idol_id: idol.id, place_id: place.id) }
+  let(:idol) { create(:idol, user_id: user.id) }
+  let(:place) { create(:place, user_id: user.id) }
+  let(:event) { create(:event, user_id: user.id, idol_id: idol.id, place_id: place.id) }
   let!(:event_photo) { create(:event_photo, user_id: user.id, event_id: event.id) }
 
   describe 'イベント写真画面リクエストテスト' do

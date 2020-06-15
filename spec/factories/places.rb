@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :place do
-    name { Faker::Lorem.characters(number: 10) }
-    address { Faker::Lorem.characters(number: 10) }
+    name { 'ららぽーと豊洲' }
+    address { Faker::Lorem.characters(number: 30) }
   end
 end

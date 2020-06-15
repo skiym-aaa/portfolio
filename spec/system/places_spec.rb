@@ -21,18 +21,7 @@ RSpec.describe 'Places', type: :system do
           expect(page).to have_selector '#calendar'
         end
       end
-    end
-
-    describe '場所詳細ページ' do
-      context '表示の確認' do
-        before do
-          visit place_path(place)
-        end
-        it 'カレンダーが表示される' do
-          expect(page).to have_selector '#calendar'
-        end
-      end
-      context 'JS動作の確認',type: :feature, js: true do
+      context 'JS動作の確認', type: :feature, js: true do
         before do
           visit places_path
         end
@@ -50,8 +39,51 @@ RSpec.describe 'Places', type: :system do
       end
     end
 
+    describe '場所詳細ページ' do
+      context '表示の確認' do
+        before do
+          visit place_path(place)
+        end
+        it 'カレンダーが表示される' do
+          expect(page).to have_selector '#calendar'
+        end
+      end
+      context 'JS動作の確認', type: :feature, js: true do
+        before do
+          visit place_path(place)
+        end
+        it 'お気に入り登録ができる' do
+          click_on 'お気に入り登録'
+
+          expect(page).to have_content 'お気に入り解除'
+        end
+        it 'お気に入り解除ができる' do
+          click_on 'お気に入り登録'
+          click_on 'お気に入り解除'
+
+          expect(page).to have_content 'お気に入り登録'
+        end
+        it 'コメントができる' do
+          fill_in 'place_comment[body]', with: Faker::Lorem.characters(number: 50)
+          click_button '送信する'
+          # TODO: たまにパスしない
+          sleep 3
+
+          expect(page).to have_content 'コメントを作成しました！'
+        end
+        it 'コメントが削除できる' do
+          fill_in 'place_comment[body]', with: Faker::Lorem.characters(number: 50)
+          click_button '送信する'
+          click_on '削除'
+          page.driver.browser.switch_to.alert.accept
+
+          expect(page).to have_content 'コメントを削除しました！'
+        end
+      end
+    end
+
     describe '場所新規作成ページ' do
-      context '表示の確認',type: :feature, js: true do
+      context '表示の確認', type: :feature, js: true do
         before do
           visit new_place_path
         end

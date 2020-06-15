@@ -21,7 +21,7 @@ RSpec.describe 'Idols', type: :system do
           expect(page).to have_selector '#calendar'
         end
       end
-      context 'JS動作の確認',type: :feature, js: true do
+      context 'JS動作の確認', type: :feature, js: true do
         before do
           visit idols_path
         end
@@ -48,10 +48,26 @@ RSpec.describe 'Idols', type: :system do
           expect(page).to have_selector '#calendar'
         end
       end
+      context 'JS動作の確認', type: :feature, js: true do
+        before do
+          visit idols_path
+        end
+        it 'お気に入り登録ができる' do
+          click_on 'お気に入り登録'
+
+          expect(page).to have_content 'お気に入り解除'
+        end
+        it 'お気に入り解除ができる' do
+          click_on 'お気に入り登録'
+          click_on 'お気に入り解除'
+
+          expect(page).to have_content 'お気に入り登録'
+        end
+      end
     end
 
     describe 'アイドル新規作成ページ' do
-      context '表示の確認',type: :feature, js: true do
+      context '表示の確認', type: :feature, js: true do
         before do
           visit new_idol_path
         end

@@ -5,8 +5,8 @@ RSpec.describe 'Chats', type: :system do
 
   before do
     visit new_user_session_path
-    fill_in name = 'user[email]', with: user.email
-    fill_in name = 'user[password]', with: user.password
+    fill_in 'user[email]', with: user.email
+    fill_in 'user[password]', with: user.password
     click_button 'ログイン'
   end
 
@@ -23,7 +23,7 @@ RSpec.describe 'Chats', type: :system do
         expect(page).to have_content 'Room'
       end
     end
-    context 'チャットルームの表示確認' do
+    context 'チャットルームの表示確認', type: :feature, js: true do
       before do
         visit rooms_path
         click_link '新規チャットルーム作成'
@@ -32,11 +32,12 @@ RSpec.describe 'Chats', type: :system do
       it 'チャットルームが表示される' do
         expect(page).to have_content 'Chat Room 1'
       end
-      # it 'メッセージの投稿に成功する', js: true do
-      #   fill_in "chat-message", with: "test"
-      #   find("#chat-message").native.send_key(:Enter)
-      #   expect(page).to have_content 'test'
-      # end
+      it 'メッセージの投稿に成功する' do
+        fill_in "chat-message", with: "test"
+        find("#chat-message").native.send_keys(:return)
+        expect(page).to have_content 'test'
+      end
     end
+
   end
 end

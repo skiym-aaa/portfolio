@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :system do
 
-  describe 'ユーザー認証のテスト' do
+  describe 'ユーザーのテスト' do
     describe 'ユーザー新規登録' do
       before do
         visit new_user_registration_path
@@ -31,6 +31,7 @@ RSpec.describe 'Users', type: :system do
 
     describe 'ユーザーログイン' do
       let(:user) { create(:user) }
+
       before do
         visit new_user_session_path
       end
@@ -51,10 +52,12 @@ RSpec.describe 'Users', type: :system do
         end
       end
     end
+
   end
 
   describe 'ユーザーのアクションテスト'  do
     let(:user) { create(:user) }
+
     before do
       visit new_user_session_path
       fill_in 'user[email]', with: user.email
@@ -96,6 +99,7 @@ RSpec.describe 'Users', type: :system do
         expect(page).to have_content '退会済みです。'
       end
     end
+
   end
 
 end

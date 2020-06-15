@@ -17,9 +17,9 @@ RSpec.describe 'Messages', type: :system do
       context '確認画面が正しく表示される' do
         before do
           visit contact_index_path
-          fill_in name = 'message[name]', with: 'name'
-          fill_in name = 'message[email]', with: 'example@example.com'
-          fill_in name = 'message[content]', with: 'content'
+          fill_in 'message[name]', with: 'name'
+          fill_in 'message[email]', with: 'example@example.com'
+          fill_in 'message[content]', with: 'content'
           click_button '確認画面へ'
         end
         it '確認画面へ偏移できること' do
@@ -27,13 +27,14 @@ RSpec.describe 'Messages', type: :system do
         end
       end
     end
+
     describe 'お問い合わせ完了画面のテスト' do
       context 'お問い合わせ完了画面が正しく表示される' do
         before do
           visit contact_index_path
-          fill_in name = 'message[name]', with: 'name'
-          fill_in name = 'message[email]', with: 'example@example.com'
-          fill_in name = 'message[content]', with: 'content'
+          fill_in 'message[name]', with: 'name'
+          fill_in 'message[email]', with: 'example@example.com'
+          fill_in 'message[content]', with: 'content'
           click_button '確認画面へ'
           click_button '送信する'
         end
@@ -42,5 +43,6 @@ RSpec.describe 'Messages', type: :system do
         end
       end
     end
+
   end
 end

@@ -7,8 +7,8 @@ RSpec.describe 'PlacePhotos', type: :system do
 
   before do
     visit new_user_session_path
-    fill_in name = 'user[email]', with: user.email
-    fill_in name = 'user[password]', with: user.password
+    fill_in 'user[email]', with: user.email
+    fill_in 'user[password]', with: user.password
     click_button 'ログイン'
   end
 
@@ -23,6 +23,7 @@ RSpec.describe 'PlacePhotos', type: :system do
         end
       end
     end
+
     describe '場所写真新規投稿ページ' do
       context '表示の確認' do
         before do
@@ -33,5 +34,21 @@ RSpec.describe 'PlacePhotos', type: :system do
         end
       end
     end
+
+    describe 'タイムラインページ', type: :feature, js: true do
+      context 'JS動作の確認' do
+        before  do
+          visit user_timeline_path(user)
+        end
+        it '投稿を削除できる' do
+          click_on '場所写真'
+          click_on '削除'
+          page.driver.browser.switch_to.alert.accept
+
+          expect(page).to have_content '投稿を削除しました！'
+        end
+      end
+    end
+
   end
 end

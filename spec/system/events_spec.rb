@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Events', type: :system do
   let(:user) { create(:user) }
-  let!(:idol) { create(:idol, user_id: user.id) }
-  let!(:place) { create(:place, user_id: user.id) }
+  let(:idol) { create(:idol, user_id: user.id) }
+  let(:place) { create(:place, user_id: user.id) }
   let!(:event) { create(:event, user_id: user.id, idol_id: idol.id, place_id: place.id) }
 
   before do
@@ -34,7 +34,7 @@ RSpec.describe 'Events', type: :system do
           expect(page).to have_selector '#calendar'
         end
       end
-      context 'JS動作の確認',type: :feature, js: true do
+      context 'JS動作の確認', type: :feature, js: true do
         before do
           visit event_path(event)
         end
@@ -49,11 +49,26 @@ RSpec.describe 'Events', type: :system do
 
           expect(page).to have_content '登録'
         end
+        it 'コメントができる' do
+          fill_in 'event_comment[body]', with: Faker::Lorem.characters(number: 50)
+          click_button '送信する'
+          sleep 3
+
+          expect(page).to have_content 'コメントを作成しました！'
+        end
+        it 'コメントが削除できる' do
+          fill_in 'event_comment[body]', with: Faker::Lorem.characters(number: 50)
+          click_button '送信する'
+          click_on '削除'
+          page.driver.browser.switch_to.alert.accept
+
+          expect(page).to have_content 'コメントを削除しました！'
+        end
       end
     end
 
     describe 'イベント新規作成ページ' do
-      context '表示の確認',type: :feature, js: true do
+      context '表示の確認', type: :feature, js: true do
         before do
           visit new_event_path
         end
