@@ -21,7 +21,7 @@ RSpec.describe 'Idols', type: :system do
           expect(page).to have_selector '#calendar'
         end
       end
-      context '動作の確認',type: :feature, js: true do
+      context 'JS動作の確認',type: :feature, js: true do
         before do
           visit idols_path
         end
@@ -31,7 +31,6 @@ RSpec.describe 'Idols', type: :system do
           expect(page).to have_content 'お気に入り解除'
         end
         it 'お気に入り解除ができる' do
-          page.save_screenshot 'screenshot.png'
           click_on 'お気に入り登録'
           click_on 'お気に入り解除'
 
@@ -39,6 +38,7 @@ RSpec.describe 'Idols', type: :system do
         end
       end
     end
+
     describe 'アイドル詳細ページ' do
       context '表示の確認' do
         before do
@@ -49,16 +49,29 @@ RSpec.describe 'Idols', type: :system do
         end
       end
     end
+
     describe 'アイドル新規作成ページ' do
-      context '表示の確認' do
+      context '表示の確認',type: :feature, js: true do
         before do
           visit new_idol_path
         end
         it 'カレンダーが表示される' do
           expect(page).to have_selector '#calendar'
         end
+        it '新規作成に成功する' do
+          fill_in 'idol[name]', with: Faker::Name.name
+          click_button '新規登録'
+
+          expect(page).to have_content '完了'
+        end
+        it '新規作成に失敗する' do
+          click_button '新規登録'
+
+          expect(page).to have_content 'ERROR'
+        end
       end
     end
+
     describe 'アイドル編集ページ' do
       context '表示の確認' do
         before do
@@ -67,7 +80,19 @@ RSpec.describe 'Idols', type: :system do
         it 'カレンダーが表示される' do
           expect(page).to have_selector '#calendar'
         end
+        it '編集に成功する' do
+          click_button '編集'
+
+          expect(current_path).to eq('/idols/' + idol.id.to_s)
+        end
+        it '編集に失敗する' do
+          fill_in 'idol[name]', with: ''
+          click_button '編集'
+
+          expect(page).to have_content 'ERROR'
+        end
       end
     end
+
   end
 end
