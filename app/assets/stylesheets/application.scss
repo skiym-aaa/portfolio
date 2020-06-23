@@ -88,6 +88,11 @@ body {
   color: red;
 }
 
+/* 背景画像 */
+body {
+  background-image: image-url("memphis-colorful.png");
+}
+
 /* 画像 */
 img {
  object-fit: contain;
