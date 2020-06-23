@@ -30,6 +30,7 @@ $(function () {
 
         //events: '/events.json', 以下に追加
         $('#calendar').fullCalendar({
+            height: 400,
             // 各controllerのアクションで取得した'gon'をカレンダーに表示
             events: gon.events,
             //カレンダー上部を年月で表示させる
