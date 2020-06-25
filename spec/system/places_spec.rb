@@ -27,6 +27,8 @@ RSpec.describe 'Places', type: :system do
         end
         it 'お気に入り登録ができる' do
           click_on 'お気に入り登録'
+          # TODO: たまにパスしない
+          sleep 3
 
           expect(page).to have_content 'お気に入り解除'
         end
