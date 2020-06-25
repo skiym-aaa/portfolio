@@ -35,6 +35,7 @@
 
     <br />
     <h4><%= link_to "  Twitterでログイン", user_twitter_omniauth_authorize_path, class: "fab fa-twitter-square" %></h4>
+    <h4><%= link_to "  ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post %></h4>
 
     <br />
     <%= render "devise/shared/links" %>

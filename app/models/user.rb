@@ -73,6 +73,14 @@ class User < ApplicationRecord
     user
   end
 
+  # ゲストユーザーの作成
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = 'ゲストユーザー'
+    end
+  end
+
   private
 
   def self.dummy_email(auth)

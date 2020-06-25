@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :baria_user, except: %i[show confirm]
-  # before_action :set_calender, only: [:show]
+  before_action :check_guest, only: %i[hide]
 
   def show
     @user = User.find(params[:id])
@@ -70,5 +70,11 @@ class UsersController < ApplicationController
 
   def baria_user
     redirect_to root_path unless params[:id].to_i == current_user.id
+  end
+
+  def check_guest
+    if current_user.email == 'guest@example.com'
+      redirect_to root_path, alert: 'ゲストユーザーは削除できません。'
+    end
   end
 end
