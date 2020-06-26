@@ -27,8 +27,11 @@
             <% @today_events.each do |event| %>
               <li>
                 <%= link_to event_path(event) do %>
+                <!-- 1.アイドルプロフィール画像,2.イベント画像(フライヤーなど),3.No_Imageの順で表示 -->
                   <% if event.idol.image_id? %>
                     <%= image_tag event.idol.image_id.to_s, title: "#{l event.start_date} #{event.idol.name}「#{event.title}」" %>
+                  <% elsif event.event_photos.exists? %>
+                    <%= image_tag event.event_photos.last.image_id.to_s, title: "#{l event.start_date} #{event.idol.name}「#{event.title}」" %>
                   <% else %>
                     <img src="<%= asset_path "no_image.jpg" %>" alt="No_Image", title="<%= "#{l event.start_date} #{event.idol.name}「#{event.title}」" %>" >
                   <% end %>
@@ -38,10 +41,13 @@
 
           <% else %>
             <% @events.each do |event| %>
+            <% binding.pry %>
               <li>
                 <%= link_to event_path(event) do %>
                   <% if event.idol.image_id? %>
                     <%= image_tag event.idol.image_id.to_s, title: "#{l event.start_date} #{event.idol.name}「#{event.title}」" %>
+                  <% elsif event.event_photos.exists? %>
+                    <%= image_tag event.event_photos.last.image_id.to_s, title: "#{l event.start_date} #{event.idol.name}「#{event.title}」" %>
                   <% else %>
                     <img src="<%= asset_path "no_image.jpg" %>" alt="No_Image", title="<%= "#{l event.start_date} #{event.idol.name}「#{event.title}」" %>" >
                   <% end %>
