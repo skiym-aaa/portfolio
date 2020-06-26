@@ -41,7 +41,6 @@
 
           <% else %>
             <% @events.each do |event| %>
-            <% binding.pry %>
               <li>
                 <%= link_to event_path(event) do %>
                   <% if event.idol.image_id? %>
