@@ -21,9 +21,12 @@
     <hr>
 
     <!-- GoogleMap表示 -->
-    <div class="row">
-      <%= render "places/google_map", place: @place %>
-    </div>
+    <!-- 「配信」＝場所がない場合は地図を表示しない -->
+    <% if @place.name != "配信" %>
+      <div class="row">
+        <%= render "places/google_map", place: @place %>
+      </div>
+    <% end %>
     <!-- GitHub草 -->
     <div class="github center">
       <h3>GitHub Activities</h3>
