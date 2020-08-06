@@ -44,6 +44,7 @@ class PlacePhotosController < ApplicationController
     @event_array = []
     @events.each do |event|
       ev = {}
+      ev['title'] = event.title
       ev['start'] = event.start_date
       ev['end'] = event.end_date
       ev['url'] = event_url(event, format: :html)
