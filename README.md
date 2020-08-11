@@ -59,8 +59,7 @@ https://idolplaces.site/
 - チャット機能  
 
 ### 今後実装予定の機能
-- タグ(人物名など)作成機能
-- 写真集機能
+wiki [「追加機能」](https://github.com/skiym-aaa/portfolio/wiki/%E8%BF%BD%E5%8A%A0%E6%A9%9F%E8%83%BD)参照
 
 ## 設計書  
 
